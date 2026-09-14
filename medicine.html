@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Medicine Safety | PRANAV</title>
+  <meta
+    name="description"
+    content="PRANAV Medicine Safety and Prescription Intelligence"
+  />
+
+  <link rel="icon" href="pranav-logo.png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .medicine-page {
+      min-height: 100vh;
+      padding: 50px 20px 100px;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(210, 248, 232, .75), transparent 35%),
+        radial-gradient(circle at 90% 20%, rgba(255, 220, 225, .65), transparent 35%),
+        #f8fffc;
+    }
+
+    .medicine-container {
+      width: min(1150px, 100%);
+      margin: auto;
+    }
+
+    .medicine-hero {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .medicine-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(150, 40, 55, .12);
+      color: #a11f35;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    .medicine-hero h1 {
+      margin: 0;
+      font-size: clamp(32px, 5vw, 55px);
+      line-height: 1.05;
+      color: #20282a;
+    }
+
+    .medicine-hero h1 span {
+      color: #a51e36;
+    }
+
+    .medicine-hero p {
+      max-width: 720px;
+      margin: 16px auto 0;
+      color: #61706e;
+      line-height: 1.7;
+    }
+
+    .safety-banner {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(165, 30, 54, .15);
+      border-left: 5px solid #a51e36;
+      border-radius: 18px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 12px 35px rgba(31, 55, 45, .07);
+    }
+
+    .safety-icon {
+      font-size: 27px;
+    }
+
+    .safety-banner strong {
+      color: #8d1b30;
+    }
+
+    .safety-banner p {
+      margin: 5px 0 0;
+      color: #66716f;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .medicine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 25px;
+    }
+
+    .medicine-card {
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(50, 80, 70, .1);
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 18px 45px rgba(30, 55, 45, .08);
+      backdrop-filter: blur(14px);
+    }
+
+    .medicine-card h2 {
+      margin: 0 0 8px;
+      color: #202a29;
+      font-size: 22px;
+    }
+
+    .card-subtitle {
+      margin: 0 0 22px;
+      color: #788482;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .medicine-search {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .medicine-search input {
+      flex: 1;
+      min-width: 0;
+      border: 1px solid #dbe6e1;
+      border-radius: 13px;
+      padding: 13px 14px;
+      outline: none;
+      font-size: 15px;
+      background: #fbfffd;
+    }
+
+    .medicine-search input:focus {
+      border-color: #a51e36;
+      box-shadow: 0 0 0 3px rgba(165,30,54,.08);
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 13px;
+      padding: 12px 17px;
+      background: #a51e36;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(.96);
+    }
+
+    .medicine-result {
+      display: none;
+    }
+
+    .medicine-result.active {
+      display: block;
+      animation: fadeUp .35s ease;
+    }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid #edf1ef;
+    }
+
+    .result-header h3 {
+      margin: 0;
+      color: #252d2c;
+      font-size: 21px;
+    }
+
+    .status-pill {
+      padding: 7px 11px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      background: #eaf8f1;
+      color: #22734d;
+      white-space: nowrap;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 13px 0;
+      border-bottom: 1px dashed #e1e8e5;
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+    }
+
+    .info-label {
+      color: #788482;
+      font-size: 14px;
+    }
+
+    .info-value {
+      text-align: right;
+      color: #252d2c;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .instruction-box {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 15px;
+      background: #f1faf6;
+      border: 1px solid #dcefe6;
+    }
+
+    .instruction-box strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #27664b;
+    }
+
+    .instruction-box p {
+      margin: 0;
+      color: #596966;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 15px;
+      border-radius: 15px;
+      background: #f8fbfa;
+      border: 1px solid #e7eeeb;
+    }
+
+    .check-item .check {
+      width: 28px;
+      height: 28px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #e6f6ee;
+      color: #24704e;
+      font-weight: 800;
+    }
+
+    .check-item strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #283230;
+      font-size: 14px;
+    }
+
+    .check-item span {
+      color: #73807d;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .dose-warning {
+      margin-top: 20px;
+      padding: 17px;
+      border-radius: 16px;
+      background: #fff5f6;
+      border: 1px solid #f2d6da;
+    }
+
+    .dose-warning strong {
+      color: #9b2036;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .dose-warning p {
+      margin: 0;
+      color: #6e5a5d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 45px 15px;
+      color: #7a8582;
+    }
+
+    .empty-state .big-icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .action-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px;
+      border-radius: 13px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid #e1e9e5;
+      background: white;
+      color: #34413e;
+      cursor: pointer;
+    }
+
+    .action-btn:hover {
+      border-color: #a51e36;
+      color: #a51e36;
+    }
+
+    .prototype-note {
+      text-align: center;
+      margin-top: 25px;
+      color: #8a9692;
+      font-size: 12px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 800px) {
+      .medicine-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .medicine-page {
+        padding: 30px 14px 100px;
+      }
+
+      .medicine-card {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .medicine-search {
+        flex-direction: column;
+      }
+
+      .info-row {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .info-value {
+        text-align: left;
+      }
+
+      .action-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .safety-banner {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+        <img src="pranav-logo.png" alt="PRANAV Logo" />
+        <span>PRANAV</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="find-blood.html">Find Blood</a>
+        <a href="camps.html">Camps</a>
+        <a href="blood-education.html">Education</a>
+        <a href="assistant.html">AI Assistant</a>
+        <a href="about.html">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="assistant.html" class="ai-btn">🤖 Ask PRANAV</a>
+        <a href="emergency.html" class="emergency-btn">🚨 Emergency</a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="medicine-page">
+
+    <div class="medicine-container">
+
+      <!-- HERO -->
+      <section class="medicine-hero">
+        <div class="medicine-badge">
+          💊 Prescription Intelligence
+        </div>
+
+        <h1>
+          Medicine <span>Safety Review</span>
+        </h1>
+
+        <p>
+          PRANAV helps organize medicine information from a prescription
+          and highlights details that should be verified before use.
+        </p>
+      </section>
+
+      <!-- SAFETY -->
+      <div class="safety-banner">
+        <div class="safety-icon">⚠️</div>
+
+        <div>
+          <strong>Important Safety Notice</strong>
+
+          <p>
+            PRANAV does not calculate or prescribe medicine doses.
+            Always follow the original prescription and confirm unclear
+            instructions with the prescribing doctor or a qualified pharmacist.
+          </p>
+        </div>
+      </div>
+
+      <section class="medicine-grid">
+
+        <!-- SEARCH / INPUT -->
+        <div class="medicine-card">
+
+          <h2>🔎 Medicine Review</h2>
+
+          <p class="card-subtitle">
+            Enter the medicine name to review information available in
+            your prescription record.
+          </p>
+
+          <div class="medicine-search">
+            <input
+              type="text"
+              id="medicineName"
+              placeholder="Example: Medicine name"
+              autocomplete="off"
+            />
+
+            <button
+              type="button"
+              class="btn-primary"
+              onclick="reviewMedicine()"
+            >
+              Review
+            </button>
+          </div>
+
+          <div class="empty-state" id="emptyState">
+            <div class="big-icon">💊</div>
+            <strong>Medicine information will appear here</strong>
+            <p>
+              Use the prescription page to record the information
+              written on your prescription.
+            </p>
+          </div>
+
+          <div class="medicine-result" id="medicineResult">
+
+            <div class="result-header">
+              <h3 id="resultMedicineName">Medicine</h3>
+              <span class="status-pill">Review Required</span>
+            </div>
+
+            <div class="info-list">
+
+              <div class="info-row">
+                <span class="info-label">Strength</span>
+                <span class="info-value" id="resultStrength">
+                  Not available
+                </span>
+              </div>
+
+              <div class="info-row">
+                <span class="info-label">Manufacturing Date</span>
+                <span class="info-value" id="resultMfg">
+                  Not available
+                </span>
+              </div>
+
+              <div class="info-row">
+                <span class="info-label">Expiry Date</span>
+                <span class="info-value" id="resultExpiry">
+                  Not available
+                </span>
+              </div>
+
+              <div class="info-row">
+                <span class="info-label">Batch Number</span>
+                <span class="info-value" id="resultBatch">
+                  Not available
+                </span>
+              </div>
+
+            </div>
+
+            <div class="instruction-box">
+              <strong>📋 Prescription Instructions</strong>
+
+              <p id="resultInstruction">
+                No written instruction is available for this medicine.
+                Please refer to the original prescription.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- SAFETY CHECK -->
+        <div class="medicine-card">
+
+          <h2>🛡️ Safety Check</h2>
+
+          <p class="card-subtitle">
+            A simple checklist to help verify prescription and medicine
+            information before use.
+          </p>
+
+          <div class="check-list">
+
+            <div class="check-item">
+              <div class="check">✓</div>
+
+              <div>
+                <strong>Medicine Name</strong>
+                <span>
+                  Confirm that the medicine name matches the original
+                  prescription and packaging.
+                </span>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check">✓</div>
+
+              <div>
+                <strong>Strength</strong>
+                <span>
+                  Check the strength printed on the medicine package
+                  against the prescription.
+                </span>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check">✓</div>
+
+              <div>
+                <strong>Expiry Date</strong>
+                <span>
+                  Do not rely on an unclear or unreadable date. Verify
+                  the original packaging.
+                </span>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check">✓</div>
+
+              <div>
+                <strong>Prescription Instructions</strong>
+                <span>
+                  Follow the instructions written by the prescribing
+                  healthcare professional.
+                </span>
+              </div>
+            </div>
+
+            <div class="check-item">
+              <div class="check">✓</div>
+
+              <div>
+                <strong>Unclear Information</strong>
+                <span>
+                  Ask the prescribing doctor or pharmacist instead of
+                  guessing the medicine or dose.
+                </span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="dose-warning">
+            <strong>💊 About Dosage</strong>
+
+            <p>
+              PRANAV will not independently calculate an age-wise mg dose.
+              The patient's age may be displayed as prescription context,
+              but the actual dosage must come from the authorised prescription
+              and be confirmed by a qualified healthcare professional.
+            </p>
+          </div>
+
+          <div class="action-grid">
+            <a href="prescription.html" class="action-btn">
+              📄 Prescription Analysis
+            </a>
+
+            <a href="assistant.html" class="action-btn">
+              🤖 Ask PRANAV
+            </a>
+          </div>
+
+        </div>
+
+      </section>
+
+      <p class="prototype-note">
+        PRANAV Prototype • Information extraction and safety-support interface.
+        AI/OCR results may contain errors. Always verify against the original
+        prescription and medicine packaging.
+      </p>
+
+    </div>
+
+  </main>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-bottom-nav">
+
+    <a href="index.html">
+      <span>⌂</span>
+      <small>Home</small>
+    </a>
+
+    <a href="find-blood.html">
+      <span>🔎</span>
+      <small>Find</small>
+    </a>
+
+    <a href="emergency.html">
+      <span>🚨</span>
+      <small>Emergency</small>
+    </a>
+
+    <a href="assistant.html">
+      <span>🤖</span>
+      <small>Assistant</small>
+    </a>
+
+    <a href="about.html">
+      <span>ℹ️</span>
+      <small>About</small>
+    </a>
+
+  </nav>
+
+  <script src="js/app.js"></script>
+  <script src="js/medicine.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/loader.js"></script>
+
+  <script>
+    function reviewMedicine() {
+
+      const input = document.getElementById("medicineName");
+      const name = input.value.trim();
+
+      const emptyState = document.getElementById("emptyState");
+      const result = document.getElementById("medicineResult");
+
+      if (!name) {
+        input.focus();
+        return;
+      }
+
+      document.getElementById("resultMedicineName").textContent = name;
+
+      /*
+        Safe prototype behavior:
+        We only display information already available in localStorage.
+        No dose is calculated or prescribed.
+      */
+
+      let prescriptionData = null;
+
+      try {
+        prescriptionData =
+          JSON.parse(localStorage.getItem("pranavPrescription")) || null;
+      } catch (error) {
+        prescriptionData = null;
+      }
+
+      if (prescriptionData) {
+
+        document.getElementById("resultStrength").textContent =
+          prescriptionData.strength || "Not available";
+
+        document.getElementById("resultMfg").textContent =
+          prescriptionData.manufacturing || "Not available";
+
+        document.getElementById("resultExpiry").textContent =
+          prescriptionData.expiry || "Not available";
+
+        document.getElementById("resultBatch").textContent =
+          prescriptionData.batch || "Not available";
+
+        document.getElementById("resultInstruction").textContent =
+          prescriptionData.instructions ||
+          "No written instruction is available. Please refer to the original prescription.";
+
+      } else {
+
+        document.getElementById("resultStrength").textContent =
+          "Not available";
+
+        document.getElementById("resultMfg").textContent =
+          "Not available";
+
+        document.getElementById("resultExpiry").textContent =
+          "Not available";
+
+        document.getElementById("resultBatch").textContent =
+          "Not available";
+
+        document.getElementById("resultInstruction").textContent =
+          "No prescription record was found. Please refer to the original prescription.";
+
+      }
+
+      emptyState.style.display = "none";
+      result.classList.add("active");
+    }
+
+    // Enter key support
+    document.getElementById("medicineName")
+      .addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+          reviewMedicine();
+        }
+      });
+  </script>
+
+</body>
+</html>
