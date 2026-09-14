@@ -1,0 +1,275 @@
+{
+  "meta": {
+    "project": "PRANAV",
+    "environment": "Prototype",
+    "dataType": "Demo Data",
+    "liveData": false,
+    "lastUpdated": "Prototype / Demo",
+    "notice": "This dataset is for UI demonstration only. It does not represent real-time blood inventory, donor availability, hospital capacity or verified emergency resources."
+  },
+
+  "dashboard": {
+    "stats": {
+      "emergencyRequests": 12,
+      "potentialMatches": 27,
+      "verificationQueue": 5,
+      "activeCoordination": 8,
+      "resolvedRequests": 34,
+      "totalResources": 18
+    },
+
+    "requests": [
+      {
+        "id": "PR-2026-104821",
+        "bloodGroup": "O+",
+        "component": "RBC",
+        "location": "Lucknow",
+        "urgency": "Emergency",
+        "status": "VERIFICATION"
+      },
+      {
+        "id": "PR-2026-204713",
+        "bloodGroup": "B+",
+        "component": "Platelets",
+        "location": "Kanpur",
+        "urgency": "High",
+        "status": "SEARCHING"
+      },
+      {
+        "id": "PR-2026-318420",
+        "bloodGroup": "A+",
+        "component": "RBC",
+        "location": "Prayagraj",
+        "urgency": "Normal",
+        "status": "COORDINATION"
+      },
+      {
+        "id": "PR-2026-427105",
+        "bloodGroup": "AB+",
+        "component": "Plasma",
+        "location": "Varanasi",
+        "urgency": "High",
+        "status": "POTENTIAL RESOURCE FOUND"
+      },
+      {
+        "id": "PR-2026-538614",
+        "bloodGroup": "O-",
+        "component": "Whole Blood",
+        "location": "Agra",
+        "urgency": "Emergency",
+        "status": "REQUIREMENT ANALYSED"
+      }
+    ],
+
+    "verificationQueueItems": [
+      {
+        "id": "VERIFY-DEMO-001",
+        "name": "Demo Blood Centre — Lucknow",
+        "location": "Lucknow",
+        "resourceType": "Blood Centre",
+        "status": "Verification Required",
+        "lastUpdated": "Prototype / Demo"
+      },
+      {
+        "id": "VERIFY-DEMO-002",
+        "name": "Demo Blood Centre — Kanpur",
+        "location": "Kanpur",
+        "resourceType": "Blood Centre",
+        "status": "Verification Required",
+        "lastUpdated": "Prototype / Demo"
+      },
+      {
+        "id": "VERIFY-DEMO-003",
+        "name": "Demo Resource — Prayagraj",
+        "location": "Prayagraj",
+        "resourceType": "Potential Resource",
+        "status": "Verification Required",
+        "lastUpdated": "Prototype / Demo"
+      },
+      {
+        "id": "VERIFY-DEMO-004",
+        "name": "Demo Blood Centre — Varanasi",
+        "location": "Varanasi",
+        "resourceType": "Blood Centre",
+        "status": "Verification Required",
+        "lastUpdated": "Prototype / Demo"
+      }
+    ],
+
+    "alerts": [
+      {
+        "id": "ALERT-DEMO-001",
+        "type": "critical",
+        "title": "Emergency request requires attention",
+        "message": "A high-priority prototype request is awaiting verification."
+      },
+      {
+        "id": "ALERT-DEMO-002",
+        "type": "warning",
+        "title": "Resource information may change",
+        "message": "Confirm availability with the authorised blood centre before relying on any resource information."
+      },
+      {
+        "id": "ALERT-DEMO-003",
+        "type": "info",
+        "title": "Prototype environment",
+        "message": "Dashboard figures shown here are demonstration data and are not live healthcare statistics."
+      }
+    ],
+
+    "resourceTrends": [
+      {
+        "label": "O+",
+        "value": 78,
+        "max": 100
+      },
+      {
+        "label": "A+",
+        "value": 64,
+        "max": 100
+      },
+      {
+        "label": "B+",
+        "value": 52,
+        "max": 100
+      },
+      {
+        "label": "AB+",
+        "value": 31,
+        "max": 100
+      },
+      {
+        "label": "O-",
+        "value": 22,
+        "max": 100
+      }
+    ]
+  },
+
+  "analytics": {
+    "bloodGroupDemand": [
+      {
+        "label": "O+",
+        "value": 78
+      },
+      {
+        "label": "A+",
+        "value": 64
+      },
+      {
+        "label": "B+",
+        "value": 58
+      },
+      {
+        "label": "AB+",
+        "value": 34
+      },
+      {
+        "label": "O-",
+        "value": 22
+      }
+    ],
+
+    "componentDemand": [
+      {
+        "label": "RBC",
+        "value": 72
+      },
+      {
+        "label": "Platelets",
+        "value": 61
+      },
+      {
+        "label": "Plasma",
+        "value": 43
+      },
+      {
+        "label": "Whole Blood",
+        "value": 29
+      }
+    ],
+
+    "districtDemand": [
+      {
+        "district": "Lucknow",
+        "level": "High",
+        "value": 86
+      },
+      {
+        "district": "Kanpur Nagar",
+        "level": "Medium",
+        "value": 59
+      },
+      {
+        "district": "Prayagraj",
+        "level": "Medium",
+        "value": 51
+      },
+      {
+        "district": "Varanasi",
+        "level": "Low",
+        "value": 34
+      },
+      {
+        "district": "Agra",
+        "level": "Low",
+        "value": 28
+      }
+    ],
+
+    "responseTimeTrend": [
+      {
+        "period": "Week 1",
+        "value": 68
+      },
+      {
+        "period": "Week 2",
+        "value": 61
+      },
+      {
+        "period": "Week 3",
+        "value": 55
+      },
+      {
+        "period": "Week 4",
+        "value": 49
+      }
+    ],
+
+    "resolutionRate": {
+      "value": 72,
+      "unit": "percent",
+      "label": "Prototype estimate"
+    },
+
+    "predictionNotice": "Any prediction or trend displayed from this dataset is a decision-support prototype estimate, not a guarantee of future blood availability or emergency outcomes."
+  },
+
+  "heatmap": [
+    {
+      "district": "Lucknow",
+      "level": "High",
+      "value": 86
+    },
+    {
+      "district": "Kanpur Nagar",
+      "level": "Medium",
+      "value": 59
+    },
+    {
+      "district": "Prayagraj",
+      "level": "Medium",
+      "value": 51
+    },
+    {
+      "district": "Varanasi",
+      "level": "Low",
+      "value": 34
+    },
+    {
+      "district": "Agra",
+      "level": "Low",
+      "value": 28
+    }
+  ]
+}
