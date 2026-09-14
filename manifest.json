@@ -1,15 +1,21 @@
 {
   "name": "PRANAV — Healthcare Coordination Network",
   "short_name": "PRANAV",
-  "description": "Intelligent healthcare and blood emergency coordination network.",
+  "description": "Connecting emergency requirements with potential blood resources, donor networks and authorised healthcare facilities.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#f3fffb",
-  "theme_color": "#d92d45",
+  "background_color": "#f4fbf8",
+  "theme_color": "#a9152b",
   "lang": "en-IN",
   "dir": "ltr",
+
+  "categories": [
+    "health",
+    "medical",
+    "lifestyle"
+  ],
 
   "icons": [
     {
@@ -26,51 +32,30 @@
     }
   ],
 
-  "categories": [
-    "medical",
-    "health",
-    "lifestyle"
-  ],
-
   "shortcuts": [
     {
       "name": "Emergency Blood Request",
       "short_name": "Emergency",
-      "description": "Create an emergency blood request",
-      "url": "./blood-request.html",
-      "icons": [
-        {
-          "src": "assets/logo/pranav-logo.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
+      "description": "Create a structured emergency blood request.",
+      "url": "./blood-request.html"
     },
     {
       "name": "Find Blood Resources",
       "short_name": "Find Blood",
-      "description": "Find potential blood resources",
-      "url": "./find-blood.html",
-      "icons": [
-        {
-          "src": "assets/logo/pranav-logo.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
+      "description": "Explore potential blood resources.",
+      "url": "./find-blood.html"
     },
     {
-      "name": "Ask PRANAV",
+      "name": "PRANAV AI Assistant",
       "short_name": "Assistant",
-      "description": "Open PRANAV AI Assistant",
-      "url": "./assistant.html",
-      "icons": [
-        {
-          "src": "assets/logo/pranav-logo.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
+      "description": "Open the PRANAV AI Assistant.",
+      "url": "./assistant.html"
+    },
+    {
+      "name": "Track Request",
+      "short_name": "Track",
+      "description": "Track an existing PRANAV request.",
+      "url": "./tracking.html"
     }
   ]
 }
