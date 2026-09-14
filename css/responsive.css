@@ -1,0 +1,582 @@
+/* =========================================================
+   PRANAV — Responsive Design
+   Mobile • Tablet • Desktop
+   ========================================================= */
+
+/* ---------- Large Desktop ---------- */
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+
+  .hero {
+    min-height: 760px;
+  }
+
+  .hero-grid {
+    gap: 80px;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+  }
+}
+
+/* ---------- Tablet / Small Laptop ---------- */
+
+@media (max-width: 1100px) {
+  .container {
+    width: min(100% - 32px, 1100px);
+  }
+
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-links a {
+    padding: 9px 8px;
+    font-size: 0.8rem;
+  }
+
+  .nav-actions .btn {
+    padding-inline: 12px;
+    font-size: 0.78rem;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 30px;
+  }
+
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resource-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.3fr repeat(2, 1fr);
+  }
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 900px) {
+  .container {
+    width: min(100% - 30px, 760px);
+  }
+
+  .site-header {
+    padding: 10px 0;
+  }
+
+  .nav-links,
+  .nav-actions {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+  }
+
+  .hero {
+    padding: 70px 0;
+    min-height: auto;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content {
+    max-width: 720px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-inline: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-note {
+    justify-content: center;
+  }
+
+  .network-visual {
+    width: min(100%, 620px);
+    margin: 15px auto 0;
+  }
+
+  .page-hero {
+    padding: 70px 0 45px;
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Mobile Navigation ---------- */
+
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 76px;
+  }
+
+  .container {
+    width: min(100% - 24px, 680px);
+  }
+
+  .brand img,
+  .logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-name {
+    font-size: 1.05rem;
+  }
+
+  .mobile-bottom-nav {
+    display: grid;
+  }
+
+  .site-footer {
+    margin-top: 45px;
+    padding-bottom: 110px;
+  }
+
+  .ai-float {
+    right: 12px;
+    bottom: 88px;
+  }
+
+  .emergency-float {
+    left: 12px;
+    bottom: 88px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .table-wrap {
+    border-radius: 14px;
+  }
+
+  .dashboard-panel {
+    overflow: hidden;
+  }
+}
+
+/* ---------- Standard Mobile ---------- */
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 22px);
+  }
+
+  .section {
+    padding: 55px 0;
+  }
+
+  .section-heading {
+    margin-bottom: 28px;
+  }
+
+  .page-hero {
+    padding: 50px 0 30px;
+  }
+
+  .hero {
+    padding: 52px 0;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 9vw, 2.45rem);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+  }
+
+  .hero-description {
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .hero-note {
+    align-items: flex-start;
+    text-align: left;
+    font-size: 0.72rem;
+  }
+
+  .network-visual {
+    min-height: 340px;
+    border-radius: 24px;
+  }
+
+  .network-core {
+    width: 92px;
+    height: 92px;
+    font-size: 0.82rem;
+  }
+
+  .network-node {
+    width: 78px;
+    min-height: 58px;
+    padding: 6px;
+    font-size: 0.62rem;
+  }
+
+  .node-1 {
+    top: 8%;
+    left: 5%;
+  }
+
+  .node-2 {
+    top: 8%;
+    right: 5%;
+  }
+
+  .node-3 {
+    bottom: 8%;
+    left: 5%;
+  }
+
+  .node-4 {
+    bottom: 8%;
+    right: 5%;
+  }
+
+  .feature-grid,
+  .resource-grid,
+  .card-grid,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .feature-card,
+  .resource-card,
+  .stat-card,
+  .dashboard-panel {
+    padding: 19px;
+    border-radius: 18px;
+  }
+
+  .form-card {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .form-control {
+    min-height: 50px;
+  }
+
+  .emergency-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .emergency-banner .btn {
+    width: 100%;
+  }
+
+  .resource-top {
+    flex-direction: column;
+  }
+
+  .resource-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .resource-actions .btn {
+    width: 100%;
+  }
+
+  .timeline-item {
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+  }
+
+  .timeline-dot {
+    width: 28px;
+    height: 28px;
+    font-size: 0.65rem;
+  }
+
+  .timeline::before {
+    left: 13px;
+  }
+
+  .timeline-content {
+    padding: 13px;
+  }
+
+  .stat-value {
+    font-size: 1.75rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ai-float {
+    min-height: 47px;
+    padding: 10px 14px;
+    font-size: 0.78rem;
+  }
+
+  .emergency-float {
+    width: 52px;
+    height: 52px;
+    font-size: 1.15rem;
+  }
+}
+
+/* ---------- Small Phones ---------- */
+
+@media (max-width: 400px) {
+  .container {
+    width: calc(100% - 18px);
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+  }
+
+  .brand img,
+  .logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .mobile-bottom-nav {
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    padding: 5px;
+    border-radius: 16px;
+  }
+
+  .mobile-bottom-nav a {
+    padding: 6px 2px;
+    font-size: 0.55rem;
+  }
+
+  .hero {
+    padding-top: 42px;
+  }
+
+  .hero-description {
+    font-size: 0.86rem;
+  }
+
+  .network-visual {
+    min-height: 290px;
+  }
+
+  .network-core {
+    width: 78px;
+    height: 78px;
+    font-size: 0.7rem;
+  }
+
+  .network-node {
+    width: 68px;
+    min-height: 50px;
+    font-size: 0.56rem;
+  }
+
+  .btn {
+    min-height: 45px;
+    padding: 10px 13px;
+    font-size: 0.78rem;
+  }
+
+  .btn-large {
+    min-height: 50px;
+  }
+
+  .ai-float {
+    right: 9px;
+    bottom: 76px;
+  }
+
+  .emergency-float {
+    left: 9px;
+    bottom: 76px;
+  }
+}
+
+/* ---------- Landscape Phones ---------- */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 45px 0;
+  }
+
+  .network-visual {
+    min-height: 300px;
+  }
+
+  .mobile-bottom-nav {
+    display: none;
+  }
+
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* ---------- Touch Devices ---------- */
+
+@media (hover: none) and (pointer: coarse) {
+  .btn:hover,
+  .card:hover,
+  .feature-card:hover,
+  .ai-float:hover {
+    transform: none;
+  }
+
+  .btn,
+  .nav-links a,
+  .mobile-bottom-nav a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .form-control {
+    font-size: 16px;
+  }
+}
+
+/* ---------- Accessibility: Large Text ---------- */
+
+body.large-text {
+  font-size: 112%;
+}
+
+body.large-text h1 {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+}
+
+body.large-text .btn {
+  min-height: 54px;
+}
+
+body.large-text .form-control {
+  min-height: 56px;
+}
+
+/* ---------- Easy Mode ---------- */
+
+body.easy-mode {
+  --radius-sm: 15px;
+  --radius-md: 20px;
+  --radius-lg: 27px;
+}
+
+body.easy-mode .btn {
+  min-height: 58px;
+  padding: 14px 22px;
+  font-size: 1rem;
+}
+
+body.easy-mode .form-control {
+  min-height: 58px;
+  font-size: 1rem;
+}
+
+body.easy-mode .card {
+  padding: 28px;
+}
+
+body.easy-mode p {
+  font-size: 1rem;
+}
+
+/* ---------- Print ---------- */
+
+@media print {
+  .site-header,
+  .site-footer,
+  .ai-float,
+  .emergency-float,
+  .mobile-bottom-nav,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    padding: 0;
+    background: #fff;
+  }
+
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .card,
+  .form-card,
+  .dashboard-panel {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
