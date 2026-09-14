@@ -1,0 +1,110 @@
+[
+  {
+    "id": "BC-DEMO-001",
+    "name": "Demo Blood Centre — Lucknow",
+    "resourceType": "Blood Centre",
+    "bloodGroup": "O+",
+    "component": "RBC",
+    "city": "Lucknow",
+    "district": "Lucknow",
+    "address": "Prototype Location, Lucknow, Uttar Pradesh",
+    "distance": 3.2,
+    "verificationStatus": "Demo Data",
+    "lastUpdated": "Prototype / Demo",
+    "phone": "",
+    "coordinates": {
+      "lat": 26.8467,
+      "lng": 80.9462
+    }
+  },
+  {
+    "id": "BC-DEMO-002",
+    "name": "Demo Blood Centre — Lucknow North",
+    "resourceType": "Blood Centre",
+    "bloodGroup": "A+",
+    "component": "RBC",
+    "city": "Lucknow",
+    "district": "Lucknow",
+    "address": "Prototype Location, Lucknow, Uttar Pradesh",
+    "distance": 6.8,
+    "verificationStatus": "Demo Data",
+    "lastUpdated": "Prototype / Demo",
+    "phone": "",
+    "coordinates": {
+      "lat": 26.8900,
+      "lng": 80.9500
+    }
+  },
+  {
+    "id": "BC-DEMO-003",
+    "name": "Demo Blood Centre — Kanpur",
+    "resourceType": "Blood Centre",
+    "bloodGroup": "B+",
+    "component": "Platelets",
+    "city": "Kanpur",
+    "district": "Kanpur Nagar",
+    "address": "Prototype Location, Kanpur, Uttar Pradesh",
+    "distance": 78,
+    "verificationStatus": "Verification Required",
+    "lastUpdated": "Prototype / Demo",
+    "phone": "",
+    "coordinates": {
+      "lat": 26.4499,
+      "lng": 80.3319
+    }
+  },
+  {
+    "id": "BC-DEMO-004",
+    "name": "Demo Blood Centre — Prayagraj",
+    "resourceType": "Blood Centre",
+    "bloodGroup": "AB+",
+    "component": "Plasma",
+    "city": "Prayagraj",
+    "district": "Prayagraj",
+    "address": "Prototype Location, Prayagraj, Uttar Pradesh",
+    "distance": 200,
+    "verificationStatus": "Demo Data",
+    "lastUpdated": "Prototype / Demo",
+    "phone": "",
+    "coordinates": {
+      "lat": 25.4358,
+      "lng": 81.8463
+    }
+  },
+  {
+    "id": "BC-DEMO-005",
+    "name": "Demo Blood Centre — Varanasi",
+    "resourceType": "Blood Centre",
+    "bloodGroup": "O-",
+    "component": "Whole Blood",
+    "city": "Varanasi",
+    "district": "Varanasi",
+    "address": "Prototype Location, Varanasi, Uttar Pradesh",
+    "distance": 300,
+    "verificationStatus": "Verification Required",
+    "lastUpdated": "Prototype / Demo",
+    "phone": "",
+    "coordinates": {
+      "lat": 25.3176,
+      "lng": 82.9739
+    }
+  },
+  {
+    "id": "BC-DEMO-006",
+    "name": "Demo Blood Centre — Agra",
+    "resourceType": "Blood Centre",
+    "bloodGroup": "A-",
+    "component": "RBC",
+    "city": "Agra",
+    "district": "Agra",
+    "address": "Prototype Location, Agra, Uttar Pradesh",
+    "distance": 330,
+    "verificationStatus": "Demo Data",
+    "lastUpdated": "Prototype / Demo",
+    "phone": "",
+    "coordinates": {
+      "lat": 27.1767,
+      "lng": 78.0081
+    }
+  }
+]
