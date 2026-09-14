@@ -1,0 +1,2855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#a80d2b">
+
+  <meta
+    name="description"
+    content="Discover blood donation camps through PRANAV's verification-first healthcare coordination network."
+  >
+
+  <title>Blood Donation Camps | PRANAV</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="pranav-logo.png"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/animations.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       PRANAV CAMPS PAGE
+    ===================================================== */
+
+    .camps-page {
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 90% 5%,
+          rgba(255,215,222,.75),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 5% 25%,
+          rgba(201,239,219,.8),
+          transparent 33%
+        ),
+        #f2faf6;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .camps-hero {
+
+      padding: 68px 0 42px;
+    }
+
+
+    .camps-hero-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.08fr
+        .92fr;
+
+      gap: 45px;
+
+      align-items: center;
+    }
+
+
+    .camps-badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #edf8f1;
+
+      border:
+        1px solid
+        rgba(35,107,72,.12);
+
+      color: #17633f;
+
+      font-size: .66rem;
+
+      font-weight: 900;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+    }
+
+
+    .camps-hero h1 {
+
+      max-width: 760px;
+
+      margin: 18px 0 14px;
+
+      font-family:
+        Manrope,
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.5rem,
+          5vw,
+          4.6rem
+        );
+
+      line-height: .98;
+
+      letter-spacing: -.06em;
+
+      color: #222b27;
+    }
+
+
+    .camps-hero h1 span {
+
+      color: #ad102e;
+    }
+
+
+    .camps-hero p {
+
+      max-width: 670px;
+
+      margin: 0;
+
+      color: #69766f;
+
+      font-size: .98rem;
+
+      line-height: 1.75;
+    }
+
+
+    .hero-actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 25px;
+    }
+
+
+    .hero-action {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 46px;
+
+      padding: 0 17px;
+
+      border-radius: 13px;
+
+      text-decoration: none;
+
+      font-size: .69rem;
+
+      font-weight: 900;
+
+      transition: .2s ease;
+    }
+
+
+    .hero-action.primary {
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+
+      box-shadow:
+        0 12px 28px
+        rgba(179,18,47,.18);
+    }
+
+
+    .hero-action.secondary {
+
+      background: white;
+
+      color: #34413a;
+
+      border:
+        1px solid
+        #dce6e0;
+    }
+
+
+    .hero-action:hover {
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================================================
+       HERO VISUAL
+    ===================================================== */
+
+    .camp-visual {
+
+      position: relative;
+
+      min-height: 300px;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+
+    .camp-visual-card {
+
+      position: relative;
+
+      width: min(100%, 350px);
+
+      padding: 25px;
+
+      border-radius: 28px;
+
+      background:
+        rgba(255,255,255,.78);
+
+      border:
+        1px solid
+        rgba(255,255,255,.85);
+
+      backdrop-filter: blur(18px);
+
+      box-shadow:
+        0 25px 70px
+        rgba(33,66,50,.1);
+
+      transform:
+        rotate(-2deg);
+    }
+
+
+    .camp-visual-top {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 22px;
+    }
+
+
+    .camp-visual-title {
+
+      color: #68746e;
+
+      font-size: .61rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .09em;
+    }
+
+
+    .verified-pill {
+
+      padding: 6px 9px;
+
+      border-radius: 999px;
+
+      background: #eaf8ef;
+
+      color: #197044;
+
+      font-size: .55rem;
+
+      font-weight: 900;
+    }
+
+
+    .camp-calendar {
+
+      width: 82px;
+      height: 82px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin-bottom: 18px;
+
+      border-radius: 23px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #b3122f,
+          #8c0a24
+        );
+
+      color: white;
+
+      font-size: 2rem;
+
+      box-shadow:
+        0 15px 30px
+        rgba(179,18,47,.2);
+    }
+
+
+    .camp-visual-card h3 {
+
+      margin: 0 0 7px;
+
+      color: #26312c;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: 1.05rem;
+    }
+
+
+    .camp-visual-card p {
+
+      margin: 0;
+
+      color: #77827c;
+
+      font-size: .68rem;
+
+      line-height: 1.6;
+    }
+
+
+    .floating-dot {
+
+      position: absolute;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+
+      background: #b3122f;
+
+      box-shadow:
+        0 0 0 7px
+        rgba(179,18,47,.08);
+
+      animation:
+        floatDot 4s ease-in-out infinite;
+    }
+
+
+    .floating-dot.one {
+
+      top: 25px;
+      right: 35px;
+    }
+
+
+    .floating-dot.two {
+
+      bottom: 28px;
+      left: 30px;
+
+      animation-delay: 1.2s;
+    }
+
+
+    @keyframes floatDot {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+
+    /* =====================================================
+       DISCOVERY SECTION
+    ===================================================== */
+
+    .camps-section {
+
+      padding: 25px 0 80px;
+    }
+
+
+    .section-heading {
+
+      display: flex;
+
+      align-items: end;
+
+      justify-content: space-between;
+
+      gap: 20px;
+
+      margin-bottom: 22px;
+    }
+
+
+    .section-heading-left span {
+
+      color: #a20d2b;
+
+      font-size: .62rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .section-heading-left h2 {
+
+      margin: 7px 0 5px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.65rem,
+          3vw,
+          2.25rem
+        );
+
+      letter-spacing: -.045em;
+
+      color: #27312c;
+    }
+
+
+    .section-heading-left p {
+
+      margin: 0;
+
+      max-width: 650px;
+
+      color: #78847e;
+
+      font-size: .7rem;
+
+      line-height: 1.6;
+    }
+
+
+    .demo-label {
+
+      flex-shrink: 0;
+
+      padding: 8px 11px;
+
+      border-radius: 10px;
+
+      background: #fff5e7;
+
+      border:
+        1px solid
+        rgba(188,119,44,.12);
+
+      color: #80592b;
+
+      font-size: .57rem;
+
+      font-weight: 900;
+    }
+
+
+    /* =====================================================
+       FILTER BAR
+    ===================================================== */
+
+    .camp-filter {
+
+      display: grid;
+
+      grid-template-columns:
+        1.2fr
+        .8fr
+        .8fr
+        auto;
+
+      gap: 10px;
+
+      padding: 14px;
+
+      margin-bottom: 20px;
+
+      border-radius: 19px;
+
+      background:
+        rgba(255,255,255,.86);
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 12px 30px
+        rgba(30,55,43,.05);
+    }
+
+
+    .camp-filter input,
+    .camp-filter select {
+
+      min-height: 45px;
+
+      width: 100%;
+
+      box-sizing: border-box;
+
+      padding: 0 12px;
+
+      border:
+        1px solid
+        #d9e4de;
+
+      border-radius: 11px;
+
+      outline: none;
+
+      background: #fbfdfc;
+
+      color: #2c3530;
+
+      font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size: .68rem;
+    }
+
+
+    .camp-filter input:focus,
+    .camp-filter select:focus {
+
+      border-color: #b3122f;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(179,18,47,.06);
+    }
+
+
+    .filter-button {
+
+      min-height: 45px;
+
+      padding: 0 16px;
+
+      border: 0;
+
+      border-radius: 11px;
+
+      background: #263b31;
+
+      color: white;
+
+      font-size: .65rem;
+
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+
+    /* =====================================================
+       CAMP CARDS
+    ===================================================== */
+
+    .camp-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+
+    .camp-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 21px;
+
+      border-radius: 21px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 14px 35px
+        rgba(30,55,43,.06);
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+    }
+
+
+    .camp-card:hover {
+
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 20px 42px
+        rgba(30,55,43,.09);
+    }
+
+
+    .camp-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #b3122f,
+          #df6178
+        );
+    }
+
+
+    .camp-card-top {
+
+      display: flex;
+
+      align-items: start;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-bottom: 17px;
+    }
+
+
+    .camp-date {
+
+      width: 52px;
+      min-width: 52px;
+
+      overflow: hidden;
+
+      border-radius: 13px;
+
+      text-align: center;
+
+      background: #fff0f2;
+
+      border:
+        1px solid
+        rgba(179,18,47,.08);
+    }
+
+
+    .camp-date-month {
+
+      padding: 5px;
+
+      background: #b3122f;
+
+      color: white;
+
+      font-size: .5rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+    }
+
+
+    .camp-date-day {
+
+      padding: 7px 4px;
+
+      color: #9e102c;
+
+      font-size: 1.2rem;
+
+      font-weight: 900;
+    }
+
+
+    .camp-status {
+
+      padding: 6px 8px;
+
+      border-radius: 999px;
+
+      background: #ebf8ef;
+
+      color: #1a7045;
+
+      font-size: .51rem;
+
+      font-weight: 900;
+
+      white-space: nowrap;
+    }
+
+
+    .camp-card h3 {
+
+      margin: 0 0 7px;
+
+      color: #27312c;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: .94rem;
+
+      letter-spacing: -.025em;
+    }
+
+
+    .camp-organiser {
+
+      margin-bottom: 14px;
+
+      color: #7a8580;
+
+      font-size: .61rem;
+    }
+
+
+    .camp-details {
+
+      display: grid;
+
+      gap: 8px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .camp-detail {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 8px;
+
+      color: #68746e;
+
+      font-size: .62rem;
+
+      line-height: 1.45;
+    }
+
+
+    .camp-detail-icon {
+
+      width: 22px;
+      min-width: 22px;
+
+      height: 22px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 7px;
+
+      background: #f2f8f4;
+
+      font-size: .65rem;
+    }
+
+
+    .camp-actions {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 8px;
+    }
+
+
+    .camp-action {
+
+      min-height: 39px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 10px;
+
+      text-decoration: none;
+
+      font-size: .59rem;
+
+      font-weight: 900;
+
+      transition: .2s ease;
+    }
+
+
+    .camp-action.details {
+
+      background: #f2f7f4;
+
+      color: #334139;
+    }
+
+
+    .camp-action.navigate {
+
+      background: #a90f2d;
+
+      color: white;
+    }
+
+
+    .camp-action:hover {
+
+      transform: translateY(-1px);
+    }
+
+
+    /* =====================================================
+       EMPTY STATE
+    ===================================================== */
+
+    .camp-empty {
+
+      display: none;
+
+      padding: 40px 20px;
+
+      text-align: center;
+
+      border-radius: 20px;
+
+      background: white;
+
+      border:
+        1px dashed
+        #cbd9d1;
+
+      color: #77827c;
+    }
+
+
+    .camp-empty strong {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #39453f;
+    }
+
+
+    /* =====================================================
+       SAFETY NOTE
+    ===================================================== */
+
+    .camp-note {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 12px;
+
+      margin-top: 18px;
+
+      padding: 16px;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff6e9,
+          #fffaf3
+        );
+
+      border:
+        1px solid
+        rgba(188,119,44,.12);
+
+      color: #76562f;
+
+      font-size: .62rem;
+
+      line-height: 1.6;
+    }
+
+
+    .camp-note-icon {
+
+      width: 28px;
+      min-width: 28px;
+
+      height: 28px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 9px;
+
+      background: #fff;
+
+      font-size: .75rem;
+    }
+
+
+    .camp-note strong {
+
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #634722;
+    }
+
+
+    /* =====================================================
+       HOW IT WORKS
+    ===================================================== */
+
+    .camp-process {
+
+      padding: 75px 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eaf8f0,
+          #f5fbf7
+        );
+
+      border-top:
+        1px solid
+        rgba(35,107,72,.08);
+
+      border-bottom:
+        1px solid
+        rgba(35,107,72,.08);
+    }
+
+
+    .process-heading {
+
+      max-width: 680px;
+
+      margin:
+        0 auto 30px;
+
+      text-align: center;
+    }
+
+
+    .process-heading span {
+
+      color: #17633f;
+
+      font-size: .61rem;
+
+      font-weight: 900;
+
+      letter-spacing: .1em;
+
+      text-transform: uppercase;
+    }
+
+
+    .process-heading h2 {
+
+      margin: 8px 0;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.8rem,
+          3vw,
+          2.5rem
+        );
+
+      letter-spacing: -.045em;
+    }
+
+
+    .process-heading p {
+
+      margin: 0;
+
+      color: #77827c;
+
+      font-size: .7rem;
+
+      line-height: 1.6;
+    }
+
+
+    .process-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 13px;
+    }
+
+
+    .process-card {
+
+      padding: 20px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 12px 28px
+        rgba(30,55,43,.05);
+    }
+
+
+    .process-number {
+
+      color: #a20d2b;
+
+      font-size: .58rem;
+
+      font-weight: 900;
+    }
+
+
+    .process-card h3 {
+
+      margin: 9px 0 6px;
+
+      font-size: .82rem;
+    }
+
+
+    .process-card p {
+
+      margin: 0;
+
+      color: #7a8580;
+
+      font-size: .62rem;
+
+      line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1050px) {
+
+      .camp-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .process-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .camp-filter {
+
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+    }
+
+
+    @media (max-width: 850px) {
+
+      .camps-hero-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .camp-visual {
+
+        min-height: 250px;
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .camps-hero {
+
+        padding-top: 42px;
+      }
+
+
+      .camps-hero h1 {
+
+        font-size: 2.6rem;
+      }
+
+
+      .camps-hero p {
+
+        font-size: .86rem;
+      }
+
+
+      .camp-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .process-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .camp-filter {
+
+        grid-template-columns: 1fr;
+
+        padding: 11px;
+      }
+
+
+      .section-heading {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+
+      .camp-visual-card {
+
+        width: 290px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="camps-page">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+
+        <a
+          href="index.html"
+          class="brand"
+          aria-label="PRANAV Home"
+        >
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+
+            <span class="brand-name">
+              PRANAV
+            </span>
+
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="find-blood.html">
+            🩸 Find
+          </a>
+
+          <a href="emergency.html">
+            🚨 Emergency
+          </a>
+
+          <a href="donor.html">
+            ❤️ Donor
+          </a>
+
+          <a
+            href="camps.html"
+            class="active"
+          >
+            🩸 Camps
+          </a>
+
+          <a href="assistant.html">
+            🤖 AI Assistant
+          </a>
+
+          <a href="about.html">
+            ℹ️ About
+          </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+      <!-- =================================================
+           HERO
+      ================================================= -->
+
+      <section class="camps-hero">
+
+        <div class="container camps-hero-grid">
+
+
+          <div>
+
+            <span class="camps-badge">
+              🩸 Verified camp discovery
+            </span>
+
+
+            <h1>
+              Find a place to
+              <span>give hope.</span>
+            </h1>
+
+
+            <p>
+              Discover blood donation camps through a structured
+              coordination interface. Check the date, location,
+              organiser and verification information before
+              planning your visit.
+            </p>
+
+
+            <div class="hero-actions">
+
+              <a
+                href="#campDiscovery"
+                class="hero-action primary"
+              >
+                🔎 Explore Camps
+              </a>
+
+              <a
+                href="donor.html"
+                class="hero-action secondary"
+              >
+                ❤️ Donor Network
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="camp-visual">
+
+            <span class="floating-dot one"></span>
+
+            <span class="floating-dot two"></span>
+
+
+            <div class="camp-visual-card">
+
+              <div class="camp-visual-top">
+
+                <span class="camp-visual-title">
+                  Camp discovery
+                </span>
+
+                <span class="verified-pill">
+                  ✓ Verification-first
+                </span>
+
+              </div>
+
+
+              <div class="camp-calendar">
+                📅
+              </div>
+
+
+              <h3>
+                Your next opportunity to help
+              </h3>
+
+
+              <p>
+                Explore upcoming camps and coordinate with
+                authorised organisers and facilities.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           CAMP DISCOVERY
+      ================================================= -->
+
+      <section
+        class="camps-section"
+        id="campDiscovery"
+      >
+
+        <div class="container">
+
+
+          <div class="section-heading">
+
+
+            <div class="section-heading-left">
+
+              <span>
+                Upcoming opportunities
+              </span>
+
+              <h2>
+                Blood Donation Camps
+              </h2>
+
+              <p>
+                Filter camps by location, date or verification
+                status to find relevant opportunities.
+              </p>
+
+            </div>
+
+
+            <span class="demo-label">
+              ⚙ Prototype / Demo Data
+            </span>
+
+
+          </div>
+
+
+          <!-- =================================================
+               FILTER
+          ================================================= -->
+
+          <div class="camp-filter">
+
+            <input
+              id="campSearch"
+              type="search"
+              placeholder="Search camp, organiser or location..."
+              aria-label="Search camps"
+            >
+
+
+            <select
+              id="campCity"
+              aria-label="Filter by city"
+            >
+
+              <option value="">
+                All Cities
+              </option>
+
+              <option value="Lucknow">
+                Lucknow
+              </option>
+
+              <option value="Kanpur">
+                Kanpur
+              </option>
+
+              <option value="Prayagraj">
+                Prayagraj
+              </option>
+
+              <option value="Varanasi">
+                Varanasi
+              </option>
+
+            </select>
+
+
+            <select
+              id="campVerification"
+              aria-label="Filter by verification"
+            >
+
+              <option value="">
+                All Status
+              </option>
+
+              <option value="Verified">
+                Verified
+              </option>
+
+              <option value="Pending">
+                Verification Pending
+              </option>
+
+            </select>
+
+
+            <button
+              id="filterButton"
+              class="filter-button"
+              type="button"
+            >
+              Apply Filters
+            </button>
+
+          </div>
+
+
+          <!-- =================================================
+               CAMP CARDS
+          ================================================= -->
+
+          <div
+            id="campGrid"
+            class="camp-grid"
+          >
+
+
+            <!-- CAMP 1 -->
+
+            <article
+              class="camp-card"
+              data-city="Lucknow"
+              data-status="Verified"
+              data-search="community blood donation camp lucknow city hospital"
+            >
+
+              <div class="camp-card-top">
+
+                <div class="camp-date">
+
+                  <div class="camp-date-month">
+                    Sep
+                  </div>
+
+                  <div class="camp-date-day">
+                    18
+                  </div>
+
+                </div>
+
+                <span class="camp-status">
+                  ✓ Verified
+                </span>
+
+              </div>
+
+
+              <h3>
+                Community Blood Donation Camp
+              </h3>
+
+
+              <div class="camp-organiser">
+                Organiser: City Healthcare Initiative
+              </div>
+
+
+              <div class="camp-details">
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    📍
+                  </span>
+
+                  <span>
+                    Gomti Nagar, Lucknow
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🕘
+                  </span>
+
+                  <span>
+                    09:00 AM – 03:00 PM
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🏥
+                  </span>
+
+                  <span>
+                    Authorised healthcare facility
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="camp-actions">
+
+                <a
+                  href="#"
+                  class="camp-action details"
+                  data-camp="Community Blood Donation Camp"
+                  onclick="showCampDetails(event, this)"
+                >
+                  Details
+                </a>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Gomti+Nagar+Lucknow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="camp-action navigate"
+                >
+                  📍 Navigate
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMP 2 -->
+
+            <article
+              class="camp-card"
+              data-city="Kanpur"
+              data-status="Verified"
+              data-search="voluntary blood donation drive kanpur medical centre"
+            >
+
+              <div class="camp-card-top">
+
+                <div class="camp-date">
+
+                  <div class="camp-date-month">
+                    Sep
+                  </div>
+
+                  <div class="camp-date-day">
+                    21
+                  </div>
+
+                </div>
+
+                <span class="camp-status">
+                  ✓ Verified
+                </span>
+
+              </div>
+
+
+              <h3>
+                Voluntary Blood Donation Drive
+              </h3>
+
+
+              <div class="camp-organiser">
+                Organiser: Community Health Network
+              </div>
+
+
+              <div class="camp-details">
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    📍
+                  </span>
+
+                  <span>
+                    Swaroop Nagar, Kanpur
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🕘
+                  </span>
+
+                  <span>
+                    10:00 AM – 04:00 PM
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🏥
+                  </span>
+
+                  <span>
+                    Partner healthcare facility
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="camp-actions">
+
+                <a
+                  href="#"
+                  class="camp-action details"
+                  data-camp="Voluntary Blood Donation Drive"
+                  onclick="showCampDetails(event, this)"
+                >
+                  Details
+                </a>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Swaroop+Nagar+Kanpur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="camp-action navigate"
+                >
+                  📍 Navigate
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMP 3 -->
+
+            <article
+              class="camp-card"
+              data-city="Prayagraj"
+              data-status="Verified"
+              data-search="emergency awareness donation camp prayagraj blood centre"
+            >
+
+              <div class="camp-card-top">
+
+                <div class="camp-date">
+
+                  <div class="camp-date-month">
+                    Sep
+                  </div>
+
+                  <div class="camp-date-day">
+                    24
+                  </div>
+
+                </div>
+
+                <span class="camp-status">
+                  ✓ Verified
+                </span>
+
+              </div>
+
+
+              <h3>
+                Emergency Blood Awareness Camp
+              </h3>
+
+
+              <div class="camp-organiser">
+                Organiser: Regional Health Foundation
+              </div>
+
+
+              <div class="camp-details">
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    📍
+                  </span>
+
+                  <span>
+                    Civil Lines, Prayagraj
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🕘
+                  </span>
+
+                  <span>
+                    08:30 AM – 02:00 PM
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🏥
+                  </span>
+
+                  <span>
+                    Authorised blood facility
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="camp-actions">
+
+                <a
+                  href="#"
+                  class="camp-action details"
+                  data-camp="Emergency Blood Awareness Camp"
+                  onclick="showCampDetails(event, this)"
+                >
+                  Details
+                </a>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Civil+Lines+Prayagraj"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="camp-action navigate"
+                >
+                  📍 Navigate
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMP 4 -->
+
+            <article
+              class="camp-card"
+              data-city="Varanasi"
+              data-status="Verified"
+              data-search="blood donation camp varanasi community health"
+            >
+
+              <div class="camp-card-top">
+
+                <div class="camp-date">
+
+                  <div class="camp-date-month">
+                    Sep
+                  </div>
+
+                  <div class="camp-date-day">
+                    27
+                  </div>
+
+                </div>
+
+                <span class="camp-status">
+                  ✓ Verified
+                </span>
+
+              </div>
+
+
+              <h3>
+                Community Health Blood Camp
+              </h3>
+
+
+              <div class="camp-organiser">
+                Organiser: City Blood Support Initiative
+              </div>
+
+
+              <div class="camp-details">
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    📍
+                  </span>
+
+                  <span>
+                    Lanka, Varanasi
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🕘
+                  </span>
+
+                  <span>
+                    09:30 AM – 03:30 PM
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🏥
+                  </span>
+
+                  <span>
+                    Partner healthcare facility
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="camp-actions">
+
+                <a
+                  href="#"
+                  class="camp-action details"
+                  data-camp="Community Health Blood Camp"
+                  onclick="showCampDetails(event, this)"
+                >
+                  Details
+                </a>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Lanka+Varanasi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="camp-action navigate"
+                >
+                  📍 Navigate
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMP 5 -->
+
+            <article
+              class="camp-card"
+              data-city="Lucknow"
+              data-status="Pending"
+              data-search="local voluntary donation camp lucknow awareness"
+            >
+
+              <div class="camp-card-top">
+
+                <div class="camp-date">
+
+                  <div class="camp-date-month">
+                    Oct
+                  </div>
+
+                  <div class="camp-date-day">
+                    02
+                  </div>
+
+                </div>
+
+                <span
+                  class="camp-status"
+                  style="
+                    background:#fff5e7;
+                    color:#80592b;
+                  "
+                >
+                  Verification Pending
+                </span>
+
+              </div>
+
+
+              <h3>
+                Local Voluntary Donation Camp
+              </h3>
+
+
+              <div class="camp-organiser">
+                Organiser: Community Volunteer Group
+              </div>
+
+
+              <div class="camp-details">
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    📍
+                  </span>
+
+                  <span>
+                    Aliganj, Lucknow
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🕘
+                  </span>
+
+                  <span>
+                    10:00 AM – 02:00 PM
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    ⏳
+                  </span>
+
+                  <span>
+                    Verification required before relying on details
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="camp-actions">
+
+                <a
+                  href="#"
+                  class="camp-action details"
+                  data-camp="Local Voluntary Donation Camp"
+                  onclick="showCampDetails(event, this)"
+                >
+                  Details
+                </a>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Aliganj+Lucknow"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="camp-action navigate"
+                >
+                  📍 Navigate
+                </a>
+
+              </div>
+
+            </article>
+
+
+            <!-- CAMP 6 -->
+
+            <article
+              class="camp-card"
+              data-city="Kanpur"
+              data-status="Pending"
+              data-search="student blood awareness camp kanpur donation"
+            >
+
+              <div class="camp-card-top">
+
+                <div class="camp-date">
+
+                  <div class="camp-date-month">
+                    Oct
+                  </div>
+
+                  <div class="camp-date-day">
+                    06
+                  </div>
+
+                </div>
+
+                <span
+                  class="camp-status"
+                  style="
+                    background:#fff5e7;
+                    color:#80592b;
+                  "
+                >
+                  Verification Pending
+                </span>
+
+              </div>
+
+
+              <h3>
+                Community Blood Awareness Event
+              </h3>
+
+
+              <div class="camp-organiser">
+                Organiser: Local Health Awareness Group
+              </div>
+
+
+              <div class="camp-details">
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    📍
+                  </span>
+
+                  <span>
+                    Kalyanpur, Kanpur
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    🕘
+                  </span>
+
+                  <span>
+                    09:00 AM – 01:00 PM
+                  </span>
+
+                </div>
+
+
+                <div class="camp-detail">
+
+                  <span class="camp-detail-icon">
+                    ⏳
+                  </span>
+
+                  <span>
+                    Verification required before relying on details
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <div class="camp-actions">
+
+                <a
+                  href="#"
+                  class="camp-action details"
+                  data-camp="Community Blood Awareness Event"
+                  onclick="showCampDetails(event, this)"
+                >
+                  Details
+                </a>
+
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Kalyanpur+Kanpur"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="camp-action navigate"
+                >
+                  📍 Navigate
+                </a>
+
+              </div>
+
+            </article>
+
+
+          </div>
+
+
+          <div
+            id="campEmpty"
+            class="camp-empty"
+          >
+
+            <strong>
+              No matching camps found
+            </strong>
+
+            Try changing the city, verification status or
+            search phrase.
+
+          </div>
+
+
+          <!-- =================================================
+               NOTE
+          ================================================= -->
+
+          <div class="camp-note">
+
+            <div class="camp-note-icon">
+              ⚠️
+            </div>
+
+            <div>
+
+              <strong>
+                Always verify before visiting
+              </strong>
+
+              Camp schedules, locations and participation
+              information can change. PRANAV's prototype data
+              is illustrative and should not be treated as live
+              availability. Confirm the latest details with the
+              organiser or authorised healthcare facility.
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           PROCESS
+      ================================================= -->
+
+      <section class="camp-process">
+
+        <div class="container">
+
+
+          <div class="process-heading">
+
+            <span>
+              Coordination journey
+            </span>
+
+            <h2>
+              From discovery to responsible donation
+            </h2>
+
+            <p>
+              PRANAV supports the information and coordination
+              layer while authorised healthcare professionals
+              handle the actual donation process.
+            </p>
+
+          </div>
+
+
+          <div class="process-grid">
+
+
+            <article class="process-card">
+
+              <div class="process-number">
+                STEP 01
+              </div>
+
+              <h3>
+                Discover
+              </h3>
+
+              <p>
+                Find a relevant camp based on location,
+                date and available information.
+              </p>
+
+            </article>
+
+
+            <article class="process-card">
+
+              <div class="process-number">
+                STEP 02
+              </div>
+
+              <h3>
+                Verify
+              </h3>
+
+              <p>
+                Confirm the camp details with the organiser
+                or authorised facility.
+              </p>
+
+            </article>
+
+
+            <article class="process-card">
+
+              <div class="process-number">
+                STEP 03
+              </div>
+
+              <h3>
+                Visit
+              </h3>
+
+              <p>
+                Follow the organiser's instructions and
+                facility requirements.
+              </p>
+
+            </article>
+
+
+            <article class="process-card">
+
+              <div class="process-number">
+                STEP 04
+              </div>
+
+              <h3>
+                Professional Screening
+              </h3>
+
+              <p>
+                Authorised professionals determine donor
+                eligibility and suitability.
+              </p>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-inner">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="brand"
+          >
+
+            <img
+              src="pranav-logo.png"
+              alt="PRANAV logo"
+              width="48"
+              height="48"
+            >
+
+            <span class="brand-copy">
+
+              <span class="brand-name">
+                PRANAV
+              </span>
+
+              <span class="brand-subtitle">
+                Intelligent Healthcare Network
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            Connecting people, healthcare resources and
+            responsible technology through intelligent
+            coordination.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Emergency
+          </h3>
+
+          <a href="emergency.html">
+            Emergency Request
+          </a>
+
+          <a href="find-blood.html">
+            Find Blood
+          </a>
+
+          <a href="blood-request.html">
+            Track Request
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            PRANAV
+          </h3>
+
+          <a href="donor.html">
+            Donor Network
+          </a>
+
+          <a href="assistant.html">
+            AI Assistant
+          </a>
+
+          <a href="about.html">
+            About
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © 2026 PRANAV. All Rights Reserved.
+        </span>
+
+        <span>
+          Verification-first • Privacy-aware • Human oversight
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =================================================
+         MOBILE BOTTOM NAV
+    ================================================= -->
+
+    <nav
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="index.html">
+
+        <span>
+          ⌂
+        </span>
+
+        Home
+
+      </a>
+
+
+      <a href="find-blood.html">
+
+        <span>
+          🔎
+        </span>
+
+        Find
+
+      </a>
+
+
+      <a
+        href="emergency.html"
+        class="emergency"
+      >
+
+        <span>
+          🚨
+        </span>
+
+        Emergency
+
+      </a>
+
+
+      <a href="assistant.html">
+
+        <span>
+          🤖
+        </span>
+
+        Assistant
+
+      </a>
+
+
+      <a href="about.html">
+
+        <span>
+          ℹ️
+        </span>
+
+        About
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- =================================================
+       CAMP DETAILS SCRIPT
+  ================================================= -->
+
+  <script>
+
+    "use strict";
+
+
+    const campCards =
+      document.querySelectorAll(
+        ".camp-card"
+      );
+
+
+    const searchInput =
+      document.getElementById(
+        "campSearch"
+      );
+
+
+    const citySelect =
+      document.getElementById(
+        "campCity"
+      );
+
+
+    const verificationSelect =
+      document.getElementById(
+        "campVerification"
+      );
+
+
+    const filterButton =
+      document.getElementById(
+        "filterButton"
+      );
+
+
+    const emptyState =
+      document.getElementById(
+        "campEmpty"
+      );
+
+
+    function filterCamps() {
+
+      const search =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      const city =
+        citySelect.value
+          .trim()
+          .toLowerCase();
+
+
+      const status =
+        verificationSelect.value
+          .trim()
+          .toLowerCase();
+
+
+      let visibleCount = 0;
+
+
+      campCards.forEach(
+        function (card) {
+
+          const cardSearch =
+            (
+              card.dataset.search || ""
+            ).toLowerCase();
+
+
+          const cardCity =
+            (
+              card.dataset.city || ""
+            ).toLowerCase();
+
+
+          const cardStatus =
+            (
+              card.dataset.status || ""
+            ).toLowerCase();
+
+
+          const matchesSearch =
+            !search ||
+            cardSearch.includes(search);
+
+
+          const matchesCity =
+            !city ||
+            cardCity === city;
+
+
+          const matchesStatus =
+            !status ||
+            cardStatus === status;
+
+
+          const visible =
+            matchesSearch &&
+            matchesCity &&
+            matchesStatus;
+
+
+          card.style.display =
+            visible
+              ? ""
+              : "block";
+
+
+          if (visible) {
+
+            visibleCount++;
+
+          }
+
+        }
+      );
+
+
+      emptyState.style.display =
+        visibleCount === 0
+          ? "block"
+          : "none";
+
+    }
+
+
+    filterButton.addEventListener(
+      "click",
+      filterCamps
+    );
+
+
+    searchInput.addEventListener(
+      "input",
+      filterCamps
+    );
+
+
+    citySelect.addEventListener(
+      "change",
+      filterCamps
+    );
+
+
+    verificationSelect.addEventListener(
+      "change",
+      filterCamps
+    );
+
+
+    /*
+      Camp details popup.
+      Uses a simple browser dialog so this page
+      does not depend on another library.
+    */
+
+    function showCampDetails(
+      event,
+      element
+    ) {
+
+      event.preventDefault();
+
+
+      const campName =
+        element.dataset.camp ||
+        "Blood Donation Camp";
+
+
+      alert(
+        campName +
+        "\n\n" +
+        "Prototype / Demo Information\n\n" +
+        "Please confirm the latest date, venue, " +
+        "organiser and participation requirements " +
+        "directly with the authorised organiser or " +
+        "healthcare facility before visiting."
+      );
+
+    }
+
+
+    /*
+      Make the function available to inline
+      onclick handlers safely.
+    */
+
+    window.showCampDetails =
+      showCampDetails;
+
+  </script>
+
+
+  <!-- =================================================
+       APPLICATION SCRIPTS
+  ================================================= -->
+
+  <script
+    src="js/app.js"
+    defer
+  ></script>
+
+  <script
+    src="js/animations.js"
+    defer
+  ></script>
+
+  <script
+    src="js/accessibility.js"
+    defer
+  ></script>
+
+  <script
+    src="js/loader.js"
+    defer
+  ></script>
+
+
+  <!-- =================================================
+       SERVICE WORKER
+  ================================================= -->
+
+  <script>
+
+    if (
+      "serviceWorker" in navigator
+    ) {
+
+      window.addEventListener(
+        "load",
+        function () {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(
+              function () {
+                /* Non-blocking failure */
+              }
+            );
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
