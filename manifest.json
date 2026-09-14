@@ -1,0 +1,76 @@
+{
+  "name": "PRANAV — Healthcare Coordination Network",
+  "short_name": "PRANAV",
+  "description": "Intelligent healthcare and blood emergency coordination network.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f3fffb",
+  "theme_color": "#d92d45",
+  "lang": "en-IN",
+  "dir": "ltr",
+
+  "icons": [
+    {
+      "src": "assets/logo/pranav-logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo/pranav-logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "categories": [
+    "medical",
+    "health",
+    "lifestyle"
+  ],
+
+  "shortcuts": [
+    {
+      "name": "Emergency Blood Request",
+      "short_name": "Emergency",
+      "description": "Create an emergency blood request",
+      "url": "./blood-request.html",
+      "icons": [
+        {
+          "src": "assets/logo/pranav-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Find Blood Resources",
+      "short_name": "Find Blood",
+      "description": "Find potential blood resources",
+      "url": "./find-blood.html",
+      "icons": [
+        {
+          "src": "assets/logo/pranav-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Ask PRANAV",
+      "short_name": "Assistant",
+      "description": "Open PRANAV AI Assistant",
+      "url": "./assistant.html",
+      "icons": [
+        {
+          "src": "assets/logo/pranav-logo.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
+}
