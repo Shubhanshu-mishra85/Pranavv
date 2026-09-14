@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#a80d2b">
+
+  <meta
+    name="description"
+    content="Learn about blood groups, blood components, emergency coordination and responsible blood donation with PRANAV."
+  >
+
+  <title>Blood Education | PRANAV</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="pranav-logo.png"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/animations.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       PRANAV BLOOD EDUCATION
+    ===================================================== */
+
+    .education-page {
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 90% 4%,
+          rgba(255,216,223,.75),
+          transparent 29%
+        ),
+
+        radial-gradient(
+          circle at 4% 22%,
+          rgba(202,239,219,.85),
+          transparent 32%
+        ),
+
+        #f3faf6;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .education-hero {
+
+      padding: 68px 0 50px;
+    }
+
+
+    .education-hero-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr
+        .95fr;
+
+      gap: 48px;
+
+      align-items: center;
+    }
+
+
+    .education-badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #edf8f1;
+
+      border:
+        1px solid
+        rgba(35,107,72,.12);
+
+      color: #17633f;
+
+      font-size: .64rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+
+    .education-hero h1 {
+
+      max-width: 760px;
+
+      margin: 18px 0 14px;
+
+      font-family:
+        Manrope,
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.5rem,
+          5vw,
+          4.6rem
+        );
+
+      line-height: .98;
+
+      letter-spacing: -.06em;
+
+      color: #222b27;
+    }
+
+
+    .education-hero h1 span {
+
+      color: #ad102e;
+    }
+
+
+    .education-hero p {
+
+      max-width: 680px;
+
+      margin: 0;
+
+      color: #6c7871;
+
+      font-size: .96rem;
+
+      line-height: 1.75;
+    }
+
+
+    .education-actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+
+      margin-top: 24px;
+    }
+
+
+    .education-action {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 45px;
+
+      padding: 0 16px;
+
+      border-radius: 12px;
+
+      text-decoration: none;
+
+      font-size: .68rem;
+
+      font-weight: 900;
+
+      transition: .2s ease;
+    }
+
+
+    .education-action.primary {
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+
+      box-shadow:
+        0 12px 28px
+        rgba(179,18,47,.18);
+    }
+
+
+    .education-action.secondary {
+
+      background: white;
+
+      color: #344039;
+
+      border:
+        1px solid
+        #dce6e0;
+    }
+
+
+    .education-action:hover {
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================================================
+       HERO VISUAL
+    ===================================================== */
+
+    .education-visual {
+
+      position: relative;
+
+      min-height: 320px;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+
+    .blood-orbit {
+
+      position: absolute;
+
+      width: 255px;
+      height: 255px;
+
+      border:
+        1px dashed
+        rgba(179,18,47,.2);
+
+      border-radius: 50%;
+
+      animation:
+        educationOrbit 16s linear infinite;
+    }
+
+
+    .blood-orbit::before,
+    .blood-orbit::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 13px;
+      height: 13px;
+
+      border-radius: 50%;
+
+      background: #b3122f;
+
+      box-shadow:
+        0 0 0 7px
+        rgba(179,18,47,.08);
+    }
+
+
+    .blood-orbit::before {
+
+      top: 20px;
+      left: 42px;
+    }
+
+
+    .blood-orbit::after {
+
+      right: 28px;
+      bottom: 45px;
+    }
+
+
+    .blood-drop {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 125px;
+      height: 145px;
+
+      display: grid;
+
+      place-items: center;
+
+      color: white;
+
+      font-size: 2.6rem;
+
+      background:
+        linear-gradient(
+          145deg,
+          #c2193b,
+          #890a23
+        );
+
+      border-radius:
+        62% 62% 65% 65%
+        /
+        70% 70% 48% 48%;
+
+      transform:
+        rotate(45deg);
+
+      box-shadow:
+        0 25px 55px
+        rgba(179,18,47,.23);
+
+      animation:
+        bloodFloat 3.4s ease-in-out infinite;
+    }
+
+
+    .blood-drop span {
+
+      transform:
+        rotate(-45deg);
+    }
+
+
+    @keyframes bloodFloat {
+
+      0%,
+      100% {
+        transform:
+          rotate(45deg)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          rotate(45deg)
+          translateY(-10px);
+      }
+    }
+
+
+    @keyframes educationOrbit {
+
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    /* =====================================================
+       INTRO STATS
+    ===================================================== */
+
+    .education-intro {
+
+      padding: 10px 0 35px;
+    }
+
+
+    .education-stat-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 12px;
+    }
+
+
+    .education-stat {
+
+      padding: 19px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 12px 28px
+        rgba(30,55,43,.05);
+    }
+
+
+    .education-stat-icon {
+
+      margin-bottom: 11px;
+
+      font-size: 1.25rem;
+    }
+
+
+    .education-stat h3 {
+
+      margin: 0 0 5px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: .84rem;
+    }
+
+
+    .education-stat p {
+
+      margin: 0;
+
+      color: #7b8680;
+
+      font-size: .62rem;
+
+      line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       MAIN EDUCATION
+    ===================================================== */
+
+    .education-section {
+
+      padding: 55px 0 85px;
+    }
+
+
+    .section-heading {
+
+      max-width: 730px;
+
+      margin-bottom: 25px;
+    }
+
+
+    .section-heading span {
+
+      color: #a20d2b;
+
+      font-size: .61rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .section-heading h2 {
+
+      margin: 8px 0 7px;
+
+      color: #27312c;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.75rem,
+          3vw,
+          2.5rem
+        );
+
+      letter-spacing: -.045em;
+    }
+
+
+    .section-heading p {
+
+      margin: 0;
+
+      color: #78837d;
+
+      font-size: .71rem;
+
+      line-height: 1.65;
+    }
+
+
+    /* =====================================================
+       BLOOD GROUPS
+    ===================================================== */
+
+    .group-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 12px;
+
+      margin-bottom: 65px;
+    }
+
+
+    .group-card {
+
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 19px;
+
+      min-height: 135px;
+
+      border-radius: 19px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 13px 30px
+        rgba(30,55,43,.05);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .group-card:hover {
+
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 38px
+        rgba(30,55,43,.09);
+    }
+
+
+    .group-card::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: -25px;
+      bottom: -35px;
+
+      width: 95px;
+      height: 95px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(179,18,47,.045);
+    }
+
+
+    .group-badge {
+
+      display: inline-grid;
+
+      place-items: center;
+
+      width: 47px;
+      height: 47px;
+
+      margin-bottom: 12px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fff0f2,
+          #ffe4e8
+        );
+
+      color: #a20d2b;
+
+      font-size: .91rem;
+
+      font-weight: 900;
+    }
+
+
+    .group-card h3 {
+
+      margin: 0 0 5px;
+
+      font-size: .78rem;
+    }
+
+
+    .group-card p {
+
+      margin: 0;
+
+      color: #7b8680;
+
+      font-size: .59rem;
+
+      line-height: 1.5;
+    }
+
+
+    /* =====================================================
+       COMPONENTS
+    ===================================================== */
+
+    .component-section {
+
+      margin-bottom: 65px;
+    }
+
+
+    .component-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 15px;
+    }
+
+
+    .component-card {
+
+      padding: 22px;
+
+      border-radius: 21px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.98),
+          rgba(247,252,249,.98)
+        );
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 15px 34px
+        rgba(30,55,43,.06);
+    }
+
+
+    .component-icon {
+
+      width: 52px;
+      height: 52px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin-bottom: 15px;
+
+      border-radius: 15px;
+
+      background: #edf8f1;
+
+      font-size: 1.3rem;
+    }
+
+
+    .component-card h3 {
+
+      margin: 0 0 8px;
+
+      color: #29342e;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: .92rem;
+    }
+
+
+    .component-card p {
+
+      margin: 0;
+
+      color: #737f78;
+
+      font-size: .65rem;
+
+      line-height: 1.65;
+    }
+
+
+    .component-tag {
+
+      display: inline-block;
+
+      margin-top: 13px;
+
+      padding: 6px 8px;
+
+      border-radius: 8px;
+
+      background: #fff0f2;
+
+      color: #9f102c;
+
+      font-size: .52rem;
+
+      font-weight: 900;
+    }
+
+
+    /* =====================================================
+       REQUEST JOURNEY
+    ===================================================== */
+
+    .journey-section {
+
+      padding: 70px 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eaf8f0,
+          #f5fbf7
+        );
+
+      border-top:
+        1px solid
+        rgba(35,107,72,.08);
+
+      border-bottom:
+        1px solid
+        rgba(35,107,72,.08);
+    }
+
+
+    .journey-heading {
+
+      max-width: 700px;
+
+      margin:
+        0 auto 30px;
+
+      text-align: center;
+    }
+
+
+    .journey-heading span {
+
+      color: #17633f;
+
+      font-size: .61rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .journey-heading h2 {
+
+      margin: 8px 0;
+
+      color: #27312c;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.8rem,
+          3vw,
+          2.5rem
+        );
+
+      letter-spacing: -.045em;
+    }
+
+
+    .journey-heading p {
+
+      margin: 0;
+
+      color: #78837d;
+
+      font-size: .7rem;
+
+      line-height: 1.6;
+    }
+
+
+    .journey-track {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(6, 1fr);
+
+      gap: 10px;
+    }
+
+
+    .journey-step {
+
+      position: relative;
+
+      padding: 18px 13px;
+
+      text-align: center;
+
+      border-radius: 17px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 10px 25px
+        rgba(30,55,43,.05);
+    }
+
+
+    .journey-step-number {
+
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin:
+        0 auto 10px;
+
+      border-radius: 10px;
+
+      background: #fff0f2;
+
+      color: #a20d2b;
+
+      font-size: .58rem;
+
+      font-weight: 900;
+    }
+
+
+    .journey-step h3 {
+
+      margin: 0 0 5px;
+
+      color: #35413b;
+
+      font-size: .68rem;
+    }
+
+
+    .journey-step p {
+
+      margin: 0;
+
+      color: #7c8781;
+
+      font-size: .55rem;
+
+      line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       MYTHS
+    ===================================================== */
+
+    .myths-section {
+
+      padding: 75px 0 85px;
+    }
+
+
+    .myth-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 14px;
+    }
+
+
+    .myth-card {
+
+      padding: 21px;
+
+      border-radius: 19px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 12px 28px
+        rgba(30,55,43,.05);
+    }
+
+
+    .myth-label {
+
+      display: inline-block;
+
+      margin-bottom: 10px;
+
+      padding: 5px 8px;
+
+      border-radius: 7px;
+
+      background: #fff0f2;
+
+      color: #a20d2b;
+
+      font-size: .51rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+    }
+
+
+    .myth-card h3 {
+
+      margin: 0 0 6px;
+
+      color: #303b35;
+
+      font-size: .82rem;
+    }
+
+
+    .myth-card p {
+
+      margin: 0;
+
+      color: #78837d;
+
+      font-size: .63rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       SAFETY NOTICE
+    ===================================================== */
+
+    .education-notice {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 12px;
+
+      margin-top: 25px;
+
+      padding: 18px;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff6e9,
+          #fffaf3
+        );
+
+      border:
+        1px solid
+        rgba(188,119,44,.12);
+
+      color: #73542e;
+
+      font-size: .63rem;
+
+      line-height: 1.6;
+    }
+
+
+    .notice-icon {
+
+      width: 30px;
+      min-width: 30px;
+
+      height: 30px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 9px;
+
+      background: white;
+    }
+
+
+    .education-notice strong {
+
+      display: block;
+
+      margin-bottom: 4px;
+
+      color: #634721;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1050px) {
+
+      .group-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+
+      .journey-track {
+
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+
+      .education-stat-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 850px) {
+
+      .education-hero-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .education-visual {
+
+        min-height: 255px;
+      }
+
+
+      .component-grid {
+
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .education-hero {
+
+        padding-top: 42px;
+      }
+
+
+      .education-hero h1 {
+
+        font-size: 2.6rem;
+      }
+
+
+      .education-hero p {
+
+        font-size: .86rem;
+      }
+
+
+      .education-stat-grid,
+      .group-grid,
+      .component-grid,
+      .myth-grid,
+      .journey-track {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .education-visual {
+
+        transform: scale(.84);
+
+        margin:
+          -15px 0
+          -5px;
+      }
+
+
+      .education-stat {
+
+        padding: 17px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="education-page">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+
+        <a
+          href="index.html"
+          class="brand"
+          aria-label="PRANAV Home"
+        >
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+
+            <span class="brand-name">
+              PRANAV
+            </span>
+
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="find-blood.html">
+            🩸 Find
+          </a>
+
+          <a href="emergency.html">
+            🚨 Emergency
+          </a>
+
+          <a href="donor.html">
+            ❤️ Donor
+          </a>
+
+          <a href="camps.html">
+            🩸 Camps
+          </a>
+
+          <a href="blood-education.html" class="active">
+            📚 Education
+          </a>
+
+          <a href="assistant.html">
+            🤖 AI Assistant
+          </a>
+
+          <a href="about.html">
+            ℹ️ About
+          </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+      <!-- =================================================
+           HERO
+      ================================================= -->
+
+      <section class="education-hero">
+
+        <div class="container education-hero-grid">
+
+
+          <div>
+
+            <span class="education-badge">
+              📚 Blood knowledge, made simple
+            </span>
+
+
+            <h1>
+              Understand blood.
+              Make <span>better decisions.</span>
+            </h1>
+
+
+            <p>
+              Learn the basics of blood groups, blood components,
+              emergency coordination and verification through
+              simple explanations designed for everyday users.
+            </p>
+
+
+            <div class="education-actions">
+
+              <a
+                href="#bloodGroups"
+                class="education-action primary"
+              >
+                🩸 Explore Blood Groups
+              </a>
+
+              <a
+                href="assistant.html"
+                class="education-action secondary"
+              >
+                🤖 Ask PRANAV
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="education-visual"
+            aria-hidden="true"
+          >
+
+            <div class="blood-orbit"></div>
+
+            <div class="blood-drop">
+              <span>🩸</span>
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           QUICK TOPICS
+      ================================================= -->
+
+      <section class="education-intro">
+
+        <div class="container">
+
+          <div class="education-stat-grid">
+
+
+            <article class="education-stat">
+
+              <div class="education-stat-icon">
+                🩸
+              </div>
+
+              <h3>
+                Blood Groups
+              </h3>
+
+              <p>
+                Learn what A, B, AB and O groups mean,
+                along with positive and negative Rh status.
+              </p>
+
+            </article>
+
+
+            <article class="education-stat">
+
+              <div class="education-stat-icon">
+                🧪
+              </div>
+
+              <h3>
+                Components
+              </h3>
+
+              <p>
+                Understand red cells
+                
