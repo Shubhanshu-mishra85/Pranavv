@@ -1,0 +1,2204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#a80d2b">
+
+  <meta
+    name="description"
+    content="Track a PRANAV blood emergency coordination request from creation through verification and coordination."
+  >
+
+  <meta
+    property="og:title"
+    content="Track Blood Request | PRANAV"
+  >
+
+  <meta
+    property="og:description"
+    content="Track your PRANAV emergency blood coordination request."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <title>Track Blood Request | PRANAV</title>
+
+  <link rel="icon" href="pranav-logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+
+    /* =========================================
+       PRANAV REQUEST TRACKING
+    ========================================= */
+
+    .tracking-page {
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 90% 8%,
+          rgba(255,214,220,.75),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 5% 45%,
+          rgba(204,237,219,.8),
+          transparent 32%
+        ),
+        #f2faf6;
+    }
+
+
+    /* =========================================
+       HERO
+    ========================================= */
+
+    .tracking-hero {
+      padding: 70px 0 50px;
+    }
+
+    .tracking-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .tracking-eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #fff0f2;
+      border: 1px solid rgba(179,18,47,.12);
+
+      color: #a20d2b;
+
+      font-size: .7rem;
+      font-weight: 900;
+
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .tracking-hero h1 {
+      margin: 18px 0 15px;
+
+      max-width: 750px;
+
+      font-family:
+        Manrope,
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(2.6rem, 5vw, 4.7rem);
+
+      line-height: 1;
+
+      letter-spacing: -.06em;
+
+      color: #222a26;
+    }
+
+    .tracking-hero h1 span {
+      color: #ad102e;
+    }
+
+    .tracking-hero p {
+      max-width: 650px;
+
+      margin: 0;
+
+      color: #66736c;
+
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+
+    /* =========================================
+       TRACKING VISUAL
+    ========================================= */
+
+    .tracking-visual {
+      min-height: 290px;
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+    }
+
+    .tracking-orbit {
+      position: absolute;
+
+      width: 245px;
+      height: 245px;
+
+      border-radius: 50%;
+
+      border:
+        1px dashed
+        rgba(179,18,47,.25);
+
+      animation:
+        orbitRotate 14s linear infinite;
+    }
+
+    .tracking-orbit::before,
+    .tracking-orbit::after {
+      content: "";
+
+      position: absolute;
+
+      width: 11px;
+      height: 11px;
+
+      border-radius: 50%;
+
+      background: #b3122f;
+
+      box-shadow:
+        0 0 0 6px
+        rgba(179,18,47,.08);
+    }
+
+    .tracking-orbit::before {
+      top: 25px;
+      left: 34px;
+    }
+
+    .tracking-orbit::after {
+      right: 25px;
+      bottom: 42px;
+    }
+
+    .tracking-center {
+      width: 125px;
+      height: 125px;
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+      z-index: 2;
+
+      border-radius: 38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #bd1737,
+          #85091f
+        );
+
+      color: white;
+
+      font-size: 3rem;
+
+      box-shadow:
+        0 25px 55px
+        rgba(179,18,47,.25),
+
+        inset 0 1px 0
+        rgba(255,255,255,.35);
+    }
+
+    @keyframes orbitRotate {
+
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    /* =========================================
+       TRACKING SEARCH
+    ========================================= */
+
+    .tracking-section {
+      padding: 20px 0 85px;
+    }
+
+    .tracking-search-card {
+      max-width: 850px;
+
+      margin: 0 auto 28px;
+
+      padding: 28px;
+
+      border-radius: 26px;
+
+      background:
+        rgba(255,255,255,.92);
+
+      border:
+        1px solid
+        rgba(35,80,60,.1);
+
+      box-shadow:
+        0 20px 55px
+        rgba(30,55,43,.08);
+    }
+
+    .tracking-search-card h2 {
+      margin: 0 0 7px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: 1.4rem;
+
+      letter-spacing: -.035em;
+    }
+
+    .tracking-search-card p {
+      margin: 0 0 22px;
+
+      color: #75817b;
+
+      font-size: .78rem;
+      line-height: 1.55;
+    }
+
+    .tracking-input-row {
+      display: grid;
+
+      grid-template-columns: 1fr auto;
+
+      gap: 10px;
+    }
+
+    .tracking-input {
+      width: 100%;
+
+      box-sizing: border-box;
+
+      min-height: 54px;
+
+      padding: 0 16px;
+
+      border:
+        1px solid
+        #d8e3dd;
+
+      border-radius: 14px;
+
+      background: #fbfdfc;
+
+      color: #242b27;
+
+      font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size: .9rem;
+
+      outline: none;
+
+      transition: .2s ease;
+    }
+
+    .tracking-input:focus {
+      border-color: #b3122f;
+
+      background: white;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(179,18,47,.08);
+    }
+
+    .tracking-button {
+      min-height: 54px;
+
+      padding: 0 24px;
+
+      border: 0;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+
+      font-size: .78rem;
+      font-weight: 900;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 28px
+        rgba(179,18,47,.18);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .tracking-button:hover {
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 17px 34px
+        rgba(179,18,47,.24);
+    }
+
+
+    /* =========================================
+       SAMPLE REQUEST
+    ========================================= */
+
+    .sample-note {
+      margin-top: 13px;
+
+      color: #87918c;
+
+      font-size: .66rem;
+
+      line-height: 1.5;
+    }
+
+    .sample-note strong {
+      color: #69756e;
+    }
+
+
+    /* =========================================
+       TRACKING RESULT
+    ========================================= */
+
+    .tracking-result {
+      display: none;
+
+      max-width: 1050px;
+
+      margin: 0 auto;
+
+      animation:
+        trackingReveal .45s ease both;
+    }
+
+    .tracking-result.show {
+      display: block;
+    }
+
+    @keyframes trackingReveal {
+
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+
+    /* =========================================
+       REQUEST OVERVIEW
+    ========================================= */
+
+    .request-overview {
+      display: grid;
+
+      grid-template-columns:
+        1.1fr
+        .9fr;
+
+      gap: 18px;
+
+      margin-bottom: 20px;
+    }
+
+    .overview-card {
+      padding: 23px;
+
+      border-radius: 22px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 14px 35px
+        rgba(30,55,43,.06);
+    }
+
+    .overview-label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      color: #89938e;
+
+      font-size: .62rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+    .request-code {
+      display: inline-block;
+
+      padding: 8px 11px;
+
+      border-radius: 9px;
+
+      background: #fff0f2;
+
+      color: #9e0c29;
+
+      font-family: monospace;
+
+      font-size: .9rem;
+
+      font-weight: 900;
+
+      letter-spacing: .04em;
+    }
+
+    .request-status {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 11px;
+
+      border-radius: 999px;
+
+      background: #edf8f1;
+
+      color: #17623e;
+
+      font-size: .67rem;
+
+      font-weight: 900;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #2d9b67;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(45,155,103,.1);
+    }
+
+
+    /* =========================================
+       REQUEST DETAILS
+    ========================================= */
+
+    .request-details {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 9px;
+
+      margin-top: 17px;
+    }
+
+    .detail-item {
+      padding: 13px;
+
+      border-radius: 13px;
+
+      background: #f5faf7;
+    }
+
+    .detail-item span {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #8a948e;
+
+      font-size: .6rem;
+
+      font-weight: 800;
+    }
+
+    .detail-item strong {
+      color: #303934;
+
+      font-size: .74rem;
+    }
+
+
+    /* =========================================
+       TIMELINE
+    ========================================= */
+
+    .timeline-card {
+      padding: 28px;
+
+      border-radius: 25px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 18px 45px
+        rgba(30,55,43,.07);
+    }
+
+    .timeline-heading {
+      margin-bottom: 30px;
+    }
+
+    .timeline-heading span {
+      color: #a20d2b;
+
+      font-size: .65rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+    .timeline-heading h2 {
+      margin: 8px 0 5px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: 1.35rem;
+
+      letter-spacing: -.035em;
+    }
+
+    .timeline-heading p {
+      margin: 0;
+
+      color: #7b8680;
+
+      font-size: .72rem;
+    }
+
+    .timeline {
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 20px;
+      top: 15px;
+      bottom: 15px;
+
+      width: 2px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          #b3122f 0 18%,
+          #dbe5df 18% 100%
+        );
+    }
+
+    .timeline-step {
+      position: relative;
+
+      display: grid;
+
+      grid-template-columns:
+        42px
+        1fr;
+
+      gap: 16px;
+
+      padding-bottom: 26px;
+    }
+
+    .timeline-step:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-icon {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      position: relative;
+      z-index: 2;
+
+      border-radius: 14px;
+
+      background: white;
+
+      border:
+        2px solid
+        #dce6e0;
+
+      font-size: .85rem;
+    }
+
+    .timeline-step.completed
+    .timeline-icon {
+      border-color: #b3122f;
+
+      background: #fff0f2;
+
+      box-shadow:
+        0 7px 18px
+        rgba(179,18,47,.1);
+    }
+
+    .timeline-step.active
+    .timeline-icon {
+      border-color: #b3122f;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #8c0923
+        );
+
+      box-shadow:
+        0 8px 20px
+        rgba(179,18,47,.2);
+    }
+
+    .timeline-content {
+      padding-top: 4px;
+    }
+
+    .timeline-content strong {
+      display: block;
+
+      color: #303834;
+
+      font-size: .82rem;
+    }
+
+    .timeline-step.active
+    .timeline-content strong {
+      color: #a20d2b;
+    }
+
+    .timeline-content small {
+      display: block;
+
+      margin-top: 5px;
+
+      max-width: 650px;
+
+      color: #7c8781;
+
+      font-size: .67rem;
+
+      line-height: 1.5;
+    }
+
+    .timeline-badge {
+      display: inline-block;
+
+      margin-top: 8px;
+
+      padding: 5px 8px;
+
+      border-radius: 7px;
+
+      background: #fff4e8;
+
+      color: #835a2e;
+
+      font-size: .58rem;
+
+      font-weight: 800;
+    }
+
+
+    /* =========================================
+       VERIFICATION MESSAGE
+    ========================================= */
+
+    .verification-box {
+      margin-top: 20px;
+
+      padding: 17px;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff5e9,
+          #fff9f1
+        );
+
+      border:
+        1px solid
+        rgba(188,119,44,.13);
+
+      color: #705333;
+
+      font-size: .68rem;
+
+      line-height: 1.6;
+    }
+
+    .verification-box strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #634622;
+    }
+
+
+    /* =========================================
+       EMPTY STATE
+    ========================================= */
+
+    .tracking-empty {
+      display: none;
+
+      max-width: 700px;
+
+      margin: 0 auto;
+
+      padding: 35px;
+
+      text-align: center;
+
+      border-radius: 22px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 15px 35px
+        rgba(30,55,43,.06);
+    }
+
+    .tracking-empty.show {
+      display: block;
+    }
+
+    .tracking-empty-icon {
+      font-size: 2rem;
+
+      margin-bottom: 12px;
+    }
+
+    .tracking-empty h3 {
+      margin: 0 0 7px;
+
+      font-size: 1rem;
+    }
+
+    .tracking-empty p {
+      margin: 0;
+
+      color: #7b8580;
+
+      font-size: .72rem;
+
+      line-height: 1.55;
+    }
+
+
+    /* =========================================
+       RESPONSIBLE NOTE
+    ========================================= */
+
+    .tracking-responsibility {
+      padding: 75px 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff0f2,
+          #ffe6e9
+        );
+
+      border-top:
+        1px solid
+        rgba(179,18,47,.08);
+
+      border-bottom:
+        1px solid
+        rgba(179,18,47,.08);
+    }
+
+    .responsibility-inner {
+      max-width: 900px;
+
+      margin: auto;
+
+      text-align: center;
+    }
+
+    .responsibility-inner span {
+      color: #a20d2b;
+
+      font-size: .65rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+    .responsibility-inner h2 {
+      margin: 10px 0;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: clamp(1.7rem,3vw,2.5rem);
+
+      letter-spacing: -.045em;
+    }
+
+    .responsibility-inner p {
+      margin: 0 auto;
+
+      max-width: 760px;
+
+      color: #6f7773;
+
+      font-size: .78rem;
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .tracking-hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tracking-visual {
+        min-height: 230px;
+      }
+
+      .request-overview {
+        grid-template-columns: 1fr;
+      }
+
+      .request-details {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+      .tracking-hero {
+        padding-top: 42px;
+      }
+
+      .tracking-hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .tracking-hero p {
+        font-size: .88rem;
+      }
+
+      .tracking-visual {
+        transform: scale(.83);
+      }
+
+      .tracking-search-card {
+        padding: 19px;
+
+        border-radius: 21px;
+      }
+
+      .tracking-input-row {
+        grid-template-columns: 1fr;
+      }
+
+      .tracking-button {
+        width: 100%;
+      }
+
+      .timeline-card {
+        padding: 20px;
+      }
+
+      .timeline::before {
+        left: 17px;
+      }
+
+      .timeline-step {
+        grid-template-columns:
+          36px
+          1fr;
+
+        gap: 13px;
+      }
+
+      .timeline-icon {
+        width: 36px;
+        height: 36px;
+
+        border-radius: 11px;
+      }
+
+      .request-details {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="tracking-page">
+
+
+    <!-- =====================================
+         HEADER
+    ====================================== -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+        <a
+          href="index.html"
+          class="brand"
+          aria-label="PRANAV Home"
+        >
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+
+            <span class="brand-name">
+              PRANAV
+            </span>
+
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="find-blood.html">
+            🩸 Find
+          </a>
+
+          <a href="emergency.html">
+            🚨 Emergency
+          </a>
+
+          <a href="donor.html">
+            ❤️ Donor Network
+          </a>
+
+          <a href="camps.html">
+            🩸 Camps
+          </a>
+
+          <a href="assistant.html">
+            🤖 AI Assistant
+          </a>
+
+          <a href="about.html">
+            ℹ️ About
+          </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =====================================
+         HERO
+    ====================================== -->
+
+    <main>
+
+      <section class="tracking-hero">
+
+        <div class="container tracking-hero-grid">
+
+          <div>
+
+            <span class="tracking-eyebrow">
+              📋 Coordination tracking
+            </span>
+
+            <h1>
+              Know where your
+              <span>request stands.</span>
+            </h1>
+
+            <p>
+              Enter your PRANAV Request ID to view the current
+              coordination stage, requirement summary and
+              verification status.
+            </p>
+
+          </div>
+
+
+          <div
+            class="tracking-visual"
+            aria-hidden="true"
+          >
+
+            <div class="tracking-orbit"></div>
+
+            <div class="tracking-center">
+              📋
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================
+           SEARCH
+      ====================================== -->
+
+      <section class="tracking-section">
+
+        <div class="container">
+
+          <div class="tracking-search-card">
+
+            <h2>
+              Track your request
+            </h2>
+
+            <p>
+              Enter the Request ID generated when your emergency
+              coordination request was created.
+            </p>
+
+
+            <form id="trackingForm">
+
+              <div class="tracking-input-row">
+
+                <input
+                  id="requestIdInput"
+                  class="tracking-input"
+                  type="text"
+                  inputmode="text"
+                  autocomplete="off"
+                  placeholder="Example: RS-2026-123456"
+                  aria-label="PRANAV Request ID"
+                  required
+                >
+
+                <button
+                  type="submit"
+                  class="tracking-button"
+                >
+                  🔎 Track Request
+                </button>
+
+              </div>
+
+            </form>
+
+
+            <div class="sample-note">
+
+              <strong>Prototype:</strong>
+              If you created a request on this device,
+              PRANAV can load its locally stored prototype record.
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================
+               EMPTY RESULT
+          ================================== -->
+
+          <div
+            id="trackingEmpty"
+            class="tracking-empty"
+          >
+
+            <div class="tracking-empty-icon">
+              🔎
+            </div>
+
+            <h3>
+              Request not found
+            </h3>
+
+            <p>
+              Please check the Request ID and try again.
+              If this is a real emergency, contact the appropriate
+              emergency medical service or authorised healthcare
+              facility immediately.
+            </p>
+
+          </div>
+
+
+          <!-- =================================
+               TRACKING RESULT
+          ================================== -->
+
+          <div
+            id="trackingResult"
+            class="tracking-result"
+          >
+
+
+            <!-- REQUEST OVERVIEW -->
+
+            <div class="request-overview">
+
+
+              <div class="overview-card">
+
+                <span class="overview-label">
+                  Request ID
+                </span>
+
+                <div
+                  id="displayRequestId"
+                  class="request-code"
+                >
+                  RS-2026-XXXXXX
+                </div>
+
+
+                <div class="request-details">
+
+                  <div class="detail-item">
+
+                    <span>
+                      Blood Group
+                    </span>
+
+                    <strong id="displayBloodGroup">
+                      —
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <span>
+                      Component
+                    </span>
+
+                    <strong id="displayComponent">
+                      —
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <span>
+                      Units
+                    </span>
+
+                    <strong id="displayUnits">
+                      —
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <span>
+                      Urgency
+                    </span>
+
+                    <strong id="displayUrgency">
+                      —
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="overview-card">
+
+                <span class="overview-label">
+                  Current status
+                </span>
+
+                <div class="request-status">
+
+                  <span class="status-dot"></span>
+
+                  <span id="displayStatus">
+                    Request Created
+                  </span>
+
+                </div>
+
+
+                <div class="request-details">
+
+                  <div class="detail-item">
+
+                    <span>
+                      City / District
+                    </span>
+
+                    <strong id="displayCity">
+                      —
+                    </strong>
+
+                  </div>
+
+
+                  <div class="detail-item">
+
+                    <span>
+                      Facility
+                    </span>
+
+                    <strong id="displayFacility">
+                      —
+                    </strong>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <!-- TIMELINE -->
+
+            <div class="timeline-card">
+
+              <div class="timeline-heading">
+
+                <span>
+                  Request journey
+                </span>
+
+                <h2>
+                  Coordination progress
+                </h2>
+
+                <p>
+                  Your request moves through structured stages.
+                </p>
+
+              </div>
+
+
+              <div class="timeline">
+
+
+                <!-- 01 -->
+
+                <div
+                  class="timeline-step completed"
+                  data-step="1"
+                >
+
+                  <div class="timeline-icon">
+                    ✓
+                  </div>
+
+                  <div class="timeline-content">
+
+                    <strong>
+                      Request Created
+                    </strong>
+
+                    <small>
+                      Your emergency requirement has been
+                      recorded with a unique Request ID.
+                    </small>
+
+                  </div>
+
+                </div>
+
+
+                <!-- 02 -->
+
+                <div
+                  class="timeline-step active"
+                  data-step="2"
+                >
+
+                  <div class="timeline-icon">
+                    🧠
+                  </div>
+
+                  <div class="timeline-content">
+
+                    <strong>
+                      Requirement Analysed
+                    </strong>
+
+                    <small>
+                      Blood group, component, location, urgency
+                      and other relevant information are structured
+                      for coordination.
+                    </small>
+
+                    <span class="timeline-badge">
+                      Current stage
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <!-- 03 -->
+
+                <div
+                  class="timeline-step"
+                  data-step="3"
+                >
+
+                  <div class="timeline-icon">
+                    🔎
+                  </div>
+
+                  <div class="timeline-content">
+
+                    <strong>
+                      Searching
+                    </strong>
+
+                    <small>
+                      Potential blood resources and relevant
+                      coordination options can be discovered.
+                    </small>
+
+                  </div>
+
+                </div>
+
+
+                <!-- 04 -->
+
+                <div
+                  class="timeline-step"
+                  data-step="4"
+                >
+
+                  <div class="timeline-icon">
+                    🛡️
+                  </div>
+
+                  <div class="timeline-content">
+
+                    <strong>
+                      Verification
+                    </strong>
+
+                    <small>
+                      Potential availability must be confirmed
+                      directly with the respective authorised
+                      blood centre or healthcare facility.
+                    </small>
+
+                  </div>
+
+                </div>
+
+
+                <!-- 05 -->
+
+                <div
+                  class="timeline-step"
+                  data-step="5"
+                >
+
+                  <div class="timeline-icon">
+                    🤝
+                  </div>
+
+                  <div class="timeline-content">
+
+                    <strong>
+                      Coordination
+                    </strong>
+
+                    <small>
+                      Relevant resources, facilities and
+                      coordination pathways are connected.
+                    </small>
+
+                  </div>
+
+                </div>
+
+
+                <!-- 06 -->
+
+                <div
+                  class="timeline-step"
+                  data-step="6"
+                >
+
+                  <div class="timeline-icon">
+                    ✓
+                  </div>
+
+                  <div class="timeline-content">
+
+                    <strong>
+                      Resolved / Closed
+                    </strong>
+
+                    <small>
+                      The request can be marked resolved or
+                      closed after the relevant healthcare
+                      coordination process is completed.
+                    </small>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+              <div class="verification-box">
+
+                <strong>
+                  ⚠️ Verification required
+                </strong>
+
+                PRANAV displays potential coordination information.
+                Availability can change at any time. Final
+                confirmation, donor eligibility, compatibility and
+                all clinical decisions remain with authorised
+                healthcare professionals and facilities.
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =====================================
+           RESPONSIBLE TECHNOLOGY
+      ====================================== -->
+
+      <section class="tracking-responsibility">
+
+        <div class="container">
+
+          <div class="responsibility-inner">
+
+            <span>
+              Human oversight
+            </span>
+
+            <h2>
+              Technology coordinates.
+              Healthcare professionals decide.
+            </h2>
+
+            <p>
+              PRANAV is a coordination and discovery platform.
+              It does not store, test, transport, release or
+              distribute blood. Blood collection, testing, storage,
+              compatibility, release and transfusion remain under
+              authorised healthcare processes.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="brand"
+          >
+
+            <img
+              src="pranav-logo.png"
+              alt="PRANAV logo"
+              width="48"
+              height="48"
+            >
+
+            <span class="brand-copy">
+
+              <span class="brand-name">
+                PRANAV
+              </span>
+
+              <span class="brand-subtitle">
+                Intelligent Healthcare Network
+              </span>
+
+            </span>
+
+          </a>
+
+          <p>
+            Connecting people, healthcare resources and
+            responsible technology through intelligent
+            coordination.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Emergency
+          </h3>
+
+          <a href="emergency.html">
+            Create Request
+          </a>
+
+          <a href="blood-request.html">
+            Track Request
+          </a>
+
+          <a href="find-blood.html">
+            Find Resources
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Assistance
+          </h3>
+
+          <a href="assistant.html">
+            AI Assistant
+          </a>
+
+          <a href="easy-mode.html">
+            Easy Mode
+          </a>
+
+          <a href="about.html">
+            About PRANAV
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © 2026 PRANAV. All Rights Reserved.
+        </span>
+
+        <span>
+          Verification-first • Privacy-aware • Human oversight
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =====================================
+         MOBILE BOTTOM NAV
+    ====================================== -->
+
+    <nav
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="index.html">
+        <span>⌂</span>
+        Home
+      </a>
+
+      <a href="find-blood.html">
+        <span>🔎</span>
+        Find
+      </a>
+
+      <a
+        href="emergency.html"
+        class="emergency"
+      >
+        <span>🚨</span>
+        Emergency
+      </a>
+
+      <a href="assistant.html">
+        <span>🤖</span>
+        Assistant
+      </a>
+
+      <a href="about.html">
+        <span>ℹ️</span>
+        About
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- =====================================
+       TRACKING JAVASCRIPT
+  ====================================== -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+
+      const form =
+        document.getElementById(
+          "trackingForm"
+        );
+
+
+      const input =
+        document.getElementById(
+          "requestIdInput"
+        );
+
+
+      const result =
+        document.getElementById(
+          "trackingResult"
+        );
+
+
+      const empty =
+        document.getElementById(
+          "trackingEmpty"
+        );
+
+
+      function getStoredRequest() {
+
+        try {
+
+          const stored =
+            localStorage.getItem(
+              "pranavEmergencyRequest"
+            );
+
+          if (!stored) {
+            return null;
+          }
+
+          return JSON.parse(stored);
+
+        } catch (error) {
+
+          return null;
+
+        }
+
+      }
+
+
+      function setText(id, value) {
+
+        const element =
+          document.getElementById(id);
+
+        if (element) {
+
+          element.textContent =
+            value || "—";
+
+        }
+
+      }
+
+
+      function showRequest(request) {
+
+        if (!request) {
+
+          result.classList.remove("show");
+
+          empty.classList.add("show");
+
+          return;
+
+        }
+
+
+        empty.classList.remove("show");
+
+        result.classList.add("show");
+
+
+        setText(
+          "displayRequestId",
+          request.requestId
+        );
+
+
+        setText(
+          "displayBloodGroup",
+          request.bloodGroup
+        );
+
+
+        setText(
+          "displayComponent",
+          request.component
+        );
+
+
+        setText(
+          "displayUnits",
+          request.units
+        );
+
+
+        setText(
+          "displayUrgency",
+          request.urgency
+        );
+
+
+        setText(
+          "displayCity",
+          request.city
+        );
+
+
+        setText(
+          "displayFacility",
+          request.facility
+        );
+
+
+        setText(
+          "displayStatus",
+          request.status ||
+          "Request Created"
+        );
+
+
+        /*
+          Prototype journey.
+
+          The interface intentionally does not
+          claim that a real blood resource has
+          been found or verified.
+        */
+
+        updateTimeline(
+          request.status
+        );
+
+
+        result.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }
+
+
+      function updateTimeline(status) {
+
+        const steps =
+          document.querySelectorAll(
+            ".timeline-step"
+          );
+
+
+        steps.forEach(function (step) {
+
+          step.classList.remove(
+            "completed",
+            "active"
+          );
+
+          const number =
+            Number(
+              step.dataset.step
+            );
+
+
+          /*
+            Prototype status mapping.
+          */
+
+          let currentStep = 2;
+
+
+          if (
+            status ===
+            "Searching"
+          ) {
+
+            currentStep = 3;
+
+          }
+
+          if (
+            status ===
+            "Verification"
+          ) {
+
+            currentStep = 4;
+
+          }
+
+          if (
+            status ===
+            "Coordination"
+          ) {
+
+            currentStep = 5;
+
+          }
+
+          if (
+            status ===
+            "Resolved" ||
+            status ===
+            "Closed"
+          ) {
+
+            currentStep = 6;
+
+          }
+
+
+          if (
+            number <
+            currentStep
+          ) {
+
+            step.classList.add(
+              "completed"
+            );
+
+          } else if (
+            number ===
+            currentStep
+          ) {
+
+            step.classList.add(
+              "active"
+            );
+
+          }
+
+        });
+
+      }
+
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+
+          const enteredId =
+            input.value
+              .trim()
+              .toUpperCase();
+
+
+          if (!enteredId) {
+            return;
+          }
+
+
+          const storedRequest =
+            getStoredRequest();
+
+
+          if (
+            storedRequest &&
+            storedRequest.requestId &&
+            storedRequest.requestId.toUpperCase() ===
+            enteredId
+          ) {
+
+            showRequest(
+              storedRequest
+            );
+
+            return;
+
+          }
+
+
+          /*
+            Allow prototype users to paste
+            the locally generated ID.
+
+            If the request does not exist
+            locally, do not fabricate a result.
+          */
+
+          showRequest(null);
+
+        }
+      );
+
+
+      /*
+        Automatically load a locally stored
+        request when this page opens.
+      */
+
+      const existingRequest =
+        getStoredRequest();
+
+
+      if (
+        existingRequest &&
+        existingRequest.requestId
+      ) {
+
+        input.value =
+          existingRequest.requestId;
+
+        showRequest(
+          existingRequest
+        );
+
+      }
+
+    })();
+
+  </script>
+
+
+  <!-- =====================================
+       APPLICATION SCRIPTS
+  ====================================== -->
+
+  <script
+    src="js/app.js"
+    defer
+  ></script>
+
+  <script
+    src="js/tracking.js"
+    defer
+  ></script>
+
+  <script
+    src="js/animations.js"
+    defer
+  ></script>
+
+  <script
+    src="js/accessibility.js"
+    defer
+  ></script>
+
+  <script
+    src="js/loader.js"
+    defer
+  ></script>
+
+
+  <!-- =====================================
+       SERVICE WORKER
+  ====================================== -->
+
+  <script>
+
+    if (
+      "serviceWorker" in navigator
+    ) {
+
+      window.addEventListener(
+        "load",
+        function () {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(function () {
+
+              /*
+                Application remains usable
+                if service worker registration
+                is unavailable.
+              */
+
+            });
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
