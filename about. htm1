@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>About PRANAV | Connecting People. Supporting Care.</title>
+
+  <meta
+    name="description"
+    content="Learn about PRANAV, an intelligent healthcare coordination platform designed to connect emergency requirements, potential blood resources, donor networks and authorised healthcare facilities."
+  />
+
+  <link rel="icon" href="pranav-logo.png" />
+  <link rel="manifest" href="manifest.json" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <style>
+    .about-page {
+      min-height: 100vh;
+      padding: 55px 20px 110px;
+
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(207, 248, 229, 0.75),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(255, 220, 226, 0.7),
+          transparent 34%
+        ),
+        linear-gradient(135deg, #f8fffc, #fff8f9);
+
+      color: #26302e;
+    }
+
+    .about-container {
+      width: min(1180px, 100%);
+      margin: auto;
+    }
+
+    /* HERO */
+
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
+      align-items: center;
+      margin-bottom: 65px;
+    }
+
+    .about-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 15px;
+      margin-bottom: 18px;
+
+      border-radius: 50px;
+
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(165,30,54,.12);
+
+      color: #a51e36;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .about-hero h1 {
+      margin: 0;
+
+      font-size: clamp(38px, 5.5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -1.8px;
+    }
+
+    .about-hero h1 span {
+      color: #a51e36;
+    }
+
+    .about-hero p {
+      max-width: 690px;
+
+      margin: 20px 0 0;
+
+      color: #66736f;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .primary-action,
+    .secondary-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 14px 20px;
+
+      border-radius: 14px;
+
+      text-decoration: none;
+      font-weight: 800;
+
+      transition: .25s ease;
+    }
+
+    .primary-action {
+      background: #a51e36;
+      color: white;
+      box-shadow: 0 12px 25px rgba(165,30,54,.16);
+    }
+
+    .secondary-action {
+      background: rgba(255,255,255,.8);
+      color: #36413e;
+      border: 1px solid #dfe9e4;
+    }
+
+    .primary-action:hover,
+    .secondary-action:hover {
+      transform: translateY(-2px);
+    }
+
+    /* NETWORK VISUAL */
+
+    .network-visual {
+      min-height: 370px;
+
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 35px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.84),
+          rgba(236,250,244,.72)
+        );
+
+      border: 1px solid rgba(55,90,75,.1);
+
+      box-shadow: 0 25px 70px rgba(35,65,53,.10);
+
+      overflow: hidden;
+    }
+
+    .network-ring {
+      position: absolute;
+
+      width: 285px;
+      height: 285px;
+
+      border: 1px dashed rgba(165,30,54,.22);
+      border-radius: 50%;
+
+      animation: rotateRing 20s linear infinite;
+    }
+
+    .network-ring.two {
+      width: 190px;
+      height: 190px;
+
+      border-color: rgba(45,130,92,.2);
+
+      animation-direction: reverse;
+      animation-duration: 14s;
+    }
+
+    .network-core {
+      position: relative;
+      z-index: 3;
+
+      width: 105px;
+      height: 105px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #effaf5
+        );
+
+      border: 2px solid rgba(165,30,54,.16);
+
+      box-shadow:
+        0 0 0 15px rgba(255,255,255,.4),
+        0 20px 40px rgba(45,70,60,.12);
+
+      text-align: center;
+    }
+
+    .network-core .drop {
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .network-core strong {
+      margin-top: 5px;
+      font-size: 13px;
+      color: #a51e36;
+    }
+
+    .network-node {
+      position: absolute;
+      z-index: 4;
+
+      width: 62px;
+      height: 62px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 18px;
+
+      background: rgba(255,255,255,.92);
+
+      border: 1px solid #e1ebe6;
+
+      box-shadow: 0 10px 30px rgba(35,60,50,.1);
+
+      font-size: 25px;
+    }
+
+    .node-1 {
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-2 {
+      right: 42px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .node-3 {
+      bottom: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .node-4 {
+      left: 42px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @keyframes rotateRing {
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* SECTION */
+
+    .section-heading {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 35px;
+    }
+
+    .section-heading span {
+      display: inline-block;
+
+      margin-bottom: 9px;
+
+      color: #a51e36;
+
+      font-size: 12px;
+      font-weight: 900;
+
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.15;
+    }
+
+    .section-heading p {
+      margin: 13px auto 0;
+
+      color: #72807b;
+      line-height: 1.65;
+    }
+
+    /* MISSION */
+
+    .mission-section {
+      margin-bottom: 70px;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .mission-card {
+      padding: 28px;
+
+      border-radius: 24px;
+
+      background: rgba(255,255,255,.83);
+
+      border: 1px solid rgba(50,85,70,.1);
+
+      box-shadow: 0 15px 45px rgba(30,55,45,.07);
+
+      transition: .25s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .mission-icon {
+      width: 52px;
+      height: 52px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 18px;
+
+      border-radius: 16px;
+
+      background: #f0faf5;
+
+      font-size: 25px;
+    }
+
+    .mission-card h3 {
+      margin: 0 0 9px;
+
+      font-size: 19px;
+    }
+
+    .mission-card p {
+      margin: 0;
+
+      color: #707d79;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    /* JOURNEY */
+
+    .journey-section {
+      margin-bottom: 70px;
+    }
+
+    .journey {
+      display: grid;
+
+      grid-template-columns: repeat(8, 1fr);
+
+      gap: 8px;
+
+      align-items: center;
+    }
+
+    .journey-step {
+      text-align: center;
+    }
+
+    .journey-circle {
+      width: 58px;
+      height: 58px;
+
+      margin: auto;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: white;
+
+      border: 2px solid #dceae4;
+
+      box-shadow: 0 10px 25px rgba(30,60,50,.07);
+
+      font-size: 21px;
+    }
+
+    .journey-step strong {
+      display: block;
+
+      margin-top: 9px;
+
+      font-size: 11px;
+      line-height: 1.35;
+
+      color: #52615c;
+    }
+
+    .journey-arrow {
+      text-align: center;
+
+      color: #a51e36;
+      font-weight: 900;
+    }
+
+    /* PRINCIPLES */
+
+    .principles-section {
+      margin-bottom: 70px;
+    }
+
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .principle-card {
+      display: flex;
+      gap: 17px;
+
+      padding: 22px;
+
+      border-radius: 20px;
+
+      background: rgba(255,255,255,.78);
+
+      border: 1px solid #e1ebe6;
+    }
+
+    .principle-number {
+      width: 38px;
+      height: 38px;
+
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: #a51e36;
+      color: white;
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .principle-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .principle-card p {
+      margin: 0;
+
+      color: #74807d;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* SAFETY */
+
+    .safety-section {
+      margin-bottom: 70px;
+    }
+
+    .safety-card {
+      padding: 30px;
+
+      border-radius: 27px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,244,246,.92),
+          rgba(255,255,255,.9)
+        );
+
+      border: 1px solid #f0d9dd;
+
+      box-shadow: 0 18px 45px rgba(90,35,45,.07);
+    }
+
+    .safety-card h2 {
+      margin: 0 0 12px;
+
+      color: #8e1b30;
+      font-size: 25px;
+    }
+
+    .safety-card > p {
+      margin: 0 0 20px;
+
+      color: #6f6265;
+      line-height: 1.7;
+    }
+
+    .safety-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .safety-item {
+      padding: 17px;
+
+      border-radius: 16px;
+
+      background: rgba(255,255,255,.7);
+
+      border: 1px solid #f0dfe2;
+    }
+
+    .safety-item strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #34302f;
+      font-size: 14px;
+    }
+
+    .safety-item span {
+      color: #796f71;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+
+    .about-cta {
+      padding: 45px 30px;
+
+      text-align: center;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #eefaf5
+        );
+
+      border: 1px solid #dceae4;
+
+      box-shadow: 0 20px 55px rgba(30,65,50,.08);
+    }
+
+    .about-cta h2 {
+      margin: 0;
+
+      font-size: clamp(28px, 4vw, 40px);
+    }
+
+    .about-cta p {
+      max-width: 650px;
+
+      margin: 13px auto 23px;
+
+      color: #71807b;
+      line-height: 1.65;
+    }
+
+    .about-cta-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-note {
+      text-align: center;
+
+      margin-top: 25px;
+
+      color: #8b9692;
+      font-size: 12px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 950px) {
+
+      .about-hero {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .network-visual {
+        min-height: 320px;
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .journey {
+        grid-template-columns: repeat(4, 1fr);
+        row-gap: 25px;
+      }
+
+      .journey-arrow {
+        display: none;
+      }
+
+      .safety-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .about-page {
+        padding: 35px 14px 105px;
+      }
+
+      .about-hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .about-hero p {
+        font-size: 15px;
+      }
+
+      .network-visual {
+        min-height: 285px;
+      }
+
+      .network-ring {
+        width: 220px;
+        height: 220px;
+      }
+
+      .network-ring.two {
+        width: 145px;
+        height: 145px;
+      }
+
+      .network-node {
+        width: 52px;
+        height: 52px;
+        border-radius: 15px;
+        font-size: 21px;
+      }
+
+      .node-2 {
+        right: 22px;
+      }
+
+      .node-4 {
+        left: 22px;
+      }
+
+      .journey {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .principles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions a {
+        width: 100%;
+      }
+
+      .about-cta {
+        padding: 35px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+        <img src="pranav-logo.png" alt="PRANAV Logo" />
+        <span>PRANAV</span>
+      </a>
+
+      <nav class="desktop-nav">
+
+        <a href="index.html">Home</a>
+
+        <a href="find-blood.html">
+          Find Blood
+        </a>
+
+        <a href="camps.html">
+          Camps
+        </a>
+
+        <a href="blood-education.html">
+          Education
+        </a>
+
+        <a href="assistant.html">
+          AI Assistant
+        </a>
+
+        <a href="about.html" class="active">
+          About
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <a href="assistant.html" class="ai-btn">
+          🤖 Ask PRANAV
+        </a>
+
+        <a href="emergency.html" class="emergency-btn">
+          🚨 Emergency
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="about-page">
+
+    <div class="about-container">
+
+
+      <!-- HERO -->
+
+      <section class="about-hero">
+
+        <div>
+
+          <div class="about-badge">
+            🩸 Healthcare Coordination Network
+          </div>
+
+          <h1>
+            Care that
+            <span>connects.</span>
+          </h1>
+
+          <p>
+            PRANAV is designed as a patient-centric healthcare coordination
+            layer that brings emergency requirements, potential blood
+            resources, donor networks and authorised healthcare facilities
+            into one structured journey.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              href="emergency.html"
+              class="primary-action"
+            >
+              🚨 Create Emergency Request
+            </a>
+
+            <a
+              href="assistant.html"
+              class="secondary-action"
+            >
+              🤖 Meet PRANAV AI
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- NETWORK VISUAL -->
+
+        <div class="network-visual">
+
+          <div class="network-ring"></div>
+
+          <div class="network-ring two"></div>
+
+          <div class="network-core">
+
+            <div class="drop">
+              🩸
+            </div>
+
+            <strong>
+              PRANAV
+            </strong>
+
+          </div>
+
+          <div class="network-node node-1">
+            🏥
+          </div>
+
+          <div class="network-node node-2">
+            📍
+          </div>
+
+          <div class="network-node node-3">
+            👥
+          </div>
+
+          <div class="network-node node-4">
+            🤖
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- MISSION -->
+
+      <section class="mission-section">
+
+        <div class="section-heading">
+
+          <span>
+            OUR PURPOSE
+          </span>
+
+          <h2>
+            Built around the patient's journey
+          </h2>
+
+          <p>
+            Emergency healthcare coordination can involve multiple people,
+            facilities and information sources. PRANAV brings these steps
+            together into a clearer digital experience.
+          </p>
+
+        </div>
+
+
+        <div class="mission-grid">
+
+          <article class="mission-card">
+
+            <div class="mission-icon">
+              🚨
+            </div>
+
+            <h3>
+              Emergency First
+            </h3>
+
+            <p>
+              Create structured emergency requests with the key information
+              needed for coordination.
+            </p>
+
+          </article>
+
+
+          <article class="mission-card">
+
+            <div class="mission-icon">
+              🧠
+            </div>
+
+            <h3>
+              Intelligent Coordination
+            </h3>
+
+            <p>
+              Organise requirements and discover potential resources using
+              factors such as component, location and urgency.
+            </p>
+
+          </article>
+
+
+          <article class="mission-card">
+
+            <div class="mission-icon">
+              🤝
+            </div>
+
+            <h3>
+              Connected Care
+            </h3>
+
+            <p>
+              Help patients, donors and authorised healthcare facilities
+              coordinate through a transparent workflow.
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- JOURNEY -->
+
+      <section class="journey-section">
+
+        <div class="section-heading">
+
+          <span>
+            PRANAV JOURNEY
+          </span>
+
+          <h2>
+            From request to resolution
+          </h2>
+
+          <p>
+            A structured coordination flow designed to reduce confusion
+            during time-sensitive situations.
+          </p>
+
+        </div>
+
+
+        <div class="journey">
+
+          <div class="journey-step">
+
+            <div class="journey-circle">
+              🚨
+            </div>
+
+            <strong>
+              Emergency<br />
+              Request
+            </strong>
+
+          </div>
+
+
+          <div class="journey-arrow">
+            →
+          </div>
+
+
+          <div class="journey-step">
+
+            <div class="journey-circle">
+              🧠
+            </div>
+
+            <strong>
+              Requirement<br />
+              Analysis
+            </strong>
+
+          </div>
+
+
+          <div class="journey-arrow">
+            →
+          </div>
+
+
+          <div class="journey-step">
+
+            <div class="journey-circle">
+              🔎
+            </div>
+
+            <strong>
+              Potential<br />
+              Matching
+            </strong>
+
+          </div>
+
+
+          <div class="journey-arrow">
+            →
+          </div>
+
+
+          <div class="journey-step">
+
+            <div class="journey-circle">
+              🛡️
+            </div>
+
+            <strong>
+              Verification &<br />
+              Coordination
+            </strong>
+
+          </div>
+
+
+          <div class="journey-arrow">
+            →
+          </div>
+
+
+          <div class="journey-step">
+
+            <div class="journey-circle">
+              ✅
+            </div>
+
+            <strong>
+              Resolution /<br />
+              Closure
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PRINCIPLES -->
+
+      <section class="principles-section">
+
+        <div class="section-heading">
+
+          <span>
+            DESIGN PRINCIPLES
+          </span>
+
+          <h2>
+            Technology with responsibility
+          </h2>
+
+          <p>
+            PRANAV is designed to support healthcare coordination without
+            replacing qualified professionals or authorised blood centres.
+          </p>
+
+        </div>
+
+
+        <div class="principles-grid">
+
+          <article class="principle-card">
+
+            <div class="principle-number">
+              01
+            </div>
+
+            <div>
+
+              <h3>
+                Patient-Centric
+              </h3>
+
+              <p>
+                The experience starts with what the patient or attendant
+                needs during an emergency.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="principle-card">
+
+            <div class="principle-number">
+              02
+            </div>
+
+            <div>
+
+              <h3>
+                Verification First
+              </h3>
+
+              <p>
+                Potential resources are clearly distinguished from
+                verified availability.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="principle-card">
+
+            <div class="principle-number">
+              03
+            </div>
+
+            <div>
+
+              <h3>
+                Privacy by Design
+              </h3>
+
+              <p>
+                Sensitive donor information should not be exposed through
+                a public directory.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="principle-card">
+
+            <div class="principle-number">
+              04
+            </div>
+
+            <div>
+
+              <h3>
+                Accessible by Default
+              </h3>
+
+              <p>
+                Simple language, Easy Mode, large actions and voice-friendly
+                interactions support different user needs.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="principle-card">
+
+            <div class="principle-number">
+              05
+            </div>
+
+            <div>
+
+              <h3>
+                AI as Assistance
+              </h3>
+
+              <p>
+                PRANAV AI can help users navigate information and workflows,
+                but does not independently diagnose or prescribe.
+              </p>
+
+            </div>
+
+          </article>
+
+
+          <article class="principle-card">
+
+            <div class="principle-number">
+              06
+            </div>
+
+            <div>
+
+              <h3>
+                Human-in-the-Loop
+              </h3>
+
+              <p>
+                Verification, clinical decisions, blood compatibility,
+                release and transfusion remain with authorised professionals.
+              </p>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- SAFETY -->
+
+      <section class="safety-section">
+
+        <div class="safety-card">
+
+          <h2>
+            🛡️ What PRANAV does — and does not do
+          </h2>
+
+          <p>
+            PRANAV is a coordination and decision-support platform.
+            Actual blood collection, testing, storage, compatibility,
+            release and transfusion remain with authorised blood centres
+            and healthcare professionals.
+          </p>
+
+
+          <div class="safety-list">
+
+            <div class="safety-item">
+
+              <strong>
+                ✓ Coordinates
+              </strong>
+
+              <span>
+                Emergency requests, potential resources, donors and
+                healthcare facilities.
+              </span>
+
+            </div>
+
+
+            <div class="safety-item">
+
+              <strong>
+                ✓ Supports
+              </strong>
+
+              <span>
+                Search, tracking, navigation, communication and
+                decision-support analytics.
+              </span>
+
+            </div>
+
+
+            <div class="safety-item">
+
+              <strong>
+                ✓ Verifies
+              </strong>
+
+              <span>
+                Encourages confirmation with authorised facilities before
+                relying on resource information.
+              </span>
+
+            </div>
+
+
+            <div class="safety-item">
+
+              <strong>
+                ✕ No Guarantee
+              </strong>
+
+              <span>
+                A potential match never means guaranteed blood availability.
+              </span>
+
+            </div>
+
+
+            <div class="safety-item">
+
+              <strong>
+                ✕ No Blood Storage
+              </strong>
+
+              <span>
+                PRANAV does not itself collect, test or store blood.
+              </span>
+
+            </div>
+
+
+            <div class="safety-item">
+
+              <strong>
+                ✕ No Autonomous Prescription
+              </strong>
+
+              <span>
+                Medication decisions and dosage remain with qualified
+                healthcare professionals.
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- CTA -->
+
+      <section class="about-cta">
+
+        <h2>
+          Ready to explore PRANAV?
+        </h2>
+
+        <p>
+          Start an emergency request, discover potential blood resources,
+          explore healthcare education or talk to the PRANAV AI Assistant.
+        </p>
+
+
+        <div class="about-cta-actions">
+
+          <a
+            href="emergency.html"
+            class="primary-action"
+          >
+            🚨 Emergency Request
+          </a>
+
+          <a
+            href="find-blood.html"
+            class="secondary-action"
+          >
+            🔎 Find Blood
+          </a>
+
+          <a
+            href="assistant.html"
+            class="secondary-action"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <div class="footer-note">
+
+        PRANAV — Connecting People. Supporting Care.
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- MOBILE BOTTOM NAV -->
+
+  <nav class="mobile-bottom-nav">
+
+    <a href="index.html">
+      <span>⌂</span>
+      <small>Home</small>
+    </a>
+
+    <a href="find-blood.html">
+      <span>🔎</span>
+      <small>Find</small>
+    </a>
+
+    <a href="emergency.html">
+      <span>🚨</span>
+      <small>Emergency</small>
+    </a>
+
+    <a href="assistant.html">
+      <span>🤖</span>
+      <small>Assistant</small>
+    </a>
+
+    <a href="about.html">
+      <span>ℹ️</span>
+      <small>About</small>
+    </a>
+
+  </nav>
+
+
+  <!-- SCRIPTS -->
+
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/loader.js"></script>
+
+  <script>
+    // Service Worker
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>
