@@ -1,0 +1,2357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#a80d2b">
+
+  <meta
+    name="description"
+    content="PRANAV privacy-first donor coordination network for responsible blood emergency coordination."
+  >
+
+  <meta
+    property="og:title"
+    content="Donor Network | PRANAV"
+  >
+
+  <meta
+    property="og:description"
+    content="Join the PRANAV donor coordination network and help authorised healthcare facilities coordinate blood requirements."
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <title>Donor Network | PRANAV</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="pranav-logo.png"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/animations.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       PRANAV DONOR NETWORK
+    ===================================================== */
+
+    .donor-page {
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 90% 5%,
+          rgba(255,215,222,.8),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 5% 35%,
+          rgba(202,238,218,.82),
+          transparent 32%
+        ),
+
+        #f2faf6;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .donor-hero {
+
+      padding: 70px 0 45px;
+    }
+
+
+    .donor-hero-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr
+        .95fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+
+    .donor-eyebrow {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #edf8f1;
+
+      border:
+        1px solid
+        rgba(35,107,72,.12);
+
+      color: #17633f;
+
+      font-size: .67rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+
+    .donor-hero h1 {
+
+      margin: 18px 0 15px;
+
+      max-width: 760px;
+
+      font-family:
+        Manrope,
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.6rem,
+          5vw,
+          4.7rem
+        );
+
+      line-height: .98;
+
+      letter-spacing: -.06em;
+
+      color: #222b27;
+    }
+
+
+    .donor-hero h1 span {
+
+      color: #ad102e;
+    }
+
+
+    .donor-hero p {
+
+      max-width: 680px;
+
+      margin: 0;
+
+      color: #68756e;
+
+      font-size: 1rem;
+
+      line-height: 1.75;
+    }
+
+
+    /* =====================================================
+       HERO VISUAL
+    ===================================================== */
+
+    .donor-visual {
+
+      position: relative;
+
+      min-height: 310px;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+
+    .donor-glow {
+
+      position: absolute;
+
+      width: 250px;
+      height: 250px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(179,18,47,.16),
+          rgba(179,18,47,.02) 60%,
+          transparent 72%
+        );
+
+      animation:
+        donorPulse 3.5s ease-in-out infinite;
+    }
+
+
+    .donor-orbit {
+
+      position: absolute;
+
+      width: 245px;
+      height: 245px;
+
+      border:
+        1px dashed
+        rgba(179,18,47,.2);
+
+      border-radius: 50%;
+
+      animation:
+        donorOrbit 15s linear infinite;
+    }
+
+
+    .donor-orbit::before,
+    .donor-orbit::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+
+      background: #b3122f;
+
+      box-shadow:
+        0 0 0 6px
+        rgba(179,18,47,.08);
+    }
+
+
+    .donor-orbit::before {
+
+      top: 28px;
+      left: 32px;
+    }
+
+
+    .donor-orbit::after {
+
+      right: 28px;
+      bottom: 32px;
+    }
+
+
+    .donor-center {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 125px;
+      height: 125px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 40px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #b81434,
+          #850921
+        );
+
+      color: white;
+
+      font-size: 3rem;
+
+      box-shadow:
+        0 25px 55px
+        rgba(179,18,47,.24),
+
+        inset 0 1px 0
+        rgba(255,255,255,.35);
+    }
+
+
+    @keyframes donorPulse {
+
+      0%,
+      100% {
+        transform: scale(.92);
+        opacity: .65;
+      }
+
+      50% {
+        transform: scale(1.06);
+        opacity: 1;
+      }
+
+    }
+
+
+    @keyframes donorOrbit {
+
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+
+    }
+
+
+    /* =====================================================
+       MAIN CONTENT
+    ===================================================== */
+
+    .donor-section {
+
+      padding: 25px 0 85px;
+    }
+
+
+    .donor-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr
+        .95fr;
+
+      gap: 22px;
+
+      align-items: start;
+    }
+
+
+    /* =====================================================
+       FORM CARD
+    ===================================================== */
+
+    .donor-form-card {
+
+      padding: 28px;
+
+      border-radius: 27px;
+
+      background:
+        rgba(255,255,255,.95);
+
+      border:
+        1px solid
+        rgba(35,80,60,.1);
+
+      box-shadow:
+        0 20px 55px
+        rgba(30,55,43,.08);
+    }
+
+
+    .donor-form-header {
+
+      margin-bottom: 24px;
+    }
+
+
+    .donor-form-header span {
+
+      color: #a20d2b;
+
+      font-size: .63rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .donor-form-header h2 {
+
+      margin: 8px 0 6px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: 1.45rem;
+
+      letter-spacing: -.04em;
+    }
+
+
+    .donor-form-header p {
+
+      margin: 0;
+
+      color: #7a8580;
+
+      font-size: .72rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       FORM
+    ===================================================== */
+
+    .donor-form {
+
+      display: grid;
+
+      gap: 14px;
+    }
+
+
+    .form-row {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 12px;
+    }
+
+
+    .form-field {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 7px;
+    }
+
+
+    .form-field label {
+
+      color: #39443e;
+
+      font-size: .69rem;
+
+      font-weight: 900;
+    }
+
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+
+      width: 100%;
+
+      box-sizing: border-box;
+
+      border:
+        1px solid
+        #d8e3dd;
+
+      border-radius: 12px;
+
+      background: #fbfdfc;
+
+      color: #27302b;
+
+      outline: none;
+
+      font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size: .78rem;
+
+      transition: .2s ease;
+    }
+
+
+    .form-field input,
+    .form-field select {
+
+      min-height: 48px;
+
+      padding: 0 12px;
+    }
+
+
+    .form-field textarea {
+
+      min-height: 105px;
+
+      padding: 12px;
+
+      resize: vertical;
+    }
+
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+
+      border-color: #b3122f;
+
+      background: white;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(179,18,47,.07);
+    }
+
+
+    .field-hint {
+
+      color: #8a948f;
+
+      font-size: .59rem;
+
+      line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       PRIVACY CHECK
+    ===================================================== */
+
+    .privacy-check {
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 10px;
+
+      padding: 13px;
+
+      border-radius: 13px;
+
+      background: #f3faf6;
+
+      border:
+        1px solid
+        rgba(35,107,72,.09);
+    }
+
+
+    .privacy-check input {
+
+      margin-top: 3px;
+
+      accent-color: #b3122f;
+    }
+
+
+    .privacy-check label {
+
+      color: #66736c;
+
+      font-size: .63rem;
+
+      line-height: 1.55;
+    }
+
+
+    .privacy-check strong {
+
+      color: #344039;
+    }
+
+
+    /* =====================================================
+       SUBMIT
+    ===================================================== */
+
+    .donor-submit {
+
+      width: 100%;
+
+      min-height: 52px;
+
+      border: 0;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+
+      font-size: .76rem;
+
+      font-weight: 900;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 28px
+        rgba(179,18,47,.18);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+
+    .donor-submit:hover {
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 17px 35px
+        rgba(179,18,47,.23);
+    }
+
+
+    /* =====================================================
+       SUCCESS MESSAGE
+    ===================================================== */
+
+    .donor-success {
+
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 16px;
+
+      border-radius: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #edf9f1,
+          #f5fcf7
+        );
+
+      border:
+        1px solid
+        rgba(35,107,72,.13);
+
+      color: #276247;
+
+      font-size: .68rem;
+
+      line-height: 1.6;
+    }
+
+
+    .donor-success.show {
+
+      display: block;
+
+      animation:
+        donorSuccess .4s ease both;
+    }
+
+
+    .donor-success strong {
+
+      display: block;
+
+      margin-bottom: 4px;
+
+      color: #185b39;
+    }
+
+
+    @keyframes donorSuccess {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(8px);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       RIGHT SIDE CARDS
+    ===================================================== */
+
+    .donor-side {
+
+      display: grid;
+
+      gap: 15px;
+    }
+
+
+    .donor-info-card {
+
+      padding: 22px;
+
+      border-radius: 21px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 14px 35px
+        rgba(30,55,43,.06);
+    }
+
+
+    .donor-info-icon {
+
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin-bottom: 14px;
+
+      border-radius: 13px;
+
+      background: #fff0f2;
+
+      font-size: 1.1rem;
+    }
+
+
+    .donor-info-card h3 {
+
+      margin: 0 0 7px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: .95rem;
+
+      letter-spacing: -.025em;
+    }
+
+
+    .donor-info-card p {
+
+      margin: 0;
+
+      color: #77827c;
+
+      font-size: .68rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       NETWORK FLOW
+    ===================================================== */
+
+    .donor-flow-card {
+
+      padding: 22px;
+
+      border-radius: 21px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #fff0f2,
+          #ffe7ea
+        );
+
+      border:
+        1px solid
+        rgba(179,18,47,.09);
+    }
+
+
+    .donor-flow-card h3 {
+
+      margin: 0 0 18px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: .95rem;
+    }
+
+
+    .donor-flow {
+
+      display: grid;
+
+      gap: 8px;
+    }
+
+
+    .donor-flow-step {
+
+      display: grid;
+
+      grid-template-columns:
+        34px
+        1fr;
+
+      gap: 10px;
+
+      align-items: center;
+    }
+
+
+    .donor-flow-number {
+
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 10px;
+
+      background: white;
+
+      color: #a20d2b;
+
+      font-size: .65rem;
+
+      font-weight: 900;
+
+      box-shadow:
+        0 5px 14px
+        rgba(179,18,47,.07);
+    }
+
+
+    .donor-flow-step span {
+
+      color: #6d7772;
+
+      font-size: .65rem;
+
+      line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       RESPONSIBILITY
+    ===================================================== */
+
+    .donor-responsibility {
+
+      margin-top: 18px;
+
+      padding: 17px;
+
+      border-radius: 17px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff6ea,
+          #fffaf3
+        );
+
+      border:
+        1px solid
+        rgba(188,119,44,.12);
+
+      color: #715333;
+
+      font-size: .64rem;
+
+      line-height: 1.6;
+    }
+
+
+    .donor-responsibility strong {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #624521;
+    }
+
+
+    /* =====================================================
+       LOWER SECTION
+    ===================================================== */
+
+    .donor-principles {
+
+      padding: 75px 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eaf8f0,
+          #f4fbf7
+        );
+
+      border-top:
+        1px solid
+        rgba(35,107,72,.08);
+
+      border-bottom:
+        1px solid
+        rgba(35,107,72,.08);
+    }
+
+
+    .principles-heading {
+
+      max-width: 700px;
+
+      margin:
+        0 auto 32px;
+
+      text-align: center;
+    }
+
+
+    .principles-heading span {
+
+      color: #17633f;
+
+      font-size: .63rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .principles-heading h2 {
+
+      margin: 9px 0 8px;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.8rem,
+          3vw,
+          2.5rem
+        );
+
+      letter-spacing: -.045em;
+    }
+
+
+    .principles-heading p {
+
+      margin: 0;
+
+      color: #75817b;
+
+      font-size: .73rem;
+
+      line-height: 1.6;
+    }
+
+
+    .principles-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 14px;
+    }
+
+
+    .principle-card {
+
+      padding: 21px;
+
+      border-radius: 19px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 12px 28px
+        rgba(30,55,43,.05);
+    }
+
+
+    .principle-card b {
+
+      display: block;
+
+      margin-bottom: 8px;
+
+      color: #a20d2b;
+
+      font-size: .76rem;
+    }
+
+
+    .principle-card h3 {
+
+      margin: 0 0 6px;
+
+      font-size: .85rem;
+    }
+
+
+    .principle-card p {
+
+      margin: 0;
+
+      color: #7a8580;
+
+      font-size: .64rem;
+
+      line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+
+    @media (max-width: 950px) {
+
+      .donor-hero-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .donor-visual {
+
+        min-height: 235px;
+      }
+
+
+      .donor-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .principles-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .donor-hero {
+
+        padding-top: 42px;
+      }
+
+
+      .donor-hero h1 {
+
+        font-size: 2.65rem;
+      }
+
+
+      .donor-hero p {
+
+        font-size: .87rem;
+      }
+
+
+      .donor-visual {
+
+        transform: scale(.82);
+
+        margin:
+          -20px 0
+          -10px;
+      }
+
+
+      .donor-form-card {
+
+        padding: 19px;
+
+        border-radius: 21px;
+      }
+
+
+      .form-row {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .principles-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="donor-page">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+
+        <a
+          href="index.html"
+          class="brand"
+          aria-label="PRANAV Home"
+        >
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+
+            <span class="brand-name">
+              PRANAV
+            </span>
+
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="find-blood.html">
+            🩸 Find
+          </a>
+
+          <a href="emergency.html">
+            🚨 Emergency
+          </a>
+
+          <a
+            href="donor.html"
+            class="active"
+          >
+            ❤️ Donor Network
+          </a>
+
+          <a href="camps.html">
+            🩸 Camps
+          </a>
+
+          <a href="assistant.html">
+            🤖 AI Assistant
+          </a>
+
+          <a href="about.html">
+            ℹ️ About
+          </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+      <!-- =================================================
+           HERO
+      ================================================= -->
+
+      <section class="donor-hero">
+
+        <div class="container donor-hero-grid">
+
+
+          <div>
+
+            <span class="donor-eyebrow">
+              ❤️ Privacy-first donor network
+            </span>
+
+
+            <h1>
+              Turn willingness
+              into responsible
+              <span>coordination.</span>
+            </h1>
+
+
+            <p>
+              PRANAV helps create a structured donor coordination
+              layer around emergency blood requirements while
+              protecting donor privacy and keeping final eligibility
+              decisions with authorised blood centres.
+            </p>
+
+          </div>
+
+
+          <div
+            class="donor-visual"
+            aria-hidden="true"
+          >
+
+            <div class="donor-glow"></div>
+
+            <div class="donor-orbit"></div>
+
+            <div class="donor-center">
+              ❤️
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           DONOR SECTION
+      ================================================= -->
+
+      <section class="donor-section">
+
+        <div class="container donor-grid">
+
+
+          <!-- =================================================
+               FORM
+          ================================================= -->
+
+          <div class="donor-form-card">
+
+
+            <div class="donor-form-header">
+
+              <span>
+                Donor coordination profile
+              </span>
+
+              <h2>
+                Join the PRANAV network
+              </h2>
+
+              <p>
+                Provide only the information needed for
+                responsible coordination. Your personal details
+                should not be displayed publicly.
+              </p>
+
+            </div>
+
+
+            <form
+              id="donorForm"
+              class="donor-form"
+            >
+
+
+              <!-- Name + Phone -->
+
+              <div class="form-row">
+
+
+                <div class="form-field">
+
+                  <label for="donorName">
+                    Full Name
+                  </label>
+
+                  <input
+                    id="donorName"
+                    name="fullName"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Enter your name"
+                    required
+                  >
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="donorPhone">
+                    Contact Number
+                  </label>
+
+                  <input
+                    id="donorPhone"
+                    name="phone"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    placeholder="Enter contact number"
+                    required
+                  >
+
+                </div>
+
+
+              </div>
+
+
+              <!-- Blood group + District -->
+
+              <div class="form-row">
+
+
+                <div class="form-field">
+
+                  <label for="donorBloodGroup">
+                    Blood Group
+                  </label>
+
+                  <select
+                    id="donorBloodGroup"
+                    name="bloodGroup"
+                    required
+                  >
+
+                    <option value="">
+                      Select blood group
+                    </option>
+
+                    <option value="A+">
+                      A+
+                    </option>
+
+                    <option value="A-">
+                      A-
+                    </option>
+
+                    <option value="B+">
+                      B+
+                    </option>
+
+                    <option value="B-">
+                      B-
+                    </option>
+
+                    <option value="AB+">
+                      AB+
+                    </option>
+
+                    <option value="AB-">
+                      AB-
+                    </option>
+
+                    <option value="O+">
+                      O+
+                    </option>
+
+                    <option value="O-">
+                      O-
+                    </option>
+
+                  </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                  <label for="donorDistrict">
+                    City / District
+                  </label>
+
+                  <input
+                    id="donorDistrict"
+                    name="district"
+                    type="text"
+                    autocomplete="address-level2"
+                    placeholder="e.g. Lucknow"
+                    required
+                  >
+
+                </div>
+
+
+              </div>
+
+
+              <!-- Availability -->
+
+              <div class="form-field">
+
+                <label for="donorAvailability">
+                  Availability Preference
+                </label>
+
+                <select
+                  id="donorAvailability"
+                  name="availability"
+                  required
+                >
+
+                  <option value="">
+                    Select preference
+                  </option>
+
+                  <option value="Emergency only">
+                    Emergency coordination only
+                  </option>
+
+                  <option value="Flexible">
+                    Flexible
+                  </option>
+
+                  <option value="Scheduled">
+                    Scheduled coordination
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- Last donation -->
+
+              <div class="form-field">
+
+                <label for="lastDonation">
+                  Last Registered Donation Date
+                </label>
+
+                <input
+                  id="lastDonation"
+                  name="lastDonation"
+                  type="date"
+                >
+
+                <span class="field-hint">
+                  This information can help authorised facilities
+                  assess the situation. It does not determine
+                  eligibility by itself.
+                </span>
+
+              </div>
+
+
+              <!-- Additional information -->
+
+              <div class="form-field">
+
+                <label for="donorNotes">
+                  Additional Information
+                </label>
+
+                <textarea
+                  id="donorNotes"
+                  name="notes"
+                  placeholder="Optional information"
+                ></textarea>
+
+              </div>
+
+
+              <!-- Privacy -->
+
+              <div class="privacy-check">
+
+                <input
+                  id="privacyConsent"
+                  type="checkbox"
+                  required
+                >
+
+                <label for="privacyConsent">
+
+                  I understand that my information is intended
+                  for coordination purposes and should not be
+                  displayed publicly.
+
+                  <strong>
+                    Final donor eligibility and suitability
+                    must be determined by an authorised blood centre.
+                  </strong>
+
+                </label>
+
+              </div>
+
+
+              <!-- Submit -->
+
+              <button
+                type="submit"
+                class="donor-submit"
+              >
+                ❤️ Save Donor Coordination Profile
+              </button>
+
+
+            </form>
+
+
+            <!-- SUCCESS -->
+
+            <div
+              id="donorSuccess"
+              class="donor-success"
+              role="status"
+              aria-live="polite"
+            >
+
+              <strong>
+                ✓ Coordination profile saved
+              </strong>
+
+              Your donor information has been stored locally
+              for this prototype. It is not publicly displayed.
+
+            </div>
+
+
+            <!-- RESPONSIBILITY -->
+
+            <div class="donor-responsibility">
+
+              <strong>
+                ⚠️ Important
+              </strong>
+
+              Registering on PRANAV does not mean you are
+              automatically eligible to donate. An authorised
+              blood centre must determine donor eligibility,
+              suitability and all required clinical checks.
+
+            </div>
+
+
+          </div>
+
+
+          <!-- =================================================
+               SIDE INFORMATION
+          ================================================= -->
+
+          <aside class="donor-side">
+
+
+            <div class="donor-info-card">
+
+              <div class="donor-info-icon">
+                🔐
+              </div>
+
+              <h3>
+                Privacy by design
+              </h3>
+
+              <p>
+                Donor names and contact details should never
+                appear as a public searchable list. PRANAV is
+                designed around controlled coordination rather
+                than public exposure of personal information.
+              </p>
+
+            </div>
+
+
+            <div class="donor-info-card">
+
+              <div class="donor-info-icon">
+                🧠
+              </div>
+
+              <h3>
+                Intelligent coordination
+              </h3>
+
+              <p>
+                Potential matching can consider blood group,
+                location, availability information and request
+                context. A potential match is never treated as
+                a guaranteed donor or clinical decision.
+              </p>
+
+            </div>
+
+
+            <div class="donor-flow-card">
+
+              <h3>
+                How donor coordination works
+              </h3>
+
+
+              <div class="donor-flow">
+
+
+                <div class="donor-flow-step">
+
+                  <div class="donor-flow-number">
+                    01
+                  </div>
+
+                  <span>
+                    Donor creates a private coordination profile.
+                  </span>
+
+                </div>
+
+
+                <div class="donor-flow-step">
+
+                  <div class="donor-flow-number">
+                    02
+                  </div>
+
+                  <span>
+                    An emergency requirement is structured.
+                  </span>
+
+                </div>
+
+
+                <div class="donor-flow-step">
+
+                  <div class="donor-flow-number">
+                    03
+                  </div>
+
+                  <span>
+                    PRANAV identifies potential coordination options.
+                  </span>
+
+                </div>
+
+
+                <div class="donor-flow-step">
+
+                  <div class="donor-flow-number">
+                    04
+                  </div>
+
+                  <span>
+                    The authorised facility verifies suitability.
+                  </span>
+
+                </div>
+
+
+                <div class="donor-flow-step">
+
+                  <div class="donor-flow-number">
+                    05
+                  </div>
+
+                  <span>
+                    Healthcare professionals handle the actual
+                    donation process.
+                  </span>
+
+                </div>
+
+
+              </div>
+
+            </div>
+
+
+          </aside>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           PRINCIPLES
+      ================================================= -->
+
+      <section class="donor-principles">
+
+        <div class="container">
+
+
+          <div class="principles-heading">
+
+            <span>
+              Responsible donor network
+            </span>
+
+            <h2>
+              Human willingness.
+              Responsible technology.
+            </h2>
+
+            <p>
+              PRANAV connects information and coordination
+              pathways without replacing authorised healthcare
+              processes.
+            </p>
+
+          </div>
+
+
+          <div class="principles-grid">
+
+
+            <article class="principle-card">
+
+              <b>
+                01 · Privacy
+              </b>
+
+              <h3>
+                Donor information stays protected
+              </h3>
+
+              <p>
+                Personal donor details are not intended to
+                become a public directory.
+              </p>
+
+            </article>
+
+
+            <article class="principle-card">
+
+              <b>
+                02 · Verification
+              </b>
+
+              <h3>
+                Potential does not mean confirmed
+              </h3>
+
+              <p>
+                Every potential donor/resource connection
+                requires appropriate verification.
+              </p>
+
+            </article>
+
+
+            <article class="principle-card">
+
+              <b>
+                03 · Human oversight
+              </b>
+
+              <h3>
+                Professionals remain responsible
+              </h3>
+
+              <p>
+                Eligibility, suitability and clinical decisions
+                remain with authorised healthcare professionals.
+              </p>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-inner">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="brand"
+          >
+
+            <img
+              src="pranav-logo.png"
+              alt="PRANAV logo"
+              width="48"
+              height="48"
+            >
+
+            <span class="brand-copy">
+
+              <span class="brand-name">
+                PRANAV
+              </span>
+
+              <span class="brand-subtitle">
+                Intelligent Healthcare Network
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            Connecting people, healthcare resources and
+            responsible technology through intelligent
+            coordination.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Emergency
+          </h3>
+
+          <a href="emergency.html">
+            Create Request
+          </a>
+
+          <a href="blood-request.html">
+            Track Request
+          </a>
+
+          <a href="find-blood.html">
+            Find Resources
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Assistance
+          </h3>
+
+          <a href="assistant.html">
+            AI Assistant
+          </a>
+
+          <a href="easy-mode.html">
+            Easy Mode
+          </a>
+
+          <a href="about.html">
+            About PRANAV
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © 2026 PRANAV. All Rights Reserved.
+        </span>
+
+        <span>
+          Privacy-aware • Verification-first • Human oversight
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =================================================
+         MOBILE BOTTOM NAV
+    ================================================= -->
+
+    <nav
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="index.html">
+
+        <span>
+          ⌂
+        </span>
+
+        Home
+
+      </a>
+
+
+      <a href="find-blood.html">
+
+        <span>
+          🔎
+        </span>
+
+        Find
+
+      </a>
+
+
+      <a
+        href="emergency.html"
+        class="emergency"
+      >
+
+        <span>
+          🚨
+        </span>
+
+        Emergency
+
+      </a>
+
+
+      <a href="assistant.html">
+
+        <span>
+          🤖
+        </span>
+
+        Assistant
+
+      </a>
+
+
+      <a href="about.html">
+
+        <span>
+          ℹ️
+        </span>
+
+        About
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- =================================================
+       DONOR JAVASCRIPT
+  ================================================= -->
+
+  <script>
+
+    (function () {
+
+      "use strict";
+
+
+      const form =
+        document.getElementById(
+          "donorForm"
+        );
+
+
+      const success =
+        document.getElementById(
+          "donorSuccess"
+        );
+
+
+      if (!form) {
+        return;
+      }
+
+
+      form.addEventListener(
+        "submit",
+        function (event) {
+
+          event.preventDefault();
+
+
+          const donor = {
+
+            fullName:
+              document
+                .getElementById("donorName")
+                .value
+                .trim(),
+
+            phone:
+              document
+                .getElementById("donorPhone")
+                .value
+                .trim(),
+
+            bloodGroup:
+              document
+                .getElementById("donorBloodGroup")
+                .value,
+
+            district:
+              document
+                .getElementById("donorDistrict")
+                .value
+                .trim(),
+
+            availability:
+              document
+                .getElementById("donorAvailability")
+                .value,
+
+            lastDonation:
+              document
+                .getElementById("lastDonation")
+                .value,
+
+            notes:
+              document
+                .getElementById("donorNotes")
+                .value
+                .trim(),
+
+            createdAt:
+              new Date().toISOString(),
+
+            /*
+              Prototype-only local status.
+            */
+
+            status:
+              "Coordination Profile Created"
+
+          };
+
+
+          /*
+            Store only for this prototype.
+
+            No public donor directory is created.
+          */
+
+          try {
+
+            localStorage.setItem(
+              "pranavDonor",
+              JSON.stringify(donor)
+            );
+
+          } catch (error) {
+
+            /*
+              The interface should still work
+              if localStorage is unavailable.
+            */
+
+          }
+
+
+          success.classList.add(
+            "show"
+          );
+
+
+          success.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest"
+          });
+
+        }
+      );
+
+
+      /*
+        Load previously saved prototype
+        profile into the form.
+
+        This does NOT publish it publicly.
+      */
+
+      try {
+
+        const saved =
+          localStorage.getItem(
+            "pranavDonor"
+          );
+
+
+        if (saved) {
+
+          const donor =
+            JSON.parse(saved);
+
+
+          if (donor.fullName) {
+
+            document
+              .getElementById("donorName")
+              .value =
+              donor.fullName;
+
+          }
+
+
+          if (donor.phone) {
+
+            document
+              .getElementById("donorPhone")
+              .value =
+              donor.phone;
+
+          }
+
+
+          if (donor.bloodGroup) {
+
+            document
+              .getElementById("donorBloodGroup")
+              .value =
+              donor.bloodGroup;
+
+          }
+
+
+          if (donor.district) {
+
+            document
+              .getElementById("donorDistrict")
+              .value =
+              donor.district;
+
+          }
+
+
+          if (donor.availability) {
+
+            document
+              .getElementById("donorAvailability")
+              .value =
+              donor.availability;
+
+          }
+
+
+          if (donor.lastDonation) {
+
+            document
+              .getElementById("lastDonation")
+              .value =
+              donor.lastDonation;
+
+          }
+
+
+          if (donor.notes) {
+
+            document
+              .getElementById("donorNotes")
+              .value =
+              donor.notes;
+
+          }
+
+        }
+
+      } catch (error) {
+
+        /*
+          Ignore malformed prototype storage.
+        */
+
+      }
+
+    })();
+
+  </script>
+
+
+  <!-- =================================================
+       APPLICATION SCRIPTS
+  ================================================= -->
+
+  <script
+    src="js/app.js"
+    defer
+  ></script>
+
+  <script
+    src="js/donor.js"
+    defer
+  ></script>
+
+  <script
+    src="js/animations.js"
+    defer
+  ></script>
+
+  <script
+    src="js/accessibility.js"
+    defer
+  ></script>
+
+  <script
+    src="js/loader.js"
+    defer
+  ></script>
+
+
+  <!-- =================================================
+       SERVICE WORKER
+  ================================================= -->
+
+  <script>
+
+    if (
+      "serviceWorker" in navigator
+    ) {
+
+      window.addEventListener(
+        "load",
+        function () {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(function () {
+              /* Non-blocking failure */
+            });
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
