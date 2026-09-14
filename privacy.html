@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Privacy & Safety | PRANAV</title>
+
+  <meta
+    name="description"
+    content="PRANAV privacy, safety, verification and responsible technology principles."
+  >
+
+  <link rel="icon" href="pranav-logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7fcf9;
+      color: #27322f;
+    }
+
+    .privacy-page {
+      min-height: 100vh;
+
+      padding: 50px 18px 110px;
+
+      background:
+        radial-gradient(
+          circle at 8% 8%,
+          rgba(209, 248, 230, .75),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 92% 10%,
+          rgba(255, 220, 226, .65),
+          transparent 32%
+        ),
+        #f7fcf9;
+    }
+
+    .privacy-container {
+      width: min(1050px, 100%);
+      margin: auto;
+    }
+
+    /* HERO */
+
+    .privacy-hero {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .privacy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 15px;
+
+      border-radius: 50px;
+
+      background: rgba(255,255,255,.85);
+      border: 1px solid #dfeae5;
+
+      color: #287452;
+
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .privacy-hero h1 {
+      margin: 17px 0 10px;
+
+      font-size: clamp(35px, 5vw, 57px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .privacy-hero h1 span {
+      color: #a51e36;
+    }
+
+    .privacy-hero p {
+      max-width: 700px;
+
+      margin: auto;
+
+      color: #71807b;
+
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .updated-note {
+      margin-top: 12px;
+
+      color: #929d99;
+
+      font-size: 11px;
+    }
+
+    /* QUICK PRINCIPLES */
+
+    .privacy-highlights {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 14px;
+
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      padding: 20px;
+
+      border-radius: 20px;
+
+      background: rgba(255,255,255,.88);
+
+      border: 1px solid #e0ebe6;
+
+      box-shadow:
+        0 14px 38px rgba(30,60,48,.06);
+    }
+
+    .highlight-icon {
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+      place-items: center;
+
+      margin-bottom: 12px;
+
+      border-radius: 14px;
+
+      background: #edf8f3;
+
+      font-size: 22px;
+    }
+
+    .highlight h3 {
+      margin: 0 0 6px;
+
+      font-size: 15px;
+    }
+
+    .highlight p {
+      margin: 0;
+
+      color: #77847f;
+
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    /* CONTENT */
+
+    .privacy-content {
+      display: grid;
+
+      grid-template-columns: 1fr 280px;
+
+      gap: 20px;
+
+      align-items: start;
+    }
+
+    .privacy-main {
+      display: grid;
+      gap: 17px;
+    }
+
+    .privacy-section {
+      padding: 25px;
+
+      border-radius: 21px;
+
+      background: rgba(255,255,255,.9);
+
+      border: 1px solid #e0ebe6;
+
+      box-shadow:
+        0 14px 40px rgba(30,60,48,.06);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      margin-bottom: 13px;
+    }
+
+    .section-number {
+      width: 35px;
+      height: 35px;
+
+      display: grid;
+      place-items: center;
+
+      flex-shrink: 0;
+
+      border-radius: 11px;
+
+      background: #fff0f2;
+
+      color: #a51e36;
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .privacy-section h2 {
+      margin: 0;
+
+      color: #29332f;
+
+      font-size: 19px;
+    }
+
+    .privacy-section p {
+      margin: 0 0 12px;
+
+      color: #6d7a75;
+
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .privacy-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* LIST */
+
+    .privacy-list {
+      display: grid;
+
+      gap: 9px;
+
+      margin: 13px 0 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    .privacy-list li {
+      position: relative;
+
+      padding-left: 25px;
+
+      color: #63716c;
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .privacy-list li::before {
+      content: "✓";
+
+      position: absolute;
+
+      left: 0;
+      top: 1px;
+
+      width: 17px;
+      height: 17px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #eaf8f1;
+
+      color: #27704f;
+
+      font-size: 9px;
+      font-weight: 900;
+    }
+
+    /* SIDEBAR */
+
+    .privacy-sidebar {
+      position: sticky;
+      top: 20px;
+
+      display: grid;
+      gap: 13px;
+    }
+
+    .side-card {
+      padding: 20px;
+
+      border-radius: 19px;
+
+      background: rgba(255,255,255,.88);
+
+      border: 1px solid #e0ebe6;
+
+      box-shadow:
+        0 12px 35px rgba(30,60,48,.06);
+    }
+
+    .side-card h3 {
+      margin: 0 0 12px;
+
+      font-size: 15px;
+    }
+
+    .side-nav {
+      display: grid;
+      gap: 5px;
+    }
+
+    .side-nav a {
+      padding: 9px 10px;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+
+      color: #687671;
+
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .side-nav a:hover {
+      background: #f0f8f4;
+      color: #287452;
+    }
+
+    .contact-card {
+      background:
+        linear-gradient(
+          145deg,
+          #fff3f5,
+          #ffffff
+        );
+
+      border-color: #efd8dd;
+    }
+
+    .contact-card h3 {
+      color: #8f1d31;
+    }
+
+    .contact-card p {
+      margin: 0;
+
+      color: #74676a;
+
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .contact-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 13px;
+
+      padding: 10px;
+
+      border-radius: 11px;
+
+      background: #a51e36;
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    /* SAFETY BOX */
+
+    .safety-box {
+      padding: 22px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff7e9,
+          #ffffff
+        );
+
+      border: 1px solid #efdfbc;
+    }
+
+    .safety-box h2 {
+      margin: 0 0 8px;
+
+      color: #765b1e;
+
+      font-size: 18px;
+    }
+
+    .safety-box p {
+      margin: 0;
+
+      color: #766748;
+
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* MEDICINE SAFETY */
+
+    .medicine-box {
+      padding: 22px;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #f0faf5,
+          #ffffff
+        );
+
+      border: 1px solid #d8ebe1;
+    }
+
+    .medicine-box h2 {
+      margin: 0 0 8px;
+
+      color: #26704e;
+
+      font-size: 18px;
+    }
+
+    .medicine-box p {
+      margin: 0;
+
+      color: #65756e;
+
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    /* CTA */
+
+    .privacy-cta {
+      margin-top: 20px;
+
+      padding: 32px 25px;
+
+      text-align: center;
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #ffffff,
+          #edf9f4
+        );
+
+      border: 1px solid #dceae4;
+
+      box-shadow:
+        0 18px 50px rgba(30,60,48,.07);
+    }
+
+    .privacy-cta h2 {
+      margin: 0;
+
+      font-size: 27px;
+    }
+
+    .privacy-cta p {
+      max-width: 600px;
+
+      margin: 10px auto 20px;
+
+      color: #73817c;
+
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .cta-actions {
+      display: flex;
+
+      justify-content: center;
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 12px 17px;
+
+      border-radius: 12px;
+
+      text-decoration: none;
+
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .cta-primary {
+      background: #a51e36;
+      color: white;
+    }
+
+    .cta-secondary {
+      background: white;
+
+      border: 1px solid #dce7e2;
+
+      color: #46534e;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+
+      text-align: center;
+
+      color: #8e9995;
+
+      font-size: 10px;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+
+      .privacy-content {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-sidebar {
+        position: static;
+
+        order: -1;
+      }
+
+      .privacy-highlights {
+        grid-template-columns: 1fr;
+      }
+
+      .side-nav {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 550px) {
+
+      .privacy-page {
+        padding: 32px 14px 105px;
+      }
+
+      .privacy-section,
+      .safety-box,
+      .medicine-box {
+        padding: 19px;
+      }
+
+      .side-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .privacy-cta {
+        padding: 28px 18px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <a
+        href="index.html"
+        class="brand"
+      >
+
+        <img
+          src="pranav-logo.png"
+          alt="PRANAV Logo"
+        >
+
+        <span>
+          PRANAV
+        </span>
+
+      </a>
+
+
+      <nav class="desktop-nav">
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="find-blood.html">
+          Find Blood
+        </a>
+
+        <a href="camps.html">
+          Camps
+        </a>
+
+        <a href="blood-education.html">
+          Education
+        </a>
+
+        <a href="assistant.html">
+          AI Assistant
+        </a>
+
+        <a href="about.html">
+          About
+        </a>
+
+      </nav>
+
+
+      <div class="header-actions">
+
+        <a
+          href="assistant.html"
+          class="ai-btn"
+        >
+          🤖 Ask PRANAV
+        </a>
+
+        <a
+          href="emergency.html"
+          class="emergency-btn"
+        >
+          🚨 Emergency
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="privacy-page">
+
+    <div class="privacy-container">
+
+
+      <!-- HERO -->
+
+      <section class="privacy-hero">
+
+        <div class="privacy-badge">
+          🔐 Privacy & Responsible Technology
+        </div>
+
+        <h1>
+          Your trust is
+          <span>important.</span>
+        </h1>
+
+        <p>
+          PRANAV is designed with privacy, verification, accessibility
+          and responsible healthcare technology at the centre of the
+          experience.
+        </p>
+
+        <div class="updated-note">
+          Prototype Privacy & Safety Information
+        </div>
+
+      </section>
+
+
+      <!-- HIGHLIGHTS -->
+
+      <section class="privacy-highlights">
+
+
+        <article class="highlight">
+
+          <div class="highlight-icon">
+            🔒
+          </div>
+
+          <h3>
+            Privacy First
+          </h3>
+
+          <p>
+            Sensitive donor and healthcare information should be handled
+            carefully and should not be exposed through public listings.
+          </p>
+
+        </article>
+
+
+        <article class="highlight">
+
+          <div class="highlight-icon">
+            🛡️
+          </div>
+
+          <h3>
+            Verification First
+          </h3>
+
+          <p>
+            Potential resource information is clearly separated from
+            verified availability.
+          </p>
+
+        </article>
+
+
+        <article class="highlight">
+
+          <div class="highlight-icon">
+            🤖
+          </div>
+
+          <h3>
+            Responsible AI
+          </h3>
+
+          <p>
+            AI supports navigation and information workflows without
+            independently diagnosing or prescribing.
+          </p>
+
+        </article>
+
+      </section>
+
+
+      <div class="privacy-content">
+
+
+        <!-- MAIN -->
+
+        <div class="privacy-main">
+
+
+          <!-- 01 -->
+
+          <section
+            class="privacy-section"
+            id="information"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                01
+              </div>
+
+              <h2>
+                Information PRANAV may handle
+              </h2>
+
+            </div>
+
+            <p>
+              Depending on the feature being used, the PRANAV prototype
+              may ask users to enter information needed to support a
+              healthcare coordination workflow.
+            </p>
+
+            <ul class="privacy-list">
+
+              <li>
+                Emergency request information such as blood group,
+                component, urgency and location.
+              </li>
+
+              <li>
+                Healthcare facility information provided by the user.
+              </li>
+
+              <li>
+                Contact information when required for coordination.
+              </li>
+
+              <li>
+                Donor profile information when a donor voluntarily
+                registers through the platform.
+              </li>
+
+              <li>
+                Information entered into prototype prescription and
+                medicine-review features.
+              </li>
+
+            </ul>
+
+          </section>
+
+
+          <!-- 02 -->
+
+          <section
+            class="privacy-section"
+            id="donor"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                02
+              </div>
+
+              <h2>
+                Donor privacy
+              </h2>
+
+            </div>
+
+            <p>
+              PRANAV is designed around a privacy-first donor coordination
+              approach. Donor information should not be displayed as a
+              publicly searchable personal directory.
+            </p>
+
+            <p>
+              Any real-world donor eligibility, suitability, donation
+              procedure and final decision must be handled by an
+              authorised blood centre and qualified professionals.
+            </p>
+
+          </section>
+
+
+          <!-- 03 -->
+
+          <section
+            class="privacy-section"
+            id="verification"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                03
+              </div>
+
+              <h2>
+                Verification and availability
+              </h2>
+
+            </div>
+
+            <p>
+              A resource discovered through PRANAV is not automatically
+              a confirmed blood unit or guaranteed availability.
+            </p>
+
+            <ul class="privacy-list">
+
+              <li>
+                Potential Match means a resource signal based on available
+                information.
+              </li>
+
+              <li>
+                Verified Availability requires confirmation from the
+                appropriate authorised facility.
+              </li>
+
+              <li>
+                Availability information can change over time.
+              </li>
+
+              <li>
+                Users should confirm directly with the relevant facility
+                before relying on resource information.
+              </li>
+
+            </ul>
+
+          </section>
+
+
+          <!-- 04 -->
+
+          <section
+            class="privacy-section"
+            id="ai"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                04
+              </div>
+
+              <h2>
+                PRANAV AI
+              </h2>
+
+            </div>
+
+            <p>
+              PRANAV AI is designed as an assistance layer for navigation,
+              education, accessibility and healthcare coordination.
+            </p>
+
+            <ul class="privacy-list">
+
+              <li>
+                It can help users understand available platform workflows.
+              </li>
+
+              <li>
+                It can provide simple-language explanations.
+              </li>
+
+              <li>
+                It can help users navigate emergency request and tracking
+                features.
+              </li>
+
+              <li>
+                It should not independently diagnose medical conditions.
+              </li>
+
+              <li>
+                It should not independently prescribe medicines or calculate
+                personalised medication doses.
+              </li>
+
+            </ul>
+
+          </section>
+
+
+          <!-- 05 -->
+
+          <section
+            class="privacy-section"
+            id="prescription"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                05
+              </div>
+
+              <h2>
+                Prescription & medicine information
+              </h2>
+
+            </div>
+
+            <p>
+              The prescription intelligence feature is intended to organise
+              visible information from a prescription or medicine package,
+              such as medicine name, strength, manufacturing date, expiry
+              date, batch number and instructions written by the prescriber.
+            </p>
+
+            <p>
+              OCR or AI extraction may contain errors. Users should compare
+              extracted information with the original prescription and
+              packaging.
+            </p>
+
+          </section>
+
+
+          <!-- 06 -->
+
+          <section
+            class="privacy-section"
+            id="data-use"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                06
+              </div>
+
+              <h2>
+                How information is used
+              </h2>
+
+            </div>
+
+            <p>
+              In a real deployment, information should only be processed
+              for clearly defined purposes connected to the requested
+              healthcare coordination service and according to applicable
+              privacy and healthcare requirements.
+            </p>
+
+            <ul class="privacy-list">
+
+              <li>
+                Supporting emergency request coordination.
+              </li>
+
+              <li>
+                Supporting resource discovery and verification workflows.
+              </li>
+
+              <li>
+                Supporting request status and communication.
+              </li>
+
+              <li>
+                Improving accessibility and user experience where permitted.
+              </li>
+
+            </ul>
+
+          </section>
+
+
+          <!-- 07 -->
+
+          <section
+            class="privacy-section"
+            id="security"
+          >
+
+            <div class="section-title">
+
+              <div class="section-number">
+                07
+              </div>
+
+              <h2>
+                Security approach
+              </h2>
+
+            </div>
+
+            <p>
+              A production version of PRANAV should use appropriate
+              authentication, authorisation, encryption, secure storage,
+              access controls, logging and data-retention practices.
+            </p>
+
+            <p>
+              The current website is a prototype and should not be treated
+              as a production healthcare-record system.
+            </p>
+
+          </section>
+
+
+          <!-- SAFETY -->
+
+          <section class="safety-box">
+
+            <h2>
+              ⚠️ Healthcare safety
+            </h2>
+
+            <p>
+              PRANAV does not collect, test, store, transport or release
+              blood. Actual blood handling, compatibility decisions,
+              release and transfusion remain with authorised blood centres
+              and healthcare professionals.
+            </p>
+
+          </section>
+
+
+          <!-- MEDICINE -->
+
+          <section class="medicine-box">
+
+            <h2>
+              💊 Medication safety
+            </h2>
+
+            <p>
+              PRANAV does not calculate age-wise medicine doses.
+              If a prescription is unclear, incomplete or appears
+              inconsistent, the user should confirm it with the prescribing
+              doctor or a qualified pharmacist rather than guessing.
+            </p>
+
+          </section>
+
+
+        </div>
+
+
+        <!-- SIDEBAR -->
+
+        <aside class="privacy-sidebar">
+
+
+          <div class="side-card">
+
+            <h3>
+              On this page
+            </h3>
+
+            <nav class="side-nav">
+
+              <a href="#information">
+                Information
+              </a>
+
+              <a href="#donor">
+                Donor Privacy
+              </a>
+
+              <a href="#verification">
+                Verification
+              </a>
+
+              <a href="#ai">
+                PRANAV AI
+              </a>
+
+              <a href="#prescription">
+                Prescription
+              </a>
+
+              <a href="#data-use">
+                Data Use
+              </a>
+
+              <a href="#security">
+                Security
+              </a>
+
+            </nav>
+
+          </div>
+
+
+          <div class="side-card contact-card">
+
+            <h3>
+              Need help?
+            </h3>
+
+            <p>
+              For emergency medical situations, contact the treating
+              healthcare facility or appropriate emergency services.
+            </p>
+
+            <a
+              href="emergency.html"
+              class="contact-button"
+            >
+              🚨 Emergency Mode
+            </a>
+
+          </div>
+
+
+          <div class="side-card">
+
+            <h3>
+              Explore PRANAV
+            </h3>
+
+            <nav class="side-nav">
+
+              <a href="about.html">
+                About PRANAV
+              </a>
+
+              <a href="assistant.html">
+                AI Assistant
+              </a>
+
+              <a href="easy-mode.html">
+                Easy Mode
+              </a>
+
+              <a href="find-blood.html">
+                Find Blood
+              </a>
+
+            </nav>
+
+          </div>
+
+        </aside>
+
+
+      </div>
+
+
+      <!-- CTA -->
+
+      <section class="privacy-cta">
+
+        <h2>
+          Use PRANAV with confidence.
+        </h2>
+
+        <p>
+          Explore the platform, create a request or use Easy Mode
+          for a simpler healthcare coordination experience.
+        </p>
+
+        <div class="cta-actions">
+
+          <a
+            href="find-blood.html"
+            class="cta-button cta-primary"
+          >
+            🔎 Find Blood Resources
+          </a>
+
+          <a
+            href="easy-mode.html"
+            class="cta-button cta-secondary"
+          >
+            ♿ Open Easy Mode
+          </a>
+
+          <a
+            href="about.html"
+            class="cta-button cta-secondary"
+          >
+            ℹ️ About PRANAV
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <div class="footer-note">
+
+        PRANAV — Connecting People. Supporting Care.
+
+        <br>
+
+        Prototype information is not a substitute for professional
+        healthcare advice.
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- MOBILE NAV -->
+
+  <nav class="mobile-bottom-nav">
+
+    <a href="index.html">
+      <span>⌂</span>
+      <small>Home</small>
+    </a>
+
+    <a href="find-blood.html">
+      <span>🔎</span>
+      <small>Find</small>
+    </a>
+
+    <a href="emergency.html">
+      <span>🚨</span>
+      <small>Emergency</small>
+    </a>
+
+    <a href="assistant.html">
+      <span>🤖</span>
+      <small>Assistant</small>
+    </a>
+
+    <a href="about.html">
+      <span>ℹ️</span>
+      <small>About</small>
+    </a>
+
+  </nav>
+
+
+  <!-- SCRIPTS -->
+
+  <script src="js/app.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/loader.js"></script>
+
+  <script>
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        () => {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(() => {});
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
