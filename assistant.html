@@ -1,0 +1,2650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#a80d2b">
+
+  <meta
+    name="description"
+    content="PRANAV AI Assistant for accessible healthcare and emergency blood coordination."
+  >
+
+  <title>AI Assistant | PRANAV</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="pranav-logo.png"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/animations.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/assistant.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       PRANAV AI ASSISTANT
+    ===================================================== */
+
+    .assistant-page {
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 90% 5%,
+          rgba(255,214,222,.8),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 5% 25%,
+          rgba(200,239,218,.85),
+          transparent 34%
+        ),
+
+        #f2faf6;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .assistant-hero {
+
+      padding: 55px 0 35px;
+    }
+
+
+    .assistant-layout {
+
+      display: grid;
+
+      grid-template-columns:
+        .82fr
+        1.18fr;
+
+      gap: 22px;
+
+      align-items: stretch;
+    }
+
+
+    /* =====================================================
+       INTRO PANEL
+    ===================================================== */
+
+    .assistant-intro {
+
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 590px;
+
+      padding: 34px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #243a30,
+          #172a22
+        );
+
+      color: white;
+
+      box-shadow:
+        0 25px 65px
+        rgba(25,55,42,.15);
+    }
+
+
+    .assistant-intro::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 300px;
+      height: 300px;
+
+      right: -130px;
+      top: -100px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.05);
+    }
+
+
+    .assistant-intro::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 220px;
+      height: 220px;
+
+      left: -100px;
+      bottom: -100px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(179,18,47,.13);
+    }
+
+
+    .assistant-badge {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: fit-content;
+
+      padding: 7px 11px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.09);
+
+      border:
+        1px solid
+        rgba(255,255,255,.1);
+
+      color: #dff7e9;
+
+      font-size: .6rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+
+    .assistant-intro h1 {
+
+      position: relative;
+
+      z-index: 2;
+
+      margin: 20px 0 14px;
+
+      font-family:
+        Manrope,
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.2rem,
+          4vw,
+          3.7rem
+        );
+
+      line-height: 1;
+
+      letter-spacing: -.055em;
+    }
+
+
+    .assistant-intro h1 span {
+
+      color: #ff8da1;
+    }
+
+
+    .assistant-intro > p {
+
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 520px;
+
+      margin: 0;
+
+      color: #b9c9c1;
+
+      font-size: .78rem;
+
+      line-height: 1.75;
+    }
+
+
+    /* =====================================================
+       ASSISTANT CAPABILITIES
+    ===================================================== */
+
+    .assistant-capabilities {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: grid;
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+
+    .capability {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 10px 12px;
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,.055);
+
+      border:
+        1px solid
+        rgba(255,255,255,.07);
+    }
+
+
+    .capability-icon {
+
+      width: 31px;
+      height: 31px;
+
+      display: grid;
+
+      place-items: center;
+
+      flex-shrink: 0;
+
+      border-radius: 9px;
+
+      background:
+        rgba(255,255,255,.09);
+
+      font-size: .78rem;
+    }
+
+
+    .capability span {
+
+      color: #d3dfd9;
+
+      font-size: .62rem;
+
+      line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       LANGUAGE
+    ===================================================== */
+
+    .language-selector {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+
+      margin-top: 25px;
+    }
+
+
+    .language-button {
+
+      padding: 7px 10px;
+
+      border:
+        1px solid
+        rgba(255,255,255,.12);
+
+      border-radius: 9px;
+
+      background:
+        rgba(255,255,255,.05);
+
+      color: #c7d5ce;
+
+      font-size: .57rem;
+
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+
+    .language-button.active {
+
+      background: white;
+
+      color: #26382f;
+    }
+
+
+    /* =====================================================
+       CHAT PANEL
+    ===================================================== */
+
+    .assistant-chat {
+
+      min-height: 590px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      overflow: hidden;
+
+      border-radius: 30px;
+
+      background:
+        rgba(255,255,255,.96);
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 25px 65px
+        rgba(30,55,43,.1);
+    }
+
+
+    /* =====================================================
+       CHAT HEADER
+    ===================================================== */
+
+    .chat-header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 15px;
+
+      padding: 18px 20px;
+
+      border-bottom:
+        1px solid
+        #edf1ef;
+    }
+
+
+    .chat-agent {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+    }
+
+
+    .agent-avatar {
+
+      position: relative;
+
+      width: 43px;
+      height: 43px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #b3122f,
+          #870a23
+        );
+
+      color: white;
+
+      font-size: 1.15rem;
+
+      box-shadow:
+        0 8px 20px
+        rgba(179,18,47,.18);
+    }
+
+
+    .agent-avatar::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: -2px;
+      bottom: -2px;
+
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+
+      background: #35a966;
+
+      border:
+        2px solid white;
+    }
+
+
+    .agent-name {
+
+      display: block;
+
+      color: #26322c;
+
+      font-size: .76rem;
+
+      font-weight: 900;
+    }
+
+
+    .agent-status {
+
+      display: block;
+
+      margin-top: 3px;
+
+      color: #78847e;
+
+      font-size: .56rem;
+    }
+
+
+    .chat-mode {
+
+      padding: 7px 9px;
+
+      border-radius: 9px;
+
+      background: #edf8f1;
+
+      color: #246844;
+
+      font-size: .54rem;
+
+      font-weight: 900;
+    }
+
+
+    /* =====================================================
+       CHAT MESSAGES
+    ===================================================== */
+
+    .chat-messages {
+
+      flex: 1;
+
+      overflow-y: auto;
+
+      padding: 24px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 15px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #fbfdfc,
+          #f6faf8
+        );
+    }
+
+
+    .message {
+
+      display: flex;
+
+      max-width: 82%;
+    }
+
+
+    .message.ai {
+
+      align-self: flex-start;
+    }
+
+
+    .message.user {
+
+      align-self: flex-end;
+    }
+
+
+    .message-bubble {
+
+      padding: 13px 15px;
+
+      border-radius: 16px;
+
+      font-size: .68rem;
+
+      line-height: 1.6;
+    }
+
+
+    .message.ai .message-bubble {
+
+      border:
+        1px solid
+        #e2e9e5;
+
+      border-top-left-radius: 5px;
+
+      background: white;
+
+      color: #526059;
+    }
+
+
+    .message.user .message-bubble {
+
+      border-top-right-radius: 5px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #930a26
+        );
+
+      color: white;
+
+      box-shadow:
+        0 8px 20px
+        rgba(179,18,47,.12);
+    }
+
+
+    .message-time {
+
+      margin-top: 5px;
+
+      color: #9aa39e;
+
+      font-size: .48rem;
+    }
+
+
+    .message.user .message-time {
+
+      text-align: right;
+    }
+
+
+    /* =====================================================
+       QUICK ACTIONS
+    ===================================================== */
+
+    .quick-actions {
+
+      padding: 13px 20px;
+
+      border-top:
+        1px solid
+        #edf1ef;
+
+      background: white;
+    }
+
+
+    .quick-title {
+
+      margin-bottom: 8px;
+
+      color: #8a948f;
+
+      font-size: .51rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+
+    .quick-buttons {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 7px;
+    }
+
+
+    .quick-button {
+
+      min-height: 34px;
+
+      padding: 0 10px;
+
+      border:
+        1px solid
+        #dfe7e2;
+
+      border-radius: 9px;
+
+      background: #f8fbf9;
+
+      color: #45534b;
+
+      font-size: .55rem;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition: .18s ease;
+    }
+
+
+    .quick-button:hover {
+
+      border-color: #c7d7cd;
+
+      background: #edf7f1;
+    }
+
+
+    .quick-button.emergency {
+
+      border-color:
+        rgba(179,18,47,.15);
+
+      background: #fff1f3;
+
+      color: #a20d2b;
+    }
+
+
+    /* =====================================================
+       INPUT AREA
+    ===================================================== */
+
+    .chat-input-area {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 13px 16px;
+
+      border-top:
+        1px solid
+        #edf1ef;
+
+      background: white;
+    }
+
+
+    .voice-button,
+    .send-button {
+
+      width: 43px;
+      min-width: 43px;
+
+      height: 43px;
+
+      display: grid;
+
+      place-items: center;
+
+      border: 0;
+
+      border-radius: 12px;
+
+      cursor: pointer;
+
+      font-size: .9rem;
+    }
+
+
+    .voice-button {
+
+      background: #eef7f2;
+
+      color: #276a47;
+    }
+
+
+    .send-button {
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+    }
+
+
+    .chat-input {
+
+      flex: 1;
+
+      min-width: 0;
+
+      height: 43px;
+
+      padding: 0 13px;
+
+      border:
+        1px solid
+        #dce5e0;
+
+      border-radius: 12px;
+
+      outline: none;
+
+      background: #fbfdfc;
+
+      color: #29332e;
+
+      font-family:
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size: .66rem;
+    }
+
+
+    .chat-input:focus {
+
+      border-color: #b3122f;
+
+      box-shadow:
+        0 0 0 4px
+        rgba(179,18,47,.06);
+    }
+
+
+    /* =====================================================
+       VOICE STATUS
+    ===================================================== */
+
+    .voice-status {
+
+      display: none;
+
+      align-items: center;
+
+      gap: 8px;
+
+      padding: 9px 20px;
+
+      background: #fff1f3;
+
+      color: #a20d2b;
+
+      font-size: .57rem;
+
+      font-weight: 800;
+    }
+
+
+    .voice-status.show {
+
+      display: flex;
+    }
+
+
+    .voice-dot {
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: #b3122f;
+
+      animation:
+        voicePulse 1s ease-in-out infinite;
+    }
+
+
+    @keyframes voicePulse {
+
+      0%,
+      100% {
+        opacity: .35;
+        transform: scale(.8);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.2);
+      }
+    }
+
+
+    /* =====================================================
+       SAFETY INFORMATION
+    ===================================================== */
+
+    .assistant-safety {
+
+      padding: 25px 0 70px;
+    }
+
+
+    .safety-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 13px;
+    }
+
+
+    .safety-card {
+
+      padding: 19px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 12px 28px
+        rgba(30,55,43,.05);
+    }
+
+
+    .safety-icon {
+
+      width: 38px;
+      height: 38px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin-bottom: 11px;
+
+      border-radius: 11px;
+
+      background: #edf8f1;
+
+      font-size: .9rem;
+    }
+
+
+    .safety-card h3 {
+
+      margin: 0 0 6px;
+
+      color: #303b35;
+
+      font-size: .79rem;
+    }
+
+
+    .safety-card p {
+
+      margin: 0;
+
+      color: #78837d;
+
+      font-size: .6rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 950px) {
+
+      .assistant-layout {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .assistant-intro {
+
+        min-height: auto;
+      }
+
+
+      .assistant-chat {
+
+        min-height: 600px;
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .assistant-hero {
+
+        padding-top: 35px;
+      }
+
+
+      .assistant-intro {
+
+        padding: 24px;
+
+        border-radius: 23px;
+      }
+
+
+      .assistant-intro h1 {
+
+        font-size: 2.45rem;
+      }
+
+
+      .assistant-chat {
+
+        min-height: 620px;
+
+        border-radius: 23px;
+      }
+
+
+      .chat-messages {
+
+        padding: 17px;
+      }
+
+
+      .message {
+
+        max-width: 90%;
+      }
+
+
+      .safety-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="assistant-page">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+
+        <a
+          href="index.html"
+          class="brand"
+          aria-label="PRANAV Home"
+        >
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+
+            <span class="brand-name">
+              PRANAV
+            </span>
+
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="find-blood.html">
+            🩸 Find
+          </a>
+
+          <a href="emergency.html">
+            🚨 Emergency
+          </a>
+
+          <a href="donor.html">
+            ❤️ Donor
+          </a>
+
+          <a href="camps.html">
+            🩸 Camps
+          </a>
+
+          <a
+            href="blood-education.html"
+          >
+            📚 Education
+          </a>
+
+          <a
+            href="assistant.html"
+            class="active"
+          >
+            🤖 Assistant
+          </a>
+
+          <a href="about.html">
+            ℹ️ About
+          </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+      <section class="assistant-hero">
+
+        <div class="container assistant-layout">
+
+
+          <!-- =================================================
+               INTRO
+          ================================================= -->
+
+          <section class="assistant-intro">
+
+            <span class="assistant-badge">
+              🤖 PRANAV AI Assistant
+            </span>
+
+
+            <h1>
+              Healthcare help,
+              <span>simplified.</span>
+            </h1>
+
+
+            <p>
+              Ask PRANAV about blood coordination, emergency
+              requests, nearby resources, request tracking,
+              camps and general healthcare information.
+              Use simple English, Hindi or Hinglish.
+            </p>
+
+
+            <div class="assistant-capabilities">
+
+
+              <div class="capability">
+
+                <div class="capability-icon">
+                  🩸
+                </div>
+
+                <span>
+                  Blood resource discovery and coordination guidance
+                </span>
+
+              </div>
+
+
+              <div class="capability">
+
+                <div class="capability-icon">
+                  🚨
+                </div>
+
+                <span>
+                  Emergency request navigation and next-step guidance
+                </span>
+
+              </div>
+
+
+              <div class="capability">
+
+                <div class="capability-icon">
+                  📋
+                </div>
+
+                <span>
+                  Request status and coordination journey assistance
+                </span>
+
+              </div>
+
+
+              <div class="capability">
+
+                <div class="capability-icon">
+                  📚
+                </div>
+
+                <span>
+                  Simple blood education and awareness information
+                </span>
+
+              </div>
+
+
+              <div class="capability">
+
+                <div class="capability-icon">
+                  ♿
+                </div>
+
+                <span>
+                  Accessible, large-button and voice-friendly interaction
+                </span>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="language-selector">
+
+              <button
+                type="button"
+                class="language-button active"
+                data-language="hinglish"
+              >
+                Hinglish
+              </button>
+
+              <button
+                type="button"
+                class="language-button"
+                data-language="hindi"
+              >
+                हिन्दी
+              </button>
+
+              <button
+                type="button"
+                class="language-button"
+                data-language="english"
+              >
+                English
+              </button>
+
+            </div>
+
+          </section>
+
+
+          <!-- =================================================
+               CHAT
+          ================================================= -->
+
+          <section
+            class="assistant-chat"
+            aria-label="PRANAV AI Assistant"
+          >
+
+
+            <!-- CHAT HEADER -->
+
+            <div class="chat-header">
+
+              <div class="chat-agent">
+
+                <div class="agent-avatar">
+                  🤖
+                </div>
+
+                <div>
+
+                  <span class="agent-name">
+                    PRANAV AI
+                  </span>
+
+                  <span class="agent-status">
+                    ● Ready to assist
+                  </span>
+
+                </div>
+
+              </div>
+
+
+              <span class="chat-mode">
+                Accessible Mode
+              </span>
+
+            </div>
+
+
+            <!-- MESSAGES -->
+
+            <div
+              id="chatMessages"
+              class="chat-messages"
+              aria-live="polite"
+            >
+
+
+              <div class="message ai">
+
+                <div>
+
+                  <div class="message-bubble">
+
+                    Namaste! 👋
+                    <br><br>
+
+                    Main <strong>PRANAV AI Assistant</strong> hoon.
+                    Aap mujhse blood resources, emergency request,
+                    camps, request tracking ya general blood
+                    information ke baare mein pooch sakte hain.
+
+                    <br><br>
+
+                    Example:
+                    <strong>
+                      “Mujhe O positive blood chahiye.”
+                    </strong>
+
+                  </div>
+
+                  <div class="message-time">
+                    PRANAV AI
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="quick-actions">
+
+              <div class="quick-title">
+                Quick actions
+              </div>
+
+
+              <div class="quick-buttons">
+
+                <button
+                  type="button"
+                  class="quick-button emergency"
+                  data-message="Mujhe emergency mein blood chahiye."
+                >
+                  🚨 Emergency Blood
+                </button>
+
+
+                <button
+                  type="button"
+                  class="quick-button"
+                  data-message="Mujhe blood resources find karne hain."
+                >
+                  🔎 Find Blood
+                </button>
+
+
+                <button
+                  type="button"
+                  class="quick-button"
+                  data-message="Mujhe apna request track karna hai."
+                >
+                  📋 Track Request
+                </button>
+
+
+                <button
+                  type="button"
+                  class="quick-button"
+                  data-message="Mujhe blood groups ke baare mein batao."
+                >
+                  📚 Blood Groups
+                </button>
+
+
+                <button
+                  type="button"
+                  class="quick-button"
+                  data-message="Mujhe nearby blood donation camps dekhne hain."
+                >
+                  🩸 Camps
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- VOICE STATUS -->
+
+            <div
+              id="voiceStatus"
+              class="voice-status"
+            >
+
+              <span class="voice-dot"></span>
+
+              Listening... Speak your request.
+
+            </div>
+
+
+            <!-- INPUT -->
+
+            <form
+              id="chatForm"
+              class="chat-input-area"
+            >
+
+              <button
+                type="button"
+                id="voiceButton"
+                class="voice-button"
+                aria-label="Use voice input"
+                title="Voice input"
+              >
+                🎙️
+              </button>
+
+
+              <input
+                id="chatInput"
+                class="chat-input"
+                type="text"
+                autocomplete="off"
+                placeholder="Type your message..."
+                aria-label="Message PRANAV AI"
+              >
+
+
+              <button
+                type="submit"
+                id="sendButton"
+                class="send-button"
+                aria-label="Send message"
+              >
+                ➤
+              </button>
+
+            </form>
+
+
+          </section>
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           SAFETY / SCOPE
+      ================================================= -->
+
+      <section class="assistant-safety">
+
+        <div class="container">
+
+
+          <div class="safety-grid">
+
+
+            <article class="safety-card">
+
+              <div class="safety-icon">
+                🧭
+              </div>
+
+              <h3>
+                Guidance, not diagnosis
+              </h3>
+
+              <p>
+                PRANAV AI provides navigation, education and
+                coordination guidance. It does not diagnose
+                medical conditions.
+              </p>
+
+            </article>
+
+
+            <article class="safety-card">
+
+              <div class="safety-icon">
+                💊
+              </div>
+
+              <h3>
+                No autonomous prescriptions
+              </h3>
+
+              <p>
+                The assistant does not independently prescribe
+                medicines or calculate personalised medication
+                doses.
+              </p>
+
+            </article>
+
+
+            <article class="safety-card">
+
+              <div class="safety-icon">
+                ✓
+              </div>
+
+              <h3>
+                Human verification
+              </h3>
+
+              <p>
+                Blood availability, compatibility, donor
+                eligibility and clinical decisions must be
+                confirmed by authorised professionals.
+              </p>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-inner">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="brand"
+          >
+
+            <img
+              src="pranav-logo.png"
+              alt="PRANAV logo"
+              width="48"
+              height="48"
+            >
+
+            <span class="brand-copy">
+
+              <span class="brand-name">
+                PRANAV
+              </span>
+
+              <span class="brand-subtitle">
+                Intelligent Healthcare Network
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            Connecting people, healthcare resources and
+            responsible technology through intelligent
+            coordination.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Assistance
+          </h3>
+
+          <a href="assistant.html">
+            AI Assistant
+          </a>
+
+          <a href="easy-mode.html">
+            Easy Mode
+          </a>
+
+          <a href="blood-education.html">
+            Education
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Emergency
+          </h3>
+
+          <a href="emergency.html">
+            Emergency Request
+          </a>
+
+          <a href="find-blood.html">
+            Find Resources
+          </a>
+
+          <a href="blood-request.html">
+            Track Request
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © 2026 PRANAV. All Rights Reserved.
+        </span>
+
+        <span>
+          Accessible • Responsible AI • Human oversight
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =================================================
+         MOBILE NAV
+    ================================================= -->
+
+    <nav
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="index.html">
+
+        <span>
+          ⌂
+        </span>
+
+        Home
+
+      </a>
+
+
+      <a href="find-blood.html">
+
+        <span>
+          🔎
+        </span>
+
+        Find
+
+      </a>
+
+
+      <a
+        href="emergency.html"
+        class="emergency"
+      >
+
+        <span>
+          🚨
+        </span>
+
+        Emergency
+
+      </a>
+
+
+      <a
+        href="assistant.html"
+        class="active"
+      >
+
+        <span>
+          🤖
+        </span>
+
+        Assistant
+
+      </a>
+
+
+      <a href="about.html">
+
+        <span>
+          ℹ️
+        </span>
+
+        About
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- =====================================================
+       ASSISTANT LOGIC
+  ===================================================== -->
+
+  <script>
+
+    "use strict";
+
+
+    const chatForm =
+      document.getElementById(
+        "chatForm"
+      );
+
+
+    const chatInput =
+      document.getElementById(
+        "chatInput"
+      );
+
+
+    const chatMessages =
+      document.getElementById(
+        "chatMessages"
+      );
+
+
+    const voiceButton =
+      document.getElementById(
+        "voiceButton"
+      );
+
+
+    const voiceStatus =
+      document.getElementById(
+        "voiceStatus"
+      );
+
+
+    const quickButtons =
+      document.querySelectorAll(
+        ".quick-button"
+      );
+
+
+    let selectedLanguage =
+      "hinglish";
+
+
+    /* =====================================================
+       LANGUAGE BUTTONS
+    ===================================================== */
+
+    document
+      .querySelectorAll(
+        ".language-button"
+      )
+      .forEach(
+        function (button) {
+
+          button.addEventListener(
+            "click",
+            function () {
+
+              document
+                .querySelectorAll(
+                  ".language-button"
+                )
+                .forEach(
+                  function (item) {
+
+                    item.classList.remove(
+                      "active"
+                    );
+
+                  }
+                );
+
+
+              button.classList.add(
+                "active"
+              );
+
+
+              selectedLanguage =
+                button.dataset.language ||
+                "hinglish";
+
+
+              addAIMessage(
+                getLanguageResponse()
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    function getLanguageResponse() {
+
+      if (
+        selectedLanguage === "hindi"
+      ) {
+
+        return "ठीक है। अब मैं आसान हिन्दी में जवाब देने की कोशिश करूँगा।";
+
+      }
+
+
+      if (
+        selectedLanguage === "english"
+      ) {
+
+        return "Sure. I will respond in simple English.";
+
+      }
+
+
+      return "Bilkul 👍 Ab main simple Hinglish mein help karunga.";
+
+    }
+
+
+    /* =====================================================
+       ADD USER MESSAGE
+    ===================================================== */
+
+    function addUserMessage(
+      text
+    ) {
+
+      const wrapper =
+        document.createElement(
+          "div"
+        );
+
+
+      wrapper.className =
+        "message user";
+
+
+      wrapper.innerHTML =
+
+        "<div>" +
+
+          "<div class=\"message-bubble\">" +
+
+            escapeHTML(text) +
+
+          "</div>" +
+
+          "<div class=\"message-time\">" +
+
+            "You" +
+
+          "</div>" +
+
+        "</div>";
+
+
+      chatMessages.appendChild(
+        wrapper
+      );
+
+
+      scrollChat();
+
+    }
+
+
+    /* =====================================================
+       ADD AI MESSAGE
+    ===================================================== */
+
+    function addAIMessage(
+      text
+    ) {
+
+      const wrapper =
+        document.createElement(
+          "div"
+        );
+
+
+      wrapper.className =
+        "message ai";
+
+
+      wrapper.innerHTML =
+
+        "<div>" +
+
+          "<div class=\"message-bubble\">" +
+
+            text +
+
+          "</div>" +
+
+          "<div class=\"message-time\">" +
+
+            "PRANAV AI" +
+
+          "</div>" +
+
+        "</div>";
+
+
+      chatMessages.appendChild(
+        wrapper
+      );
+
+
+      scrollChat();
+
+    }
+
+
+    /* =====================================================
+       BASIC RESPONSE ENGINE
+    ===================================================== */
+
+    function getAssistantResponse(
+      message
+    ) {
+
+      const text =
+        message
+          .toLowerCase()
+          .trim();
+
+
+      /*
+        Emergency
+      */
+
+      if (
+        text.includes("emergency") ||
+        text.includes("urgent") ||
+        text.includes("turant") ||
+        text.includes("jaldi")
+      ) {
+
+        return (
+
+          "Agar situation medical emergency hai, " +
+
+          "<strong>authorised healthcare facility / emergency medical services</strong> " +
+
+          "se turant contact karein." +
+
+          "<br><br>" +
+
+          "Blood coordination ke liye PRANAV mein " +
+
+          "<strong>Emergency Blood Request</strong> " +
+
+          "create kar sakte hain." +
+
+          "<br><br>" +
+
+          "<a href=\"emergency.html\">" +
+
+          "🚨 Create Emergency Request →" +
+
+          "</a>"
+
+        );
+
+      }
+
+
+      /*
+        Blood request
+      */
+
+      if (
+        text.includes("blood") ||
+        text.includes("blood chahiye") ||
+        text.includes("blood group") ||
+        text.includes("o positive") ||
+        text.includes("o+") ||
+        text.includes("a positive") ||
+        text.includes("b positive") ||
+        text.includes("ab positive")
+      ) {
+
+        return (
+
+          "Main aapko blood resource coordination mein help " +
+
+          "kar sakta hoon. PRANAV mein aap blood group, " +
+
+          "component, location aur urgency ke basis par " +
+
+          "potential resources search kar sakte hain." +
+
+          "<br><br>" +
+
+          "<strong>Important:</strong> Search result " +
+
+          "guaranteed availability nahi hota. Final availability " +
+
+          "authorised facility se verify karein." +
+
+          "<br><br>" +
+
+          "<a href=\"find-blood.html\">" +
+
+          "🔎 Find Blood Resources →" +
+
+          "</a>"
+
+        );
+
+      }
+
+
+      /*
+        Find resource
+      */
+
+      if (
+        text.includes("find") ||
+        text.includes("nearby") ||
+        text.includes("resource") ||
+        text.includes("blood centre") ||
+        text.includes("blood bank")
+      ) {
+
+        return (
+
+          "Aap PRANAV ke Find Blood section mein " +
+
+          "city/district, blood group, component aur " +
+
+          "resource type ke basis par potential resources " +
+
+          "explore kar sakte hain." +
+
+          "<br><br>" +
+
+          "<a href=\"find-blood.html\">" +
+
+          "🔎 Open Find Blood →" +
+
+          "</a>"
+
+        );
+
+      }
+
+
+      /*
+        Tracking
+      */
+
+      if (
+        text.includes("track") ||
+        text.includes("tracking") ||
+        text.includes("request status") ||
+        text.includes("status")
+      ) {
+
+        return (
+
+          "Aap apne PRANAV request ko Request ID ke " +
+
+          "through track kar sakte hain." +
+
+          "<br><br>" +
+
+          "Journey generally request creation se " +
+
+          "analysis, searching, verification, coordination " +
+
+          "aur resolution tak ja sakti hai." +
+
+          "<br><br>" +
+
+          "<a href=\"blood-request.html\">" +
+
+          "📋 Track Request →" +
+
+          "</a>"
+
+        );
+
+      }
+
+
+      /*
+        Camps
+      */
+
+      if (
+        text.includes("camp") ||
+        text.includes("donation camp")
+      ) {
+
+        return (
+
+          "Upcoming blood donation camps ko PRANAV ke " +
+
+          "Camps section mein explore kar sakte hain." +
+
+          "<br><br>" +
+
+          "Camp ki date, location aur organiser details " +
+
+          "visit karne se pehle verify zaroor karein." +
+
+          "<br><br>" +
+
+          "<a href=\"camps.html\">" +
+
+          "🩸 Explore Camps →" +
+
+          "</a>"
+
+        );
+
+      }
+
+
+      /*
+        Education
+      */
+
+      if (
+        text.includes("learn") ||
+        text.includes("education") ||
+        text.includes("platelet") ||
+        text.includes("plasma") ||
+        text.includes("rbc") ||
+        text.includes("red blood")
+      ) {
+
+        return (
+
+          "PRANAV ke Blood Education section mein " +
+
+          "blood groups aur components jaise RBC, " +
+
+          "platelets aur plasma ke basics simple language " +
+
+          "mein samajh sakte hain." +
+
+          "<br><br>" +
+
+          "<a href=\"blood-education.html\">" +
+
+          "📚 Open Blood Education →" +
+
+          "</a>"
+
+        );
+
+      }
+
+
+      /*
+        Medicine / prescription
+      */
+
+      if (
+        text.includes("medicine") ||
+        text.includes("dawa") ||
+        text.includes("prescription") ||
+        text.includes("tablet") ||
+        text.includes("dose")
+      ) {
+
+        return (
+
+          "PRANAV prescription information ko organise " +
+
+          "karne aur visible medicine details samajhne " +
+
+          "mein help kar sakta hai." +
+
+          "<br><br>" +
+
+          "<strong>Important:</strong> Main independently " +
+
+          "medicine dose calculate ya prescribe nahi karta. " +
+
+          "Dose aur medication instructions ko prescribing " +
+
+          "doctor ya pharmacist se verify karein."
+
+        );
+
+      }
+
+
+      /*
+        Greeting
+      */
+
+      if (
+        text.includes("hello") ||
+        text.includes("hi") ||
+        text.includes("hey") ||
+        text.includes("namaste") ||
+        text.includes("hii")
+      ) {
+
+        return (
+
+          "Namaste! 👋 " +
+
+          "Main PRANAV AI hoon. Aap blood resources, " +
+
+          "emergency request, camps, tracking ya " +
+
+          "blood education ke baare mein pooch sakte hain."
+
+        );
+
+      }
+
+
+      /*
+        Default
+      */
+
+      return (
+
+        "Main PRANAV ke healthcare coordination " +
+
+        "features mein help kar sakta hoon." +
+
+        "<br><br>" +
+
+        "Aap try karein:" +
+
+        "<br>" +
+
+        "• “Mujhe blood chahiye”" +
+
+        "<br>" +
+
+        "• “Nearby blood resource find karo”" +
+
+        "<br>" +
+
+        "• “Mera request track karo”" +
+
+        "<br>" +
+
+        "• “Blood groups samjhao”"
+
+      );
+
+    }
+
+
+    /* =====================================================
+       SEND MESSAGE
+    ===================================================== */
+
+    function sendMessage(
+      message
+    ) {
+
+      const clean =
+        message
+          .trim();
+
+
+      if (!clean) {
+
+        return;
+
+      }
+
+
+      addUserMessage(
+        clean
+      );
+
+
+      chatInput.value = "";
+
+
+      /*
+        Small typing delay for a natural
+        prototype interaction.
+      */
+
+      setTimeout(
+        function () {
+
+          addAIMessage(
+            getAssistantResponse(
+              clean
+            )
+          );
+
+        },
+        450
+      );
+
+    }
+
+
+    chatForm.addEventListener(
+      "submit",
+      function (event) {
+
+        event.preventDefault();
+
+        sendMessage(
+          chatInput.value
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       QUICK BUTTONS
+    ===================================================== */
+
+    quickButtons.forEach(
+      function (button) {
+
+        button.addEventListener(
+          "click",
+          function () {
+
+            sendMessage(
+              button.dataset.message ||
+              button.textContent
+            );
+
+          }
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       VOICE INPUT
+    ===================================================== */
+
+    let recognition = null;
+
+
+    const SpeechRecognition =
+      window.SpeechRecognition ||
+      window.webkitSpeechRecognition;
+
+
+    if (
+      SpeechRecognition
+    ) {
+
+      recognition =
+        new SpeechRecognition();
+
+
+      recognition.lang =
+        "en-IN";
+
+
+      recognition.interimResults =
+        false;
+
+
+      recognition.maxAlternatives =
+        1;
+
+
+      recognition.onstart =
+        function () {
+
+          voiceStatus.classList.add(
+            "show"
+          );
+
+          voiceButton.textContent =
+            "🔴";
+
+        };
+
+
+      recognition.onend =
+        function () {
+
+          voiceStatus.classList.remove(
+            "show"
+          );
+
+          voiceButton.textContent =
+            "🎙️";
+
+        };
+
+
+      recognition.onerror =
+        function () {
+
+          voiceStatus.classList.remove(
+            "show"
+          );
+
+          voiceButton.textContent =
+            "🎙️";
+
+        };
+
+
+      recognition.onresult =
+        function (event) {
+
+          const transcript =
+            event
+              .results[0][0]
+              .transcript;
+
+
+          chatInput.value =
+            transcript;
+
+
+          sendMessage(
+            transcript
+          );
+
+        };
+
+
+      voiceButton.addEventListener(
+        "click",
+        function () {
+
+          try {
+
+            recognition.start();
+
+          } catch (error) {
+
+            /*
+              Prevent duplicate start errors.
+            */
+
+          }
+
+        }
+      );
+
+    } else {
+
+      voiceButton.addEventListener(
+        "click",
+        function () {
+
+          addAIMessage(
+            "Voice input is not supported by this browser. Aap type karke message bhej sakte hain."
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =====================================================
+       SCROLL
+    ===================================================== */
+
+    function scrollChat() {
+
+      chatMessages.scrollTo({
+
+        top:
+          chatMessages.scrollHeight,
+
+        behavior:
+          "smooth"
+
+      });
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ===================================================== */
+
+    function escapeHTML(
+      value
+    ) {
+
+      const div =
+        document.createElement(
+          "div"
+        );
+
+
+      div.textContent =
+        value;
+
+
+      return div.innerHTML;
+
+    }
+
+  </script>
+
+
+  <!-- =================================================
+       APPLICATION SCRIPTS
+  ================================================= -->
+
+  <script
+    src="js/app.js"
+    defer
+  ></script>
+
+  <script
+    src="js/assistant.js"
+    defer
+  ></script>
+
+  <script
+    src="js/animations.js"
+    defer
+  ></script>
+
+  <script
+    src="js/accessibility.js"
+    defer
+  ></script>
+
+  <script
+    src="js/loader.js"
+    defer
+  ></script>
+
+
+  <!-- =================================================
+       SERVICE WORKER
+  ================================================= -->
+
+  <script>
+
+    if (
+      "serviceWorker" in navigator
+    ) {
+
+      window.addEventListener(
+        "load",
+        function () {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(
+              function () {
+                /* Non-blocking failure */
+              }
+            );
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
