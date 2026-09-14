@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta name="theme-color" content="#a80d2b">
+
+  <meta
+    name="description"
+    content="PRANAV Prescription Intelligence for organising prescription and medicine information."
+  >
+
+  <title>Prescription Intelligence | PRANAV</title>
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="pranav-logo.png"
+  >
+
+  <link
+    rel="manifest"
+    href="manifest.json"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/responsive.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/animations.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="css/prescription.css"
+  >
+
+  <style>
+
+    /* =====================================================
+       PRANAV PRESCRIPTION INTELLIGENCE
+    ===================================================== */
+
+    .prescription-page {
+
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 90% 5%,
+          rgba(255,214,222,.78),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 5% 25%,
+          rgba(201,239,218,.86),
+          transparent 34%
+        ),
+
+        #f3faf6;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .prescription-hero {
+
+      padding: 62px 0 40px;
+    }
+
+
+    .prescription-hero-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr
+        .95fr;
+
+      gap: 45px;
+
+      align-items: center;
+    }
+
+
+    .prescription-badge {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 7px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: #edf8f1;
+
+      border:
+        1px solid
+        rgba(35,107,72,.12);
+
+      color: #17633f;
+
+      font-size: .63rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .08em;
+    }
+
+
+    .prescription-hero h1 {
+
+      max-width: 750px;
+
+      margin: 18px 0 14px;
+
+      color: #222b27;
+
+      font-family:
+        Manrope,
+        Inter,
+        system-ui,
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.5rem,
+          5vw,
+          4.5rem
+        );
+
+      line-height: .98;
+
+      letter-spacing: -.06em;
+    }
+
+
+    .prescription-hero h1 span {
+
+      color: #ad102e;
+    }
+
+
+    .prescription-hero p {
+
+      max-width: 680px;
+
+      margin: 0;
+
+      color: #6e7a74;
+
+      font-size: .94rem;
+
+      line-height: 1.75;
+    }
+
+
+    .prescription-actions {
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 9px;
+
+      margin-top: 23px;
+    }
+
+
+    .prescription-action {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 45px;
+
+      padding: 0 16px;
+
+      border-radius: 12px;
+
+      text-decoration: none;
+
+      font-size: .66rem;
+
+      font-weight: 900;
+
+      transition: .2s ease;
+    }
+
+
+    .prescription-action.primary {
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+
+      box-shadow:
+        0 12px 28px
+        rgba(179,18,47,.18);
+    }
+
+
+    .prescription-action.secondary {
+
+      background: white;
+
+      color: #35423b;
+
+      border:
+        1px solid
+        #dce6e0;
+    }
+
+
+    .prescription-action:hover {
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================================================
+       HERO VISUAL
+    ===================================================== */
+
+    .prescription-visual {
+
+      min-height: 300px;
+
+      position: relative;
+
+      display: grid;
+
+      place-items: center;
+    }
+
+
+    .prescription-orbit {
+
+      position: absolute;
+
+      width: 255px;
+      height: 255px;
+
+      border:
+        1px dashed
+        rgba(179,18,47,.2);
+
+      border-radius: 50%;
+
+      animation:
+        prescriptionRotate 15s linear infinite;
+    }
+
+
+    .prescription-orbit::before,
+    .prescription-orbit::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 12px;
+      height: 12px;
+
+      border-radius: 50%;
+
+      background: #b3122f;
+
+      box-shadow:
+        0 0 0 7px
+        rgba(179,18,47,.08);
+    }
+
+
+    .prescription-orbit::before {
+
+      top: 28px;
+      left: 34px;
+    }
+
+
+    .prescription-orbit::after {
+
+      right: 25px;
+      bottom: 40px;
+    }
+
+
+    .prescription-document {
+
+      position: relative;
+
+      z-index: 2;
+
+      width: 165px;
+      min-height: 205px;
+
+      padding: 20px;
+
+      box-sizing: border-box;
+
+      border-radius: 17px;
+
+      background: white;
+
+      border:
+        1px solid
+        #e0e8e3;
+
+      box-shadow:
+        0 25px 55px
+        rgba(30,55,43,.13);
+
+      transform:
+        rotate(-5deg);
+
+      animation:
+        prescriptionFloat 3.5s ease-in-out infinite;
+    }
+
+
+    .document-top {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      margin-bottom: 17px;
+    }
+
+
+    .document-cross {
+
+      width: 30px;
+      height: 30px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 9px;
+
+      background: #fff0f2;
+
+      color: #b3122f;
+
+      font-weight: 900;
+    }
+
+
+    .document-lines {
+
+      display: grid;
+
+      gap: 9px;
+    }
+
+
+    .document-line {
+
+      height: 7px;
+
+      border-radius: 999px;
+
+      background: #e8efeb;
+    }
+
+
+    .document-line.short {
+
+      width: 55%;
+    }
+
+
+    .document-line.medium {
+
+      width: 75%;
+    }
+
+
+    .document-highlight {
+
+      height: 27px;
+
+      margin-top: 16px;
+
+      border-radius: 8px;
+
+      background: #edf8f1;
+
+      border:
+        1px solid
+        rgba(35,107,72,.08);
+    }
+
+
+    @keyframes prescriptionFloat {
+
+      0%,
+      100% {
+        transform:
+          rotate(-5deg)
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          rotate(-5deg)
+          translateY(-9px);
+      }
+    }
+
+
+    @keyframes prescriptionRotate {
+
+      from {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    /* =====================================================
+       MAIN WORKSPACE
+    ===================================================== */
+
+    .prescription-workspace {
+
+      padding: 25px 0 80px;
+    }
+
+
+    .workspace-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        .9fr
+        1.1fr;
+
+      gap: 17px;
+
+      align-items: stretch;
+    }
+
+
+    .workspace-card {
+
+      padding: 25px;
+
+      border-radius: 24px;
+
+      background:
+        rgba(255,255,255,.96);
+
+      border:
+        1px solid
+        rgba(35,80,60,.09);
+
+      box-shadow:
+        0 18px 45px
+        rgba(30,55,43,.07);
+    }
+
+
+    .workspace-title {
+
+      margin-bottom: 18px;
+    }
+
+
+    .workspace-title span {
+
+      color: #a20d2b;
+
+      font-size: .6rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .workspace-title h2 {
+
+      margin: 7px 0 5px;
+
+      color: #28332d;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size: 1.35rem;
+
+      letter-spacing: -.04em;
+    }
+
+
+    .workspace-title p {
+
+      margin: 0;
+
+      color: #7a8580;
+
+      font-size: .65rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       UPLOAD AREA
+    ===================================================== */
+
+    .upload-area {
+
+      position: relative;
+
+      min-height: 270px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 25px;
+
+      box-sizing: border-box;
+
+      text-align: center;
+
+      border:
+        1.5px dashed
+        #cddbd3;
+
+      border-radius: 19px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #f8fcfa,
+          #f1f9f4
+        );
+
+      transition: .2s ease;
+    }
+
+
+    .upload-area.dragging {
+
+      border-color: #b3122f;
+
+      background: #fff4f6;
+
+      transform: scale(1.01);
+    }
+
+
+    .upload-icon {
+
+      width: 58px;
+      height: 58px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin-bottom: 14px;
+
+      border-radius: 17px;
+
+      background: #fff0f2;
+
+      color: #a20d2b;
+
+      font-size: 1.5rem;
+    }
+
+
+    .upload-area h3 {
+
+      margin: 0 0 7px;
+
+      color: #334039;
+
+      font-size: .86rem;
+    }
+
+
+    .upload-area p {
+
+      max-width: 360px;
+
+      margin: 0 0 16px;
+
+      color: #7a8580;
+
+      font-size: .61rem;
+
+      line-height: 1.6;
+    }
+
+
+    .upload-button {
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      min-height: 41px;
+
+      padding: 0 14px;
+
+      border-radius: 10px;
+
+      background:
+        #293d33;
+
+      color: white;
+
+      font-size: .61rem;
+
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+
+    .upload-input {
+
+      display: none;
+    }
+
+
+    .file-name {
+
+      display: none;
+
+      margin-top: 10px;
+
+      color: #267047;
+
+      font-size: .59rem;
+
+      font-weight: 800;
+    }
+
+
+    .file-name.show {
+
+      display: block;
+    }
+
+
+    /* =====================================================
+       PRIVACY MESSAGE
+    ===================================================== */
+
+    .privacy-message {
+
+      display: flex;
+
+      gap: 9px;
+
+      margin-top: 13px;
+
+      padding: 12px;
+
+      border-radius: 12px;
+
+      background: #edf8f1;
+
+      color: #4e6c5a;
+
+      font-size: .58rem;
+
+      line-height: 1.5;
+    }
+
+
+    .privacy-message strong {
+
+      color: #245d40;
+    }
+
+
+    /* =====================================================
+       ANALYSIS BUTTON
+    ===================================================== */
+
+    .analyse-button {
+
+      width: 100%;
+
+      min-height: 49px;
+
+      margin-top: 14px;
+
+      border: 0;
+
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #b3122f,
+          #890a23
+        );
+
+      color: white;
+
+      font-size: .67rem;
+
+      font-weight: 900;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 12px 26px
+        rgba(179,18,47,.16);
+
+      transition: .2s ease;
+    }
+
+
+    .analyse-button:hover {
+
+      transform: translateY(-2px);
+    }
+
+
+    /* =====================================================
+       RESULTS
+    ===================================================== */
+
+    .result-panel {
+
+      display: grid;
+
+      gap: 12px;
+    }
+
+
+    .patient-summary {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 9px;
+    }
+
+
+    .summary-box {
+
+      padding: 13px;
+
+      border-radius: 13px;
+
+      background: #f7faf8;
+
+      border:
+        1px solid
+        #e3ebe6;
+    }
+
+
+    .summary-box span {
+
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: #89938e;
+
+      font-size: .51rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+    }
+
+
+    .summary-box strong {
+
+      color: #344139;
+
+      font-size: .68rem;
+    }
+
+
+    .medicine-list {
+
+      display: grid;
+
+      gap: 10px;
+
+      margin-top: 4px;
+    }
+
+
+    .medicine-item {
+
+      padding: 15px;
+
+      border-radius: 15px;
+
+      background: white;
+
+      border:
+        1px solid
+        #e0e8e3;
+
+      box-shadow:
+        0 7px 18px
+        rgba(30,55,43,.04);
+    }
+
+
+    .medicine-item-header {
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-bottom: 10px;
+    }
+
+
+    .medicine-name {
+
+      color: #2f3b34;
+
+      font-size: .73rem;
+
+      font-weight: 900;
+    }
+
+
+    .medicine-strength {
+
+      padding: 5px 7px;
+
+      border-radius: 7px;
+
+      background: #fff0f2;
+
+      color: #a20d2b;
+
+      font-size: .51rem;
+
+      font-weight: 900;
+    }
+
+
+    .medicine-row {
+
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr
+        1fr;
+
+      gap: 7px;
+    }
+
+
+    .medicine-info {
+
+      padding: 8px;
+
+      border-radius: 9px;
+
+      background: #f7faf8;
+    }
+
+
+    .medicine-info span {
+
+      display: block;
+
+      margin-bottom: 3px;
+
+      color: #919b96;
+
+      font-size: .47rem;
+
+      text-transform: uppercase;
+
+      font-weight: 900;
+    }
+
+
+    .medicine-info strong {
+
+      color: #4b5851;
+
+      font-size: .55rem;
+
+      line-height: 1.35;
+    }
+
+
+    /* =====================================================
+       VERIFICATION BADGE
+    ===================================================== */
+
+    .verification-box {
+
+      margin-top: 13px;
+
+      padding: 14px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff6e9,
+          #fffaf3
+        );
+
+      border:
+        1px solid
+        rgba(188,119,44,.12);
+
+      color: #74542d;
+
+      font-size: .58rem;
+
+      line-height: 1.55;
+    }
+
+
+    .verification-box strong {
+
+      display: block;
+
+      margin-bottom: 4px;
+
+      color: #634720;
+    }
+
+
+    /* =====================================================
+       SAFETY SECTION
+    ===================================================== */
+
+    .prescription-safety {
+
+      padding: 70px 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eaf8f0,
+          #f5fbf7
+        );
+
+      border-top:
+        1px solid
+        rgba(35,107,72,.08);
+
+      border-bottom:
+        1px solid
+        rgba(35,107,72,.08);
+    }
+
+
+    .safety-heading {
+
+      max-width: 700px;
+
+      margin:
+        0 auto 30px;
+
+      text-align: center;
+    }
+
+
+    .safety-heading span {
+
+      color: #17633f;
+
+      font-size: .6rem;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: .1em;
+    }
+
+
+    .safety-heading h2 {
+
+      margin: 8px 0;
+
+      color: #29342e;
+
+      font-family:
+        Manrope,
+        Inter,
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.8rem,
+          3vw,
+          2.5rem
+        );
+
+      letter-spacing: -.045em;
+    }
+
+
+    .safety-heading p {
+
+      margin: 0;
+
+      color: #77837d;
+
+      font-size: .68rem;
+
+      line-height: 1.6;
+    }
+
+
+    .safety-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 12px;
+    }
+
+
+    .safety-card {
+
+      padding: 19px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      border:
+        1px solid
+        rgba(35,80,60,.08);
+
+      box-shadow:
+        0 12px 28px
+        rgba(30,55,43,.05);
+    }
+
+
+    .safety-card-icon {
+
+      width: 39px;
+      height: 39px;
+
+      display: grid;
+
+      place-items: center;
+
+      margin-bottom: 11px;
+
+      border-radius: 11px;
+
+      background: #edf8f1;
+
+      font-size: .9rem;
+    }
+
+
+    .safety-card h3 {
+
+      margin: 0 0 6px;
+
+      color: #344139;
+
+      font-size: .77rem;
+    }
+
+
+    .safety-card p {
+
+      margin: 0;
+
+      color: #78837d;
+
+      font-size: .59rem;
+
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
+
+    @media (max-width: 1000px) {
+
+      .workspace-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .safety-grid {
+
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+
+    @media (max-width: 850px) {
+
+      .prescription-hero-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .prescription-visual {
+
+        min-height: 250px;
+      }
+
+    }
+
+
+    @media (max-width: 620px) {
+
+      .prescription-hero {
+
+        padding-top: 40px;
+      }
+
+
+      .prescription-hero h1 {
+
+        font-size: 2.55rem;
+      }
+
+
+      .prescription-hero p {
+
+        font-size: .85rem;
+      }
+
+
+      .prescription-visual {
+
+        transform: scale(.84);
+
+        margin:
+          -15px 0
+          -5px;
+      }
+
+
+      .workspace-card {
+
+        padding: 18px;
+
+        border-radius: 20px;
+      }
+
+
+      .patient-summary {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .medicine-row {
+
+        grid-template-columns: 1fr;
+      }
+
+
+      .safety-grid {
+
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="prescription-page">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================= -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+
+        <a
+          href="index.html"
+          class="brand"
+          aria-label="PRANAV Home"
+        >
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+
+            <span class="brand-name">
+              PRANAV
+            </span>
+
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+
+          </span>
+
+        </a>
+
+
+        <nav
+          class="main-nav"
+          aria-label="Main navigation"
+        >
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="find-blood.html">
+            🩸 Find
+          </a>
+
+          <a href="emergency.html">
+            🚨 Emergency
+          </a>
+
+          <a href="donor.html">
+            ❤️ Donor
+          </a>
+
+          <a href="camps.html">
+            🩸 Camps
+          </a>
+
+          <a href="blood-education.html">
+            📚 Education
+          </a>
+
+          <a
+            href="assistant.html"
+          >
+            🤖 Assistant
+          </a>
+
+          <a
+            href="prescription.html"
+            class="active"
+          >
+            💊 Prescription
+          </a>
+
+          <a href="about.html">
+            ℹ️ About
+          </a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================= -->
+
+    <main>
+
+
+      <!-- =================================================
+           HERO
+      ================================================= -->
+
+      <section class="prescription-hero">
+
+        <div class="container prescription-hero-grid">
+
+
+          <div>
+
+            <span class="prescription-badge">
+              💊 Prescription Intelligence
+            </span>
+
+
+            <h1>
+              Understand your
+              prescription, <span>clearly.</span>
+            </h1>
+
+
+            <p>
+              Upload a prescription image to organise visible
+              medicine names, strengths, dates and written
+              instructions into an easier-to-read format.
+            </p>
+
+
+            <div class="prescription-actions">
+
+              <a
+                href="#workspace"
+                class="prescription-action primary"
+              >
+                📄 Analyse Prescription
+              </a>
+
+              <a
+                href="medicine.html"
+                class="prescription-action secondary"
+              >
+                💊 Medicine Safety
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="prescription-visual"
+            aria-hidden="true"
+          >
+
+            <div class="prescription-orbit"></div>
+
+
+            <div class="prescription-document">
+
+              <div class="document-top">
+
+                <div class="document-cross">
+                  +
+                </div>
+
+                <span
+                  style="
+                    color:#89938e;
+                    font-size:.5rem;
+                    font-weight:900;
+                  "
+                >
+                  Rx
+                </span>
+
+              </div>
+
+
+              <div class="document-lines">
+
+                <div class="document-line"></div>
+
+                <div class="document-line medium"></div>
+
+                <div class="document-line short"></div>
+
+                <div class="document-line"></div>
+
+                <div class="document-line medium"></div>
+
+              </div>
+
+
+              <div class="document-highlight"></div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           WORKSPACE
+      ================================================= -->
+
+      <section
+        class="prescription-workspace"
+        id="workspace"
+      >
+
+        <div class="container workspace-grid">
+
+
+          <!-- =================================================
+               UPLOAD CARD
+          ================================================= -->
+
+          <section class="workspace-card">
+
+            <div class="workspace-title">
+
+              <span>
+                Step 01 · Upload
+              </span>
+
+              <h2>
+                Add prescription image
+              </h2>
+
+              <p>
+                Use a clear photo or scan where the medicine
+                names and printed information are readable.
+              </p>
+
+            </div>
+
+
+            <div
+              id="uploadArea"
+              class="upload-area"
+            >
+
+              <div class="upload-icon">
+                📄
+              </div>
+
+
+              <h3>
+                Drop your prescription here
+              </h3>
+
+
+              <p>
+                JPG, PNG or WebP image. For the prototype,
+                the selected image is processed only in the
+                browser interface.
+              </p>
+
+
+              <label
+                for="prescriptionFile"
+                class="upload-button"
+              >
+                📷 Choose Prescription
+              </label>
+
+
+              <input
+                id="prescriptionFile"
+                class="upload-input"
+                type="file"
+                accept="image/png,image/jpeg,image/webp"
+              >
+
+
+              <div
+                id="fileName"
+                class="file-name"
+              ></div>
+
+            </div>
+
+
+            <div class="privacy-message">
+
+              <span>
+                🔐
+              </span>
+
+              <div>
+
+                <strong>
+                  Privacy-first prototype
+                </strong>
+
+                <br>
+
+                Do not upload unnecessary personal information.
+                In this prototype, no real medical backend is
+                connected.
+
+              </div>
+
+            </div>
+
+
+            <button
+              id="analyseButton"
+              class="analyse-button"
+              type="button"
+            >
+              🔍 Analyse Visible Information
+            </button>
+
+          </section>
+
+
+          <!-- =================================================
+               RESULT CARD
+          ================================================= -->
+
+          <section class="workspace-card">
+
+            <div class="workspace-title">
+
+              <span>
+                Step 02 · Information
+              </span>
+
+              <h2>
+                Prescription summary
+              </h2>
+
+              <p>
+                The interface can organise information visible
+                on the prescription. Always verify the original
+                prescription and medicine packaging.
+              </p>
+
+            </div>
+
+
+            <div
+              id="resultPanel"
+              class="result-panel"
+            >
+
+
+              <!-- PATIENT SUMMARY -->
+
+              <div class="patient-summary">
+
+
+                <div class="summary-box">
+
+                  <span>
+                    Patient Age
+                  </span>
+
+                  <strong id="patientAge">
+                    Not detected
+                  </strong>
+
+                </div>
+
+
+                <div class="summary-box">
+
+                  <span>
+                    Prescription Date
+                  </span>
+
+                  <strong id="prescriptionDate">
+                    Not detected
+                  </strong>
+
+                </div>
+
+
+              </div>
+
+
+              <!-- MEDICINES -->
+
+              <div class="medicine-list">
+
+
+                <article class="medicine-item">
+
+                  <div class="medicine-item-header">
+
+                    <span class="medicine-name">
+                      Medicine information
+                    </span>
+
+                    <span class="medicine-strength">
+                      Verify
+                    </span>
+
+                  </div>
+
+
+                  <div class="medicine-row">
+
+
+                    <div class="medicine-info">
+
+                      <span>
+                        Name
+                      </span>
+
+                      <strong id="medicineName">
+                        Not detected
+                      </strong>
+
+                    </div>
+
+
+                    <div class="medicine-info">
+
+                      <span>
+                        Strength
+                      </span>
+
+                      <strong id="medicineStrength">
+                        Not detected
+                      </strong>
+
+                    </div>
+
+
+                    <div class="medicine-info">
+
+                      <span>
+                        Written Instructions
+                      </span>
+
+                      <strong id="medicineInstruction">
+                        Not detected
+                      </strong>
+
+                    </div>
+
+
+                  </div>
+
+
+                  <div
+                    class="medicine-row"
+                    style="margin-top:7px;"
+                  >
+
+
+                    <div class="medicine-info">
+
+                      <span>
+                        Manufacturing
+                      </span>
+
+                      <strong id="medicineMfg">
+                        Not detected
+                      </strong>
+
+                    </div>
+
+
+                    <div class="medicine-info">
+
+                      <span>
+                        Expiry
+                      </span>
+
+                      <strong id="medicineExpiry">
+                        Not detected
+                      </strong>
+
+                    </div>
+
+
+                    <div class="medicine-info">
+
+                      <span>
+                        Batch
+                      </span>
+
+                      <strong id="medicineBatch">
+                        Not detected
+                      </strong>
+
+                    </div>
+
+
+                  </div>
+
+                </article>
+
+
+              </div>
+
+
+              <!-- VERIFICATION -->
+
+              <div class="verification-box">
+
+                <strong>
+                  ⚠️ Verification required
+                </strong>
+
+                OCR/AI may misread handwritten or printed
+                information. The original prescription and
+                medicine packaging should be checked before
+                taking any medicine.
+
+                PRANAV does not independently calculate an
+                age-based dose or prescribe medication.
+
+              </div>
+
+
+            </div>
+
+          </section>
+
+
+        </div>
+
+      </section>
+
+
+      <!-- =================================================
+           SAFETY
+      ================================================= -->
+
+      <section class="prescription-safety">
+
+        <div class="container">
+
+
+          <div class="safety-heading">
+
+            <span>
+              Medication safety
+            </span>
+
+            <h2>
+              Technology should clarify,
+              not replace your doctor.
+            </h2>
+
+            <p>
+              PRANAV can help organise visible information,
+              while medication decisions remain with qualified
+              healthcare professionals.
+            </p>
+
+          </div>
+
+
+          <div class="safety-grid">
+
+
+            <article class="safety-card">
+
+              <div class="safety-card-icon">
+                🔎
+              </div>
+
+              <h3>
+                Read visible information
+              </h3>
+
+              <p>
+                Extract or organise medicine names, strengths,
+                batch numbers and visible manufacturing or
+                expiry information.
+              </p>
+
+            </article>
+
+
+            <article class="safety-card">
+
+              <div class="safety-card-icon">
+                📋
+              </div>
+
+              <h3>
+                Preserve written instructions
+              </h3>
+
+              <p>
+                Show the dose or timing instructions exactly
+                as written where they are clearly readable,
+                rather than inventing new instructions.
+              </p>
+
+            </article>
+
+
+            <article class="safety-card">
+
+              <div class="safety-card-icon">
+                ⚠️
+              </div>
+
+              <h3>
+                Flag uncertainty
+              </h3>
+
+              <p>
+                Unclear, missing or potentially expired
+                information should be flagged for verification.
+              </p>
+
+            </article>
+
+
+            <article class="safety-card">
+
+              <div class="safety-card-icon">
+                👨‍⚕️
+              </div>
+
+              <h3>
+                Professional confirmation
+              </h3>
+
+              <p>
+                Final medicine choice, dose and treatment
+                instructions must come from the prescribing
+                doctor or pharmacist.
+              </p>
+
+            </article>
+
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================= -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-inner">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="index.html"
+            class="brand"
+          >
+
+            <img
+              src="pranav-logo.png"
+              alt="PRANAV logo"
+              width="48"
+              height="48"
+            >
+
+            <span class="brand-copy">
+
+              <span class="brand-name">
+                PRANAV
+              </span>
+
+              <span class="brand-subtitle">
+                Intelligent Healthcare Network
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            Connecting people, healthcare resources and
+            responsible technology through intelligent
+            coordination.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Healthcare
+          </h3>
+
+          <a href="prescription.html">
+            Prescription
+          </a>
+
+          <a href="medicine.html">
+            Medicine Safety
+          </a>
+
+          <a href="blood-education.html">
+            Education
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Emergency
+          </h3>
+
+          <a href="emergency.html">
+            Emergency Request
+          </a>
+
+          <a href="find-blood.html">
+            Find Resources
+          </a>
+
+          <a href="assistant.html">
+            AI Assistant
+          </a>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © 2026 PRANAV. All Rights Reserved.
+        </span>
+
+        <span>
+          Privacy-aware • Verification-first • Human oversight
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =================================================
+         MOBILE NAV
+    ================================================= -->
+
+    <nav
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="index.html">
+
+        <span>
+          ⌂
+        </span>
+
+        Home
+
+      </a>
+
+
+      <a href="find-blood.html">
+
+        <span>
+          🔎
+        </span>
+
+        Find
+
+      </a>
+
+
+      <a
+        href="emergency.html"
+        class="emergency"
+      >
+
+        <span>
+          🚨
+        </span>
+
+        Emergency
+
+      </a>
+
+
+      <a href="assistant.html">
+
+        <span>
+          🤖
+        </span>
+
+        Assistant
+
+      </a>
+
+
+      <a href="about.html">
+
+        <span>
+          ℹ️
+        </span>
+
+        About
+
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- =====================================================
+       PRESCRIPTION SCRIPT
+  ===================================================== -->
+
+  <script>
+
+    "use strict";
+
+
+    const prescriptionFile =
+      document.getElementById(
+        "prescriptionFile"
+      );
+
+
+    const uploadArea =
+      document.getElementById(
+        "uploadArea"
+      );
+
+
+    const fileName =
+      document.getElementById(
+        "fileName"
+      );
+
+
+    const analyseButton =
+      document.getElementById(
+        "analyseButton"
+      );
+
+
+    const patientAge =
+      document.getElementById(
+        "patientAge"
+      );
+
+
+    const prescriptionDate =
+      document.getElementById(
+        "prescriptionDate"
+      );
+
+
+    const medicineName =
+      document.getElementById(
+        "medicineName"
+      );
+
+
+    const medicineStrength =
+      document.getElementById(
+        "medicineStrength"
+      );
+
+
+    const medicineInstruction =
+      document.getElementById(
+        "medicineInstruction"
+      );
+
+
+    const medicineMfg =
+      document.getElementById(
+        "medicineMfg"
+      );
+
+
+    const medicineExpiry =
+      document.getElementById(
+        "medicineExpiry"
+      );
+
+
+    const medicineBatch =
+      document.getElementById(
+        "medicineBatch"
+      );
+
+
+    let selectedFile = null;
+
+
+    /* =====================================================
+       FILE SELECTION
+    ===================================================== */
+
+    prescriptionFile.addEventListener(
+      "change",
+      function () {
+
+        const file =
+          prescriptionFile.files[0];
+
+
+        if (!file) {
+
+          return;
+
+        }
+
+
+        selectedFile =
+          file;
+
+
+        fileName.textContent =
+          "Selected: " +
+          file.name;
+
+
+        fileName.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       DRAG AND DROP
+    ===================================================== */
+
+    uploadArea.addEventListener(
+      "dragover",
+      function (event) {
+
+        event.preventDefault();
+
+        uploadArea.classList.add(
+          "dragging"
+        );
+
+      }
+    );
+
+
+    uploadArea.addEventListener(
+      "dragleave",
+      function () {
+
+        uploadArea.classList.remove(
+          "dragging"
+        );
+
+      }
+    );
+
+
+    uploadArea.addEventListener(
+      "drop",
+      function (event) {
+
+        event.preventDefault();
+
+        uploadArea.classList.remove(
+          "dragging"
+        );
+
+
+        const file =
+          event.dataTransfer.files[0];
+
+
+        if (!file) {
+
+          return;
+
+        }
+
+
+        if (
+          !file.type.startsWith(
+            "image/"
+          )
+        ) {
+
+          alert(
+            "Please select a valid prescription image."
+          );
+
+          return;
+
+        }
+
+
+        selectedFile =
+          file;
+
+
+        fileName.textContent =
+          "Selected: " +
+          file.name;
+
+
+        fileName.classList.add(
+          "show"
+        );
+
+      }
+    );
+
+
+    /* =====================================================
+       PROTOTYPE ANALYSIS
+    ===================================================== */
+
+    analyseButton.addEventListener(
+      "click",
+      function () {
+
+        if (!selectedFile) {
+
+          alert(
+            "Please choose a prescription image first."
+          );
+
+          return;
+
+        }
+
+
+        /*
+          This prototype does not pretend to perform
+          real OCR without an OCR/backend service.
+
+          It only demonstrates the information architecture.
+        */
+
+
+        patientAge.textContent =
+          "Needs verification";
+
+
+        prescriptionDate.textContent =
+          "Needs verification";
+
+
+        medicineName.textContent =
+          "Visible medicine name";
+
+
+        medicineStrength.textContent =
+          "Visible strength";
+
+
+        medicineInstruction.textContent =
+          "As written on prescription";
+
+
+        medicineMfg.textContent =
+          "Check packaging";
+
+
+        medicineExpiry.textContent =
+          "Check packaging";
+
+
+        medicineBatch.textContent =
+          "Check packaging";
+
+
+        analyseButton.textContent =
+          "✓ Information Review Ready";
+
+
+        analyseButton.style.background =
+          "#28734b";
+
+
+        setTimeout(
+          function () {
+
+            analyseButton.textContent =
+              "🔍 Analyse Visible Information";
+
+
+            analyseButton.style.background =
+              "";
+
+          },
+          2500
+        );
+
+      }
+    );
+
+  </script>
+
+
+  <!-- =================================================
+       APPLICATION SCRIPTS
+  ================================================= -->
+
+  <script
+    src="js/app.js"
+    defer
+  ></script>
+
+  <script
+    src="js/prescription.js"
+    defer
+  ></script>
+
+  <script
+    src="js/animations.js"
+    defer
+  ></script>
+
+  <script
+    src="js/accessibility.js"
+    defer
+  ></script>
+
+  <script
+    src="js/loader.js"
+    defer
+  ></script>
+
+
+  <!-- =================================================
+       SERVICE WORKER
+  ================================================= -->
+
+  <script>
+
+    if (
+      "serviceWorker" in navigator
+    ) {
+
+      window.addEventListener(
+        "load",
+        function () {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(
+              function () {
+                /* Non-blocking failure */
+              }
+            );
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
