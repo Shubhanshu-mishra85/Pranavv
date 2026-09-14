@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PRANAV | Easy Mode</title>
+
+  <meta
+    name="description"
+    content="PRANAV Easy Mode for simple and accessible healthcare coordination."
+  >
+
+  <link rel="icon" href="pranav-logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    :root {
+      --easy-red: #a51e36;
+      --easy-green: #287653;
+      --easy-dark: #26312e;
+      --easy-muted: #687672;
+      --easy-bg: #f6fcf9;
+      --easy-card: #ffffff;
+      --easy-border: #dce9e3;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--easy-bg);
+      color: var(--easy-dark);
+    }
+
+    .easy-page {
+      min-height: 100vh;
+      padding: 35px 18px 115px;
+
+      background:
+        radial-gradient(
+          circle at 8% 5%,
+          rgba(210, 248, 231, .8),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 92% 8%,
+          rgba(255, 221, 227, .7),
+          transparent 30%
+        ),
+        #f6fcf9;
+    }
+
+    .easy-container {
+      width: min(1050px, 100%);
+      margin: auto;
+    }
+
+    /* TOP BAR */
+
+    .easy-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+
+      margin-bottom: 28px;
+    }
+
+    .easy-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      text-decoration: none;
+      color: var(--easy-dark);
+
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .easy-brand img {
+      width: 43px;
+      height: 43px;
+      object-fit: contain;
+    }
+
+    .normal-mode {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 12px 16px;
+
+      border-radius: 13px;
+
+      background: white;
+      border: 1px solid var(--easy-border);
+
+      color: #45534e;
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    /* HERO */
+
+    .easy-hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .easy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 9px 15px;
+
+      border-radius: 50px;
+
+      background: white;
+      border: 1px solid var(--easy-border);
+
+      color: var(--easy-green);
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .easy-hero h1 {
+      margin: 17px 0 10px;
+
+      font-size: clamp(35px, 6vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+
+    .easy-hero h1 span {
+      color: var(--easy-red);
+    }
+
+    .easy-hero p {
+      max-width: 700px;
+
+      margin: auto;
+
+      color: var(--easy-muted);
+
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    /* LANGUAGE + VOICE */
+
+    .access-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      margin-bottom: 25px;
+    }
+
+    .language-button,
+    .voice-button {
+      min-height: 48px;
+
+      padding: 10px 17px;
+
+      border-radius: 14px;
+
+      border: 1px solid var(--easy-border);
+
+      background: white;
+
+      color: #36423e;
+
+      font-size: 14px;
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+    .language-button.active {
+      background: #eaf8f1;
+      border-color: #bcdccc;
+      color: var(--easy-green);
+    }
+
+    .voice-button {
+      background: #a51e36;
+      border-color: #a51e36;
+      color: white;
+    }
+
+    .voice-button.listening {
+      animation: voicePulse 1.4s infinite;
+    }
+
+    @keyframes voicePulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(165,30,54,.18);
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px rgba(165,30,54,.07);
+      }
+    }
+
+    /* EMERGENCY */
+
+    .emergency-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 20px;
+
+      padding: 22px;
+
+      margin-bottom: 25px;
+
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff3f5,
+          #ffffff
+        );
+
+      border: 1px solid #efd7dc;
+
+      box-shadow: 0 15px 40px rgba(90,35,45,.07);
+    }
+
+    .emergency-icon {
+      width: 62px;
+      height: 62px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 18px;
+
+      background: #a51e36;
+      color: white;
+
+      font-size: 28px;
+    }
+
+    .emergency-card h2 {
+      margin: 0 0 5px;
+
+      color: #8f1d31;
+      font-size: 21px;
+    }
+
+    .emergency-card p {
+      margin: 0;
+
+      color: #71666a;
+
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .emergency-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 52px;
+
+      padding: 12px 18px;
+
+      border-radius: 14px;
+
+      background: #a51e36;
+      color: white;
+
+      text-decoration: none;
+
+      font-size: 15px;
+      font-weight: 900;
+
+      white-space: nowrap;
+    }
+
+    /* STEP PROGRESS */
+
+    .progress-card {
+      padding: 22px;
+
+      margin-bottom: 25px;
+
+      border-radius: 22px;
+
+      background: white;
+
+      border: 1px solid var(--easy-border);
+
+      box-shadow: 0 15px 40px rgba(30,60,48,.06);
+    }
+
+    .progress-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 17px;
+    }
+
+    .progress-heading strong {
+      font-size: 16px;
+    }
+
+    .step-counter {
+      color: var(--easy-red);
+
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .progress-track {
+      height: 9px;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      background: #e8efec;
+    }
+
+    .progress-fill {
+      width: 20%;
+      height: 100%;
+
+      border-radius: inherit;
+
+      background: #a51e36;
+
+      transition: width .4s ease;
+    }
+
+    /* QUESTION */
+
+    .question-card {
+      padding: 35px 25px;
+
+      margin-bottom: 25px;
+
+      text-align: center;
+
+      border-radius: 27px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.96),
+          rgba(242,250,247,.94)
+        );
+
+      border: 1px solid var(--easy-border);
+
+      box-shadow: 0 20px 55px rgba(30,60,48,.08);
+    }
+
+    .question-icon {
+      width: 72px;
+      height: 72px;
+
+      display: grid;
+      place-items: center;
+
+      margin: 0 auto 18px;
+
+      border-radius: 22px;
+
+      background: #edf8f3;
+
+      font-size: 33px;
+    }
+
+    .question-card h2 {
+      margin: 0 0 8px;
+
+      font-size: clamp(25px, 5vw, 36px);
+    }
+
+    .question-card p {
+      margin: 0 auto 25px;
+
+      max-width: 600px;
+
+      color: var(--easy-muted);
+
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* OPTIONS */
+
+    .option-grid {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 15px;
+
+      max-width: 800px;
+
+      margin: auto;
+    }
+
+    .option-button {
+      min-height: 105px;
+
+      display: flex;
+      align-items: center;
+      gap: 17px;
+
+      padding: 20px;
+
+      border-radius: 19px;
+
+      border: 2px solid #e1ebe6;
+
+      background: white;
+
+      color: var(--easy-dark);
+
+      text-align: left;
+
+      cursor: pointer;
+
+      transition: .2s ease;
+    }
+
+    .option-button:hover,
+    .option-button:focus {
+      border-color: #a51e36;
+
+      transform: translateY(-2px);
+
+      outline: none;
+    }
+
+    .option-icon {
+      width: 58px;
+      height: 58px;
+
+      flex-shrink: 0;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 17px;
+
+      background: #f0f8f4;
+
+      font-size: 28px;
+    }
+
+    .option-button strong {
+      display: block;
+
+      font-size: 18px;
+    }
+
+    .option-button span {
+      display: block;
+
+      margin-top: 5px;
+
+      color: #7a8682;
+
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    /* CURRENT RESULT */
+
+    .guided-result {
+      display: none;
+
+      margin-top: 20px;
+
+      padding: 20px;
+
+      border-radius: 18px;
+
+      background: #eef9f4;
+
+      border: 1px solid #d4ebdf;
+
+      text-align: left;
+    }
+
+    .guided-result.show {
+      display: block;
+
+      animation: resultIn .35s ease;
+    }
+
+    @keyframes resultIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .guided-result strong {
+      display: block;
+
+      margin-bottom: 6px;
+
+      color: #26704f;
+
+      font-size: 16px;
+    }
+
+    .guided-result p {
+      margin: 0;
+
+      color: #64746e;
+
+      font-size: 14px;
+
+      line-height: 1.6;
+    }
+
+    .next-button {
+      margin-top: 15px;
+
+      min-height: 50px;
+
+      padding: 11px 20px;
+
+      border: none;
+      border-radius: 13px;
+
+      background: #287653;
+      color: white;
+
+      font-weight: 900;
+
+      cursor: pointer;
+    }
+
+    /* QUICK ACTIONS */
+
+    .quick-actions {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 13px;
+
+      margin-bottom: 25px;
+    }
+
+    .quick-action {
+      min-height: 95px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 7px;
+
+      padding: 15px;
+
+      border-radius: 18px;
+
+      background: white;
+
+      border: 1px solid var(--easy-border);
+
+      color: #3d4a45;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 900;
+
+      box-shadow: 0 10px 28px rgba(30,60,48,.05);
+
+      transition: .2s ease;
+    }
+
+    .quick-action span {
+      font-size: 25px;
+    }
+
+    .quick-action:hover {
+      transform: translateY(-2px);
+
+      border-color: #c9ddd4;
+    }
+
+    /* ACCESSIBILITY */
+
+    .accessibility-card {
+      padding: 22px;
+
+      border-radius: 20px;
+
+      background: white;
+
+      border: 1px solid var(--easy-border);
+
+      box-shadow: 0 12px 35px rgba(30,60,48,.05);
+    }
+
+    .accessibility-card h3 {
+      margin: 0 0 14px;
+
+      font-size: 17px;
+    }
+
+    .accessibility-options {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 10px;
+    }
+
+    .accessibility-option {
+      min-height: 45px;
+
+      padding: 10px 14px;
+
+      border-radius: 12px;
+
+      background: #f7faf9;
+
+      border: 1px solid #e1e9e5;
+
+      color: #485650;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      cursor: pointer;
+    }
+
+    .accessibility-option.active {
+      background: #eaf8f1;
+
+      border-color: #bfdfd0;
+
+      color: #27704f;
+    }
+
+    /* SAFETY */
+
+    .safety-note {
+      margin-top: 20px;
+
+      padding: 18px;
+
+      border-radius: 17px;
+
+      background: #fff8e9;
+
+      border: 1px solid #efdfbc;
+
+      color: #705c31;
+
+      font-size: 12px;
+
+      line-height: 1.6;
+    }
+
+    .safety-note strong {
+      color: #765b1e;
+    }
+
+    .footer-note {
+      margin-top: 22px;
+
+      text-align: center;
+
+      color: #8d9894;
+
+      font-size: 11px;
+
+      line-height: 1.5;
+    }
+
+    /* LARGE TEXT MODE */
+
+    body.large-text .easy-hero p,
+    body.large-text .question-card p,
+    body.large-text .emergency-card p {
+      font-size: 20px;
+    }
+
+    body.large-text .option-button strong {
+      font-size: 21px;
+    }
+
+    body.large-text .option-button span {
+      font-size: 15px;
+    }
+
+    body.large-text .quick-action {
+      font-size: 17px;
+    }
+
+    /* HIGH CONTRAST */
+
+    body.high-contrast {
+      background: #ffffff;
+    }
+
+    body.high-contrast .question-card,
+    body.high-contrast .progress-card,
+    body.high-contrast .quick-action,
+    body.high-contrast .accessibility-card {
+      border: 2px solid #26312e;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .easy-page {
+        padding: 25px 14px 105px;
+      }
+
+      .emergency-card {
+        grid-template-columns: auto 1fr;
+      }
+
+      .emergency-button {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+
+      .option-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quick-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+
+      .easy-top {
+        align-items: flex-start;
+      }
+
+      .easy-brand {
+        font-size: 17px;
+      }
+
+      .easy-brand img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .normal-mode {
+        padding: 10px 12px;
+        font-size: 11px;
+      }
+
+      .easy-hero p {
+        font-size: 16px;
+      }
+
+      .emergency-card {
+        padding: 17px;
+      }
+
+      .emergency-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 23px;
+      }
+
+      .emergency-card h2 {
+        font-size: 18px;
+      }
+
+      .question-card {
+        padding: 28px 17px;
+      }
+
+      .option-button {
+        min-height: 92px;
+        padding: 15px;
+      }
+
+      .option-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 23px;
+      }
+
+      .option-button strong {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- SIMPLE TOP -->
+
+  <header class="easy-top">
+
+    <a
+      href="index.html"
+      class="easy-brand"
+    >
+      <img
+        src="pranav-logo.png"
+        alt="PRANAV Logo"
+      >
+
+      <span>
+        PRANAV
+      </span>
+    </a>
+
+    <a
+      href="index.html"
+      class="normal-mode"
+    >
+      ← Normal Mode
+    </a>
+
+  </header>
+
+
+  <main class="easy-page">
+
+    <div class="easy-container">
+
+
+      <!-- HERO -->
+
+      <section class="easy-hero">
+
+        <div class="easy-badge">
+          🧓 Easy & Accessible Mode
+        </div>
+
+        <h1>
+          Simple care.
+          <span>Clear steps.</span>
+        </h1>
+
+        <p>
+          PRANAV Easy Mode is designed for elderly users,
+          low-literacy users and people who need a simple interface
+          during stressful situations.
+        </p>
+
+      </section>
+
+
+      <!-- LANGUAGE + VOICE -->
+
+      <div class="access-bar">
+
+        <button
+          type="button"
+          class="language-button active"
+          onclick="setLanguage('hi', this)"
+        >
+          हिंदी
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          onclick="setLanguage('hinglish', this)"
+        >
+          Hinglish
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          onclick="setLanguage('en', this)"
+        >
+          English
+        </button>
+
+        <button
+          type="button"
+          class="voice-button"
+          id="voiceButton"
+          onclick="startVoice()"
+        >
+          🎙️ Speak
+        </button>
+
+      </div>
+
+
+      <!-- EMERGENCY -->
+
+      <section class="emergency-card">
+
+        <div class="emergency-icon">
+          🚨
+        </div>
+
+        <div>
+
+          <h2>
+            Emergency?
+          </h2>
+
+          <p>
+            Agar abhi blood ki zarurat hai, Emergency Mode open karein.
+          </p>
+
+        </div>
+
+        <a
+          href="emergency.html"
+          class="emergency-button"
+        >
+          🚨 Emergency Help
+        </a>
+
+      </section>
+
+
+      <!-- PROGRESS -->
+
+      <section class="progress-card">
+
+        <div class="progress-heading">
+
+          <strong id="progressTitle">
+            Step 1 of 5
+          </strong>
+
+          <span
+            class="step-counter"
+            id="progressPercent"
+          >
+            20%
+          </span>
+
+        </div>
+
+        <div class="progress-track">
+
+          <div
+            class="progress-fill"
+            id="progressFill"
+          ></div>
+
+        </div>
+
+      </section>
+
+
+      <!-- QUESTION -->
+
+      <section class="question-card">
+
+        <div
+          class="question-icon"
+          id="questionIcon"
+        >
+          🩸
+        </div>
+
+        <h2 id="questionTitle">
+          Aapko kya chahiye?
+        </h2>
+
+        <p id="questionText">
+          Neeche se ek option choose karein.
+        </p>
+
+
+        <div
+          class="option-grid"
+          id="optionGrid"
+        >
+
+          <button
+            type="button"
+            class="option-button"
+            onclick="chooseNeed('blood')"
+          >
+
+            <div class="option-icon">
+              🩸
+            </div>
+
+            <div>
+
+              <strong>
+                Blood
+              </strong>
+
+              <span>
+                Blood resource find karna hai
+              </span>
+
+            </div>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="option-button"
+            onclick="chooseNeed('resource')"
+          >
+
+            <div class="option-icon">
+              📍
+            </div>
+
+            <div>
+
+              <strong>
+                Nearby Resource
+              </strong>
+
+              <span>
+                Blood centre ya facility dhoondhein
+              </span>
+
+            </div>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="option-button"
+            onclick="chooseNeed('assistant')"
+          >
+
+            <div class="option-icon">
+              🤖
+            </div>
+
+            <div>
+
+              <strong>
+                Talk to PRANAV
+              </strong>
+
+              <span>
+                Simple language mein help lein
+              </span>
+
+            </div>
+
+          </button>
+
+
+          <button
+            type="button"
+            class="option-button"
+            onclick="chooseNeed('track')"
+          >
+
+            <div class="option-icon">
+              📋
+            </div>
+
+            <div>
+
+              <strong>
+                Track Request
+              </strong>
+
+              <span>
+                Apni request ka status dekhein
+              </span>
+
+            </div>
+
+          </button>
+
+        </div>
+
+
+        <div
+          class="guided-result"
+          id="guidedResult"
+        >
+
+          <strong id="resultTitle">
+            PRANAV is ready to help.
+          </strong>
+
+          <p id="resultText">
+            Aapke selected option ke according next step choose karein.
+          </p>
+
+          <button
+            type="button"
+            class="next-button"
+            id="nextButton"
+            onclick="goNext()"
+          >
+            Continue →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- QUICK ACTIONS -->
+
+      <section class="quick-actions">
+
+        <a
+          href="emergency.html"
+          class="quick-action"
+        >
+          <span>🚨</span>
+          Emergency
+        </a>
+
+        <a
+          href="find-blood.html"
+          class="quick-action"
+        >
+          <span>🔎</span>
+          Find Blood
+        </a>
+
+        <a
+          href="assistant.html"
+          class="quick-action"
+        >
+          <span>🤖</span>
+          Ask PRANAV
+        </a>
+
+        <a
+          href="tracking.html"
+          class="quick-action"
+        >
+          <span>📋</span>
+          Track Request
+        </a>
+
+        <a
+          href="camps.html"
+          class="quick-action"
+        >
+          <span>📅</span>
+          Blood Camps
+        </a>
+
+        <a
+          href="blood-education.html"
+          class="quick-action"
+        >
+          <span>📚</span>
+          Learn
+        </a>
+
+      </section>
+
+
+      <!-- ACCESSIBILITY -->
+
+      <section class="accessibility-card">
+
+        <h3>
+          ♿ Make PRANAV easier to use
+        </h3>
+
+        <div class="accessibility-options">
+
+          <button
+            type="button"
+            class="accessibility-option"
+            id="largeTextButton"
+            onclick="toggleLargeText()"
+          >
+            🔠 Larger Text
+          </button>
+
+          <button
+            type="button"
+            class="accessibility-option"
+            id="contrastButton"
+            onclick="toggleContrast()"
+          >
+            ◐ High Contrast
+          </button>
+
+          <button
+            type="button"
+            class="accessibility-option"
+            onclick="speakCurrentPage()"
+          >
+            🔊 Read Aloud
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- SAFETY -->
+
+      <div class="safety-note">
+
+        <strong>
+          ⚠️ Important:
+        </strong>
+
+        PRANAV helps with healthcare coordination and information.
+        Blood availability shown by the platform is not guaranteed.
+        Always confirm with an authorised blood centre or healthcare
+        facility. In a medical emergency, seek immediate professional
+        medical help.
+
+      </div>
+
+
+      <div class="footer-note">
+
+        PRANAV — Connecting People. Supporting Care.
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <!-- MOBILE NAV -->
+
+  <nav class="mobile-bottom-nav">
+
+    <a href="index.html">
+      <span>⌂</span>
+      <small>Home</small>
+    </a>
+
+    <a href="find-blood.html">
+      <span>🔎</span>
+      <small>Find</small>
+    </a>
+
+    <a href="emergency.html">
+      <span>🚨</span>
+      <small>Emergency</small>
+    </a>
+
+    <a href="assistant.html">
+      <span>🤖</span>
+      <small>Assistant</small>
+    </a>
+
+    <a href="about.html">
+      <span>ℹ️</span>
+      <small>About</small>
+    </a>
+
+  </nav>
+
+
+  <!-- SCRIPTS -->
+
+  <script src="js/app.js"></script>
+  <script src="js/easy-mode.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/loader.js"></script>
+
+
+  <script>
+
+    let selectedNeed = "";
+
+
+    const content = {
+
+      hi: {
+        title: "Aapko kya chahiye?",
+        text: "Neeche se ek option choose karein."
+      },
+
+      hinglish: {
+        title: "Aapko kya chahiye?",
+        text: "Neeche se ek option choose karein."
+      },
+
+      en: {
+        title: "What do you need?",
+        text: "Choose one option below."
+      }
+
+    };
+
+
+    function setLanguage(language, button) {
+
+      document
+        .querySelectorAll(".language-button")
+        .forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+      button.classList.add("active");
+
+      document.getElementById(
+        "questionTitle"
+      ).textContent = content[language].title;
+
+      document.getElementById(
+        "questionText"
+      ).textContent = content[language].text;
+
+    }
+
+
+    function chooseNeed(type) {
+
+      selectedNeed = type;
+
+      const result =
+        document.getElementById("guidedResult");
+
+      const title =
+        document.getElementById("resultTitle");
+
+      const text =
+        document.getElementById("resultText");
+
+      const button =
+        document.getElementById("nextButton");
+
+
+      if (type === "blood") {
+
+        title.textContent =
+          "🩸 Blood request";
+
+        text.textContent =
+          "Aap emergency blood requirement create kar sakte hain. Blood group, component, location aur facility details enter karni hongi.";
+
+        button.textContent =
+          "Create Blood Request →";
+
+      }
+
+
+      else if (type === "resource") {
+
+        title.textContent =
+          "📍 Nearby resources";
+
+        text.textContent =
+          "PRANAV aapko potential blood resources aur authorised healthcare facilities explore karne mein help karega.";
+
+        button.textContent =
+          "Find Resources →";
+
+      }
+
+
+      else if (type === "assistant") {
+
+        title.textContent =
+          "🤖 PRANAV Assistant";
+
+        text.textContent =
+          "Aap simple language mein apna sawal pooch sakte hain. PRANAV navigation aur healthcare coordination information mein help karega.";
+
+        button.textContent =
+          "Talk to PRANAV →";
+
+      }
+
+
+      else if (type === "track") {
+
+        title.textContent =
+          "📋 Track Request";
+
+        text.textContent =
+          "Agar aapke paas PRANAV Request ID hai, aap request ka current coordination status dekh sakte hain.";
+
+        button.textContent =
+          "Track Request →";
+
+      }
+
+
+      result.classList.add("show");
+
+      result.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+
+    }
+
+
+    function goNext() {
+
+      if (selectedNeed === "blood") {
+
+        window.location.href =
+          "blood-request.html";
+
+      }
+
+      else if (selectedNeed === "resource") {
+
+        window.location.href =
+          "find-blood.html";
+
+      }
+
+      else if (selectedNeed === "assistant") {
+
+        window.location.href =
+          "assistant.html";
+
+      }
+
+      else if (selectedNeed === "track") {
+
+        window.location.href =
+          "tracking.html";
+
+      }
+
+    }
+
+
+    /* LARGE TEXT */
+
+    function toggleLargeText() {
+
+      document.body.classList.toggle("large-text");
+
+      document
+        .getElementById("largeTextButton")
+        .classList.toggle("active");
+
+    }
+
+
+    /* HIGH CONTRAST */
+
+    function toggleContrast() {
+
+      document.body.classList.toggle("high-contrast");
+
+      document
+        .getElementById("contrastButton")
+        .classList.toggle("active");
+
+    }
+
+
+    /* VOICE INPUT */
+
+    function startVoice() {
+
+      const voiceButton =
+        document.getElementById("voiceButton");
+
+
+      const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
+
+
+      if (!SpeechRecognition) {
+
+        alert(
+          "Voice input is not supported in this browser. Please use Chrome or another supported browser."
+        );
+
+        return;
+
+      }
+
+
+      const recognition =
+        new SpeechRecognition();
+
+
+      recognition.lang = "hi-IN";
+
+      recognition.interimResults = false;
+
+      recognition.maxAlternatives = 1;
+
+
+      voiceButton.classList.add("listening");
+
+      voiceButton.textContent =
+        "🎙️ Listening...";
+
+
+      recognition.start();
+
+
+      recognition.onresult =
+        function(event) {
+
+          const transcript =
+            event.results[0][0].transcript
+              .toLowerCase();
+
+
+          if (
+            transcript.includes("blood") ||
+            transcript.includes("ब्लड") ||
+            transcript.includes("खून")
+          ) {
+
+            chooseNeed("blood");
+
+          }
+
+          else if (
+            transcript.includes("near") ||
+            transcript.includes("पास") ||
+            transcript.includes("centre") ||
+            transcript.includes("center")
+          ) {
+
+            chooseNeed("resource");
+
+          }
+
+          else if (
+            transcript.includes("assistant") ||
+            transcript.includes("help") ||
+            transcript.includes("मदद")
+          ) {
+
+            chooseNeed("assistant");
+
+          }
+
+          else if (
+            transcript.includes("track") ||
+            transcript.includes("status") ||
+            transcript.includes("स्टेटस")
+          ) {
+
+            chooseNeed("track");
+
+          }
+
+          else {
+
+            document.getElementById(
+              "resultTitle"
+            ).textContent =
+              "🤔 PRANAV could not understand.";
+
+            document.getElementById(
+              "resultText"
+            ).textContent =
+              "Please choose one of the large buttons below or try speaking again.";
+
+            document.getElementById(
+              "nextButton"
+            ).style.display = "none";
+
+            document.getElementById(
+              "guidedResult"
+            ).classList.add("show");
+
+          }
+
+        };
+
+
+      recognition.onerror =
+        function() {
+
+          document.getElementById(
+            "resultTitle"
+          ).textContent =
+            "🎙️ Voice input unavailable.";
+
+          document.getElementById(
+            "resultText"
+          ).textContent =
+            "Please use the buttons on the screen.";
+
+          document.getElementById(
+            "nextButton"
+          ).style.display = "none";
+
+          document.getElementById(
+            "guidedResult"
+          ).classList.add("show");
+
+        };
+
+
+      recognition.onend =
+        function() {
+
+          voiceButton.classList.remove(
+            "listening"
+          );
+
+          voiceButton.textContent =
+            "🎙️ Speak";
+
+        };
+
+    }
+
+
+    /* READ ALOUD */
+
+    function speakCurrentPage() {
+
+      if (!("speechSynthesis" in window)) {
+
+        alert(
+          "Read Aloud is not supported in this browser."
+        );
+
+        return;
+
+      }
+
+
+      window.speechSynthesis.cancel();
+
+
+      const text =
+        document.querySelector(".easy-page").innerText;
+
+
+      const speech =
+        new SpeechSynthesisUtterance(text);
+
+
+      speech.lang = "hi-IN";
+
+      speech.rate = 0.9;
+
+      speech.pitch = 1;
+
+
+      window.speechSynthesis.speak(
+        speech
+      );
+
+    }
+
+
+    /* SERVICE WORKER */
+
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener(
+        "load",
+        () => {
+
+          navigator.serviceWorker
+            .register("./sw.js")
+            .catch(() => {});
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+</html>
