@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PRANAV | Coordination Dashboard</title>
+
+  <meta
+    name="description"
+    content="PRANAV healthcare coordination and emergency blood resource dashboard."
+  >
+
+  <link rel="icon" href="pranav-logo.png">
+  <link rel="manifest" href="manifest.json">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+
+  <style>
+    :root {
+      --dash-bg: #f6fbf8;
+      --dash-card: rgba(255,255,255,.88);
+      --dash-border: #e2ebe7;
+      --dash-text: #26312e;
+      --dash-muted: #77827f;
+      --dash-red: #a51e36;
+      --dash-green: #237653;
+      --dash-yellow: #a26b16;
+      --dash-shadow: 0 15px 45px rgba(28,57,46,.07);
+    }
+
+    body {
+      background: var(--dash-bg);
+    }
+
+    .dashboard-page {
+      min-height: 100vh;
+      padding: 35px 20px 100px;
+      background:
+        radial-gradient(
+          circle at 8% 8%,
+          rgba(211,248,232,.7),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 92% 12%,
+          rgba(255,222,228,.62),
+          transparent 30%
+        ),
+        #f6fbf8;
+    }
+
+    .dashboard-container {
+      width: min(1380px, 100%);
+      margin: auto;
+    }
+
+    /* TOP */
+
+    .dashboard-top {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .dashboard-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 12px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid #e1ebe6;
+      color: var(--dash-red);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .7px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .dashboard-top h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 45px);
+      letter-spacing: -.8px;
+      color: var(--dash-text);
+    }
+
+    .dashboard-top p {
+      margin: 8px 0 0;
+      color: var(--dash-muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .dashboard-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .dash-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 12px 15px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      border: 1px solid var(--dash-border);
+      background: white;
+      color: #34403c;
+      cursor: pointer;
+    }
+
+    .dash-action.primary {
+      background: var(--dash-red);
+      border-color: var(--dash-red);
+      color: white;
+    }
+
+    /* DEMO NOTICE */
+
+    .demo-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 17px;
+      margin-bottom: 20px;
+      border-radius: 16px;
+      background: rgba(255,250,238,.9);
+      border: 1px solid #f0dfb8;
+      color: #755b2b;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .demo-notice strong {
+      color: #805f18;
+    }
+
+    /* KPI */
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-card {
+      position: relative;
+      overflow: hidden;
+      padding: 20px;
+      border-radius: 20px;
+      background: var(--dash-card);
+      border: 1px solid var(--dash-border);
+      box-shadow: var(--dash-shadow);
+    }
+
+    .kpi-card::after {
+      content: "";
+      position: absolute;
+      width: 75px;
+      height: 75px;
+      right: -28px;
+      bottom: -30px;
+      border-radius: 50%;
+      background: rgba(165,30,54,.06);
+    }
+
+    .kpi-icon {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #f0f8f4;
+      margin-bottom: 14px;
+      font-size: 18px;
+    }
+
+    .kpi-card.alert .kpi-icon {
+      background: #fff0f2;
+    }
+
+    .kpi-card.warning .kpi-icon {
+      background: #fff8e9;
+    }
+
+    .kpi-number {
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--dash-text);
+    }
+
+    .kpi-title {
+      margin-top: 3px;
+      color: var(--dash-muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .kpi-change {
+      margin-top: 10px;
+      color: var(--dash-green);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* MAIN GRID */
+
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1.4fr .8fr;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .dashboard-card {
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--dash-card);
+      border: 1px solid var(--dash-border);
+      box-shadow: var(--dash-shadow);
+    }
+
+    .card-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    .card-heading h2 {
+      margin: 0;
+      font-size: 18px;
+      color: var(--dash-text);
+    }
+
+    .card-heading p {
+      margin: 4px 0 0;
+      color: var(--dash-muted);
+      font-size: 11px;
+    }
+
+    .view-link {
+      color: var(--dash-red);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    /* REQUEST TABLE */
+
+    .request-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .request-table th {
+      padding: 11px 8px;
+      text-align: left;
+      color: #89938f;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      border-bottom: 1px solid #e9efec;
+    }
+
+    .request-table td {
+      padding: 14px 8px;
+      color: #47534f;
+      font-size: 12px;
+      border-bottom: 1px solid #edf2ef;
+    }
+
+    .request-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .request-id {
+      color: var(--dash-red);
+      font-weight: 900;
+    }
+
+    .blood-type {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 43px;
+      padding: 6px 8px;
+      border-radius: 9px;
+      background: #fff1f3;
+      color: #9b2137;
+      font-weight: 900;
+    }
+
+    .urgency {
+      font-size: 10px;
+      font-weight: 900;
+      padding: 5px 8px;
+      border-radius: 30px;
+    }
+
+    .urgency.high {
+      color: #9b2137;
+      background: #fff0f2;
+    }
+
+    .urgency.medium {
+      color: #946314;
+      background: #fff7e7;
+    }
+
+    .urgency.normal {
+      color: #24704f;
+      background: #eaf8f1;
+    }
+
+    /* QUEUE */
+
+    .queue-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .queue-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px;
+      border-radius: 14px;
+      background: #f9fcfb;
+      border: 1px solid #e8efec;
+    }
+
+    .queue-icon {
+      width: 37px;
+      height: 37px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      background: #edf8f3;
+    }
+
+    .queue-item strong {
+      display: block;
+      color: #36413e;
+      font-size: 12px;
+    }
+
+    .queue-item span {
+      display: block;
+      margin-top: 3px;
+      color: #89928f;
+      font-size: 10px;
+    }
+
+    .queue-count {
+      margin-left: auto;
+      color: var(--dash-red);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    /* CHART */
+
+    .chart-box {
+      height: 250px;
+      position: relative;
+      padding-top: 12px;
+    }
+
+    .chart-svg {
+      width: 100%;
+      height: 210px;
+      overflow: visible;
+    }
+
+    .chart-grid-line {
+      stroke: #e7eeeb;
+      stroke-width: 1;
+    }
+
+    .chart-area {
+      fill: rgba(165,30,54,.07);
+    }
+
+    .chart-line {
+      fill: none;
+      stroke: #a51e36;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .chart-dot {
+      fill: white;
+      stroke: #a51e36;
+      stroke-width: 3;
+    }
+
+    .chart-label {
+      fill: #8a9692;
+      font-size: 10px;
+    }
+
+    /* RESOURCE */
+
+    .resource-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .resource-item {
+      display: grid;
+      grid-template-columns: 42px 1fr auto;
+      gap: 12px;
+      align-items: center;
+      padding: 13px;
+      border-radius: 15px;
+      background: #f9fcfb;
+      border: 1px solid #e7eeeb;
+    }
+
+    .resource-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #eef8f4;
+      font-size: 20px;
+    }
+
+    .resource-item strong {
+      display: block;
+      color: #37423f;
+      font-size: 12px;
+    }
+
+    .resource-item span {
+      display: block;
+      margin-top: 4px;
+      color: #89938f;
+      font-size: 10px;
+    }
+
+    .resource-status {
+      padding: 6px 8px;
+      border-radius: 30px;
+      color: #24704f;
+      background: #eaf8f1;
+      font-size: 9px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    /* HEATMAP */
+
+    .heatmap {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 5px;
+    }
+
+    .heat-cell {
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 7px;
+      font-size: 8px;
+      color: #53605b;
+      background: #eef7f3;
+      cursor: default;
+    }
+
+    .heat-cell.level-2 {
+      background: #dcefe7;
+    }
+
+    .heat-cell.level-3 {
+      background: #f9e4e7;
+    }
+
+    .heat-cell.level-4 {
+      background: #efc8cf;
+      color: #762238;
+      font-weight: 800;
+    }
+
+    .heat-legend {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 13px;
+      color: #7c8784;
+      font-size: 10px;
+    }
+
+    .legend-box {
+      width: 13px;
+      height: 13px;
+      border-radius: 4px;
+      background: #eef7f3;
+    }
+
+    .legend-box.medium {
+      background: #dcefe7;
+    }
+
+    .legend-box.high {
+      background: #efc8cf;
+    }
+
+    /* ESCALATION */
+
+    .escalation {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .escalation-step {
+      position: relative;
+      padding: 17px 12px;
+      text-align: center;
+      border-radius: 15px;
+      background: #f8fbfa;
+      border: 1px solid #e6eeea;
+    }
+
+    .escalation-step.active {
+      background: #fff3f5;
+      border-color: #efcdd2;
+    }
+
+    .escalation-step .level {
+      width: 30px;
+      height: 30px;
+      margin: 0 auto 8px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+      color: var(--dash-red);
+      border: 1px solid #e6d5d8;
+      font-size: 11px;
+      font-weight: 900;
+    }
+
+    .escalation-step strong {
+      display: block;
+      color: #4a5551;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    /* FOOTER */
+
+    .dashboard-footer-note {
+      text-align: center;
+      margin-top: 20px;
+      color: #929c99;
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1150px) {
+
+      .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 800px) {
+
+      .dashboard-page {
+        padding: 25px 14px 105px;
+      }
+
+      .dashboard-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .request-table {
+        min-width: 680px;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        border-radius: 12px;
+      }
+
+      .escalation {
+        grid-template-columns: 1fr;
+      }
+
+      .escalation-step {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+      }
+
+      .escalation-step .level {
+        margin: 0;
+        flex-shrink: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .kpi-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 9px;
+      }
+
+      .kpi-card {
+        padding: 15px;
+      }
+
+      .kpi-number {
+        font-size: 23px;
+      }
+
+      .kpi-title {
+        font-size: 10px;
+      }
+
+      .dashboard-card {
+        padding: 17px;
+      }
+
+      .heatmap {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .dashboard-actions {
+        width: 100%;
+      }
+
+      .dash-action {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <div class="nav-container">
+
+      <a href="index.html" class="brand">
+        <img src="pranav-logo.png" alt="PRANAV Logo">
+        <span>PRANAV</span>
+      </a>
+
+      <nav class="desktop-nav">
+
+        <a href="index.html">Home</a>
+        <a href="find-blood.html">Find Blood</a>
+        <a href="camps.html">Camps</a>
+        <a href="blood-education.html">Education</a>
+        <a href="assistant.html">AI Assistant</a>
+        <a href="about.html">About</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <a href="assistant.html" class="ai-btn">
+          🤖 Ask PRANAV
+        </a>
+
+        <a href="emergency.html" class="emergency-btn">
+          🚨 Emergency
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <main class="dashboard-page">
+
+    <div class="dashboard-container">
+
+      <!-- TOP -->
+
+      <section class="dashboard-top">
+
+        <div>
+
+          <div class="dashboard-label">
+            🏥 Coordination Console
+          </div>
+
+          <h1>
+            PRANAV Dashboard
+          </h1>
+
+          <p>
+            Monitor emergency requests, potential resources,
+            verification and active coordination.
+          </p>
+
+        </div>
+
+        <div class="dashboard-actions">
+
+          <a
+            href="emergency.html"
+            class="dash-action primary"
+          >
+            🚨 New Request
+          </a>
+
+          <a
+            href="tracking.html"
+            class="dash-action"
+          >
+            📋 Track Request
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <!-- DEMO NOTICE -->
+
+      <div class="demo-notice">
+
+        <span>⚠️</span>
+
+        <div>
+          <strong>Prototype / Demo Data</strong><br>
+
+          Dashboard numbers and visualisations shown here are
+          demonstration data and do not represent live blood inventory
+          or guaranteed availability.
+        </div>
+
+      </div>
+
+
+      <!-- KPI -->
+
+      <section class="kpi-grid">
+
+        <div class="kpi-card alert">
+
+          <div class="kpi-icon">
+            🚨
+          </div>
+
+          <div class="kpi-number" id="activeRequests">
+            24
+          </div>
+
+          <div class="kpi-title">
+            Active Emergency Requests
+          </div>
+
+          <div class="kpi-change">
+            ↑ 8% vs previous period
+          </div>
+
+        </div>
+
+
+        <div class="kpi-card">
+
+          <div class="kpi-icon">
+            🔎
+          </div>
+
+          <div class="kpi-number">
+            68
+          </div>
+
+          <div class="kpi-title">
+            Potential Matches
+          </div>
+
+          <div class="kpi-change">
+            ↑ 14% discovered
+          </div>
+
+        </div>
+
+
+        <div class="kpi-card warning">
+
+          <div class="kpi-icon">
+            🛡️
+          </div>
+
+          <div class="kpi-number">
+            17
+          </div>
+
+          <div class="kpi-title">
+            Verification Queue
+          </div>
+
+          <div class="kpi-change">
+            6 high priority
+          </div>
+
+        </div>
+
+
+        <div class="kpi-card">
+
+          <div class="kpi-icon">
+            🤝
+          </div>
+
+          <div class="kpi-number">
+            31
+          </div>
+
+          <div class="kpi-title">
+            Active Coordination
+          </div>
+
+          <div class="kpi-change">
+            12 facilities involved
+          </div>
+
+        </div>
+
+
+        <div class="kpi-card">
+
+          <div class="kpi-icon">
+            ✅
+          </div>
+
+          <div class="kpi-number">
+            142
+          </div>
+
+          <div class="kpi-title">
+            Resolved Requests
+          </div>
+
+          <div class="kpi-change">
+            ↑ 11% this period
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- REQUESTS + QUEUE -->
+
+      <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+          <div class="card-heading">
+
+            <div>
+
+              <h2>
+                🚨 Emergency Requests
+              </h2>
+
+              <p>
+                Latest coordination activity
+              </p>
+
+            </div>
+
+            <a
+              href="tracking.html"
+              class="view-link"
+            >
+              View all →
+            </a>
+
+          </div>
+
+
+          <div class="table-wrapper">
+
+            <table class="request-table">
+
+              <thead>
+
+                <tr>
+                  <th>Request</th>
+                  <th>Blood</th>
+                  <th>Component</th>
+                  <th>Location</th>
+                  <th>Urgency</th>
+                  <th>Status</th>
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr>
+
+                  <td>
+                    <span class="request-id">
+                      PR-2026-10421
+                    </span>
+                  </td>
+
+                  <td>
+                    <span class="blood-type">
+                      O+
+                    </span>
+                  </td>
+
+                  <td>
+                    RBC
+                  </td>
+
+                  <td>
+                    Lucknow
+                  </td>
+
+                  <td>
+                    <span class="urgency high">
+                      HIGH
+                    </span>
+                  </td>
+
+                  <td>
+                    Verification
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <span class="request-id">
+                      PR-2026-10420
+                    </span>
+                  </td>
+
+                  <td>
+                    <span class="blood-type">
+                      B+
+                    </span>
+                  </td>
+
+                  <td>
+                    Whole Blood
+                  </td>
+
+                  <td>
+                    Kanpur
+                  </td>
+
+                  <td>
+                    <span class="urgency high">
+                      HIGH
+                    </span>
+                  </td>
+
+                  <td>
+                    Matching
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <span class="request-id">
+                      PR-2026-10419
+                    </span>
+                  </td>
+
+                  <td>
+                    <span class="blood-type">
+                      AB+
+                    </span>
+                  </td>
+
+                  <td>
+                    Plasma
+                  </td>
+
+                  <td>
+                    Prayagraj
+                  </td>
+
+                  <td>
+                    <span class="urgency medium">
+                      MEDIUM
+                    </span>
+                  </td>
+
+                  <td>
+                    Coordination
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <span class="request-id">
+                      PR-2026-10418
+                    </span>
+                  </td>
+
+                  <td>
+                    <span class="blood-type">
+                      A-
+                    </span>
+                  </td>
+
+                  <td>
+                    Platelets
+                  </td>
+
+                  <td>
+                    Varanasi
+                  </td>
+
+                  <td>
+                    <span class="urgency high">
+                      HIGH
+                    </span>
+                  </td>
+
+                  <td>
+                    Resource Found
+                  </td>
+
+                </tr>
+
+
+                <tr>
+
+                  <td>
+                    <span class="request-id">
+                      PR-2026-10417
+                    </span>
+                  </td>
+
+                  <td>
+                    <span class="blood-type">
+                      O-
+                    </span>
+                  </td>
+
+                  <td>
+                    RBC
+                  </td>
+
+                  <td>
+                    Agra
+                  </td>
+
+                  <td>
+                    <span class="urgency normal">
+                      NORMAL
+                    </span>
+                  </td>
+
+                  <td>
+                    Analysed
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+        <!-- VERIFICATION -->
+
+        <div class="dashboard-card">
+
+          <div class="card-heading">
+
+            <div>
+
+              <h2>
+                🛡️ Verification Queue
+              </h2>
+
+              <p>
+                Requires human confirmation
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="queue-list">
+
+            <div class="queue-item">
+
+              <div class="queue-icon">
+                🏥
+              </div>
+
+              <div>
+                <strong>
+                  Blood Centre Confirmation
+                </strong>
+
+                <span>
+                  High priority
+                </span>
+              </div>
+
+              <div class="queue-count">
+                6
+              </div>
+
+            </div>
+
+
+            <div class="queue-item">
+
+              <div class="queue-icon">
+                👥
+              </div>
+
+              <div>
+                <strong>
+                  Donor Response
+                </strong>
+
+                <span>
+                  Awaiting response
+                </span>
+              </div>
+
+              <div class="queue-count">
+                5
+              </div>
+
+            </div>
+
+
+            <div class="queue-item">
+
+              <div class="queue-icon">
+                📞
+              </div>
+
+              <div>
+                <strong>
+                  Facility Callback
+                </strong>
+
+                <span>
+                  Contact required
+                </span>
+              </div>
+
+              <div class="queue-count">
+                3
+              </div>
+
+            </div>
+
+
+            <div class="queue-item">
+
+              <div class="queue-icon">
+                📍
+              </div>
+
+              <div>
+                <strong>
+                  Location Confirmation
+                </strong>
+
+                <span>
+                  Details unclear
+                </span>
+              </div>
+
+              <div class="queue-count">
+                3
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- TREND + RESOURCE -->
+
+      <section class="dashboard-grid">
+
+        <div class="dashboard-card">
+
+          <div class="card-heading">
+
+            <div>
+
+              <h2>
+                📈 Emergency Demand Trend
+              </h2>
+
+              <p>
+                Prototype decision-support visualisation
+              </p>
+
+            </div>
+
+            <span class="view-link">
+              Last 7 periods
+            </span>
+
+          </div>
+
+
+          <div class="chart-box">
+
+            <svg
+              class="chart-svg"
+              viewBox="0 0 700 210"
+              preserveAspectRatio="none"
+            >
+
+              <!-- GRID -->
+
+              <line
+                x1="30"
+                y1="30"
+                x2="680"
+                y2="30"
+                class="chart-grid-line"
+              />
+
+              <line
+                x1="30"
+                y1="75"
+                x2="680"
+                y2="75"
+                class="chart-grid-line"
+              />
+
+              <line
+                x1="30"
+                y1="120"
+                x2="680"
+                y2="120"
+                class="chart-grid-line"
+              />
+
+              <line
+                x1="30"
+                y1="165"
+                x2="680"
+                y2="165"
+                class="chart-grid-line"
+              />
+
+
+              <!-- AREA -->
+
+              <path
+                d="
+                  M30 145
+                  L135 118
+                  L240 132
+                  L345 78
+                  L450 102
+                  L555 58
+                  L660 72
+                  L660 175
+                  L30 175
+                  Z
+                "
+                class="chart-area"
+              />
+
+
+              <!-- LINE -->
+
+              <path
+                d="
+                  M30 145
+                  L135 118
+                  L240 132
+                  L345 78
+                  L450 102
+                  L555 58
+                  L660 72
+                "
+                class="chart-line"
+              />
+
+
+              <!-- DOTS -->
+
+              <circle
+                cx="30"
+                cy="145"
+                r="5"
+                class="chart-dot"
+              />
+
+              <circle
+                cx="135"
+                cy="118"
+                r="5"
+                class="chart-dot"
+              />
+
+              <circle
+                cx="240"
+                cy="132"
+                r="5"
+                class="chart-dot"
+              />
+
+              <circle
+                cx="345"
+                cy="78"
+                r="5"
+                class="chart-dot"
+              />
+
+              <circle
+                cx="450"
+                cy="102"
+                r="5"
+                class="chart-dot"
+              />
+
+              <circle
+                cx="555"
+                cy="58"
+                r="5"
+                class="chart-dot"
+              />
+
+              <circle
+                cx="660"
+                cy="72"
+                r="5"
+                class="chart-dot"
+              />
+
+
+              <!-- LABELS -->
+
+              <text
+                x="30"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P1
+              </text>
+
+              <text
+                x="135"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P2
+              </text>
+
+              <text
+                x="240"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P3
+              </text>
+
+              <text
+                x="345"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P4
+              </text>
+
+              <text
+                x="450"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P5
+              </text>
+
+              <text
+                x="555"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P6
+              </text>
+
+              <text
+                x="660"
+                y="198"
+                class="chart-label"
+                text-anchor="middle"
+              >
+                P7
+              </text>
+
+            </svg>
+
+          </div>
+
+        </div>
+
+
+        <!-- RESOURCES -->
+
+        <div class="dashboard-card">
+
+          <div class="card-heading">
+
+            <div>
+
+              <h2>
+                🏥 Resource Signals
+              </h2>
+
+              <p>
+                Potential resources
+              </p>
+
+            </div>
+
+            <a
+              href="find-blood.html"
+              class="view-link"
+            >
+              Explore →
+            </a>
+
+          </div>
+
+
+          <div class="resource-list">
+
+            <div class="resource-item">
+
+              <div class="resource-icon">
+                🏥
+              </div>
+
+              <div>
+
+                <strong>
+                  Authorised Blood Centres
+                </strong>
+
+                <span>
+                  Potential resource discovery
+                </span>
+
+              </div>
+
+              <div class="resource-status">
+                VERIFY
+              </div>
+
+            </div>
+
+
+            <div class="resource-item">
+
+              <div class="resource-icon">
+                👥
+              </div>
+
+              <div>
+
+                <strong>
+                  Donor Network
+                </strong>
+
+                <span>
+                  Response information
+                </span>
+
+              </div>
+
+              <div class="resource-status">
+                VERIFY
+              </div>
+
+            </div>
+
+
+            <div class="resource-item">
+
+              <div class="resource-icon">
+                📍
+              </div>
+
+              <div>
+
+                <strong>
+                  Nearby Facilities
+                </strong>
+
+                <span>
+                  Location-based coordination
+                </span>
+
+              </div>
+
+              <div class="resource-status">
+                VERIFY
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- HEATMAP -->
+
+      <section class="dashboard-card" style="margin-bottom:20px;">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              🗺️ Blood Need Heatmap
+            </h2>
+
+            <p>
+              Prototype demand-intelligence view
+            </p>
+
+          </div>
+
+          <span class="view-link">
+            Demo Data
+          </span>
+
+        </div>
+
+
+        <div class="heatmap">
+
+          <div class="heat-cell level-2">LKO</div>
+          <div class="heat-cell level-4">KNP</div>
+          <div class="heat-cell level-3">AGR</div>
+          <div class="heat-cell level-2">VNS</div>
+          <div class="heat-cell level-4">PRY</div>
+          <div class="heat-cell">JHS</div>
+          <div class="heat-cell level-3">GKP</div>
+          <div class="heat-cell level-2">AYD</div>
+
+          <div class="heat-cell level-3">LKO</div>
+          <div class="heat-cell level-2">KNP</div>
+          <div class="heat-cell">AGR</div>
+          <div class="heat-cell level-4">VNS</div>
+          <div class="heat-cell level-3">PRY</div>
+          <div class="heat-cell level-2">JHS</div>
+          <div class="heat-cell level-4">GKP</div>
+          <div class="heat-cell">AYD</div>
+
+          <div class="heat-cell">LKO</div>
+          <div class="heat-cell level-3">KNP</div>
+          <div class="heat-cell level-4">AGR</div>
+          <div class="heat-cell level-2">VNS</div>
+          <div class="heat-cell">PRY</div>
+          <div class="heat-cell level-3">JHS</div>
+          <div class="heat-cell level-2">GKP</div>
+          <div class="heat-cell level-4">AYD</div>
+
+        </div>
+
+
+        <div class="heat-legend">
+
+          <span>Demand:</span>
+
+          <span class="legend-box"></span>
+          Low
+
+          <span class="legend-box medium"></span>
+          Medium
+
+          <span class="legend-box high"></span>
+          High
+
+        </div>
+
+      </section>
+
+
+      <!-- ESCALATION -->
+
+      <section class="dashboard-card">
+
+        <div class="card-heading">
+
+          <div>
+
+            <h2>
+              🚨 Smart Escalation Flow
+            </h2>
+
+            <p>
+              Coordination levels for unresolved emergency requests
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="escalation">
+
+          <div class="escalation-step active">
+
+            <div class="level">
+              01
+            </div>
+
+            <strong>
+              Nearby verified<br>
+              resources
+            </strong>
+
+          </div>
+
+
+          <div class="escalation-step">
+
+            <div class="level">
+              02
+            </div>
+
+            <strong>
+              Authorised<br>
+              blood centres
+            </strong>
+
+          </div>
+
+
+          <div class="escalation-step">
+
+            <div class="level">
+              03
+            </div>
+
+            <strong>
+              Potential donor<br>
+              network
+            </strong>
+
+          </div>
+
+
+          <div class="escalation-step">
+
+            <div class="level">
+              04
+            </div>
+
+            <strong>
+              Healthcare facility<br>
+              coordination
+            </strong>
+
+          </div>
+
+
+          <div class="escalation-step">
+
+            <div class="level">
+              05
+            </div>
+
+            <strong>
+              Emergency<br>
+              guidance
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <p class="dashboard-footer-note">
+        PRANAV is a coordination and decision-support platform.
+        Dashboard information marked as prototype/demo must not be treated
+        as live inventory or guaranteed blood availability.
+        Final verification and clinical decisions remain with authorised
+        healthcare professionals and facilities.
+      </p>
+
+    </div>
+
+  </main>
+
+
+  <!-- MOBILE NAV -->
+
+  <nav class="mobile-bottom-nav">
+
+    <a href="index.html">
+      <span>⌂</span>
+      <small>Home</small>
+    </a>
+
+    <a href="find-blood.html">
+      <span>🔎</span>
+      <small>Find</small>
+    </a>
+
+    <a href="emergency.html">
+      <span>🚨</span>
+      <small>Emergency</small>
+    </a>
+
+    <a href="assistant.html">
+      <span>🤖</span>
+      <small>Assistant</small>
+    </a>
+
+    <a href="about.html">
+      <span>ℹ️</span>
+      <small>About</small>
+    </a>
+
+  </nav>
+
+
+  <!-- SCRIPTS -->
+
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/accessibility.js"></script>
+  <script src="js/loader.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .catch(() => {});
+      });
+    }
+  </script>
+
+</body>
+</html>
