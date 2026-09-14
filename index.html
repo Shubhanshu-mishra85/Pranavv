@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#b3122f">
+
+  <meta
+    name="description"
+    content="PRANAV — Intelligent Healthcare Resource Network for emergency blood coordination, healthcare navigation, accessible assistance and responsible patient support."
+  >
+
+  <meta
+    name="keywords"
+    content="PRANAV, healthcare, blood coordination, emergency blood request, AI healthcare assistant, healthcare resource network"
+  >
+
+  <meta name="author" content="PRANAV">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="PRANAV — Intelligent Healthcare Resource Network">
+  <meta
+    property="og:description"
+    content="Connecting emergency requirements with potential healthcare resources through one structured coordination journey."
+  >
+  <meta property="og:image" content="pranav-logo.png">
+
+  <title>PRANAV | Intelligent Healthcare Resource Network</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="pranav-logo.png">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Main styles will be added in the next CSS files -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <style>
+    /*
+      FAIL-SAFE BASE STYLES
+
+      These styles make sure the website remains visible even if
+      another stylesheet or JavaScript file fails.
+    */
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #f3fbf7;
+      color: #20252b;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    .page-shell {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.96),
+          rgba(241,250,246,.92)
+        );
+
+      border-bottom: 1px solid rgba(35,80,60,.12);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .brand-name {
+      font-family: Manrope, Inter, sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .brand-subtitle {
+      margin-top: 5px;
+      color: #68736e;
+      font-size: .66rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .main-nav a {
+      padding: 10px 11px;
+      border-radius: 10px;
+      color: #3e4743;
+      font-size: .82rem;
+      font-weight: 600;
+      transition: .25s ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #a30d2b;
+      background: #fff0f2;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-btn {
+      border: 0;
+      border-radius: 12px;
+      padding: 11px 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .ai-btn {
+      background: #eaf7f0;
+      color: #17613e;
+    }
+
+    .emergency-btn {
+      background: #b3122f;
+      color: white;
+      box-shadow: 0 8px 24px rgba(179,18,47,.2);
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 82px 0 70px;
+
+      background:
+        radial-gradient(
+          circle at 82% 22%,
+          rgba(208,237,222,.8),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 12% 70%,
+          rgba(255,215,221,.7),
+          transparent 34%
+        ),
+        #f3fbf7;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 13px;
+      border-radius: 999px;
+
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(35,80,60,.12);
+
+      color: #17613e;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #b3122f;
+      box-shadow: 0 0 0 5px rgba(179,18,47,.1);
+    }
+
+    .hero h1 {
+      margin: 22px 0 18px;
+
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2.7rem, 6vw, 5.4rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+
+    .hero h1 span {
+      color: #b3122f;
+    }
+
+    .hero-lead {
+      max-width: 650px;
+      margin: 0;
+
+      color: #58635e;
+      font-size: 1.08rem;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .primary-action,
+    .secondary-action,
+    .assistant-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+
+      min-height: 52px;
+      padding: 0 20px;
+
+      border-radius: 15px;
+      font-weight: 800;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .primary-action {
+      color: white;
+      background: linear-gradient(135deg,#b3122f,#8f0923);
+      box-shadow: 0 14px 30px rgba(179,18,47,.22);
+    }
+
+    .secondary-action {
+      color: #194d36;
+      background: rgba(255,255,255,.86);
+      border: 1px solid rgba(35,80,60,.13);
+    }
+
+    .assistant-action {
+      color: #7d1830;
+      background: #fff0f2;
+      border: 1px solid rgba(179,18,47,.12);
+    }
+
+    .primary-action:hover,
+    .secondary-action:hover,
+    .assistant-action:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+
+      max-width: 620px;
+      margin-top: 20px;
+
+      color: #6d7772;
+      font-size: .78rem;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       HERO VISUAL
+    ========================== */
+
+    .network-visual {
+      position: relative;
+      min-height: 470px;
+
+      display: grid;
+      place-items: center;
+    }
+
+    .visual-orbit {
+      position: absolute;
+      width: min(390px,80vw);
+      aspect-ratio: 1;
+      border: 1px solid rgba(179,18,47,.16);
+      border-radius: 50%;
+    }
+
+    .visual-orbit::before,
+    .visual-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 35px;
+      border: 1px dashed rgba(33,107,72,.18);
+      border-radius: 50%;
+    }
+
+    .visual-orbit::after {
+      inset: 75px;
+      border-style: solid;
+      opacity: .7;
+    }
+
+    .core-card {
+      position: relative;
+      z-index: 3;
+
+      width: 220px;
+      min-height: 220px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.96),
+          rgba(246,252,249,.9)
+        );
+
+      border: 1px solid rgba(255,255,255,.9);
+      box-shadow:
+        0 25px 65px rgba(40,65,54,.14),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+      text-align: center;
+    }
+
+    .core-icon {
+      width: 76px;
+      height: 76px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 24px;
+
+      background: linear-gradient(145deg,#b3122f,#d62d4a);
+      color: white;
+
+      font-size: 2.1rem;
+
+      box-shadow: 0 15px 30px rgba(179,18,47,.24);
+    }
+
+    .core-card strong {
+      margin-top: 18px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .core-card small {
+      margin-top: 6px;
+      color: #718078;
+      font-size: .72rem;
+    }
+
+    .node {
+      position: absolute;
+      z-index: 4;
+
+      min-width: 110px;
+      padding: 11px 13px;
+
+      border-radius: 14px;
+
+      background: rgba(255,255,255,.94);
+      border: 1px solid rgba(35,80,60,.11);
+
+      box-shadow: 0 12px 30px rgba(30,55,43,.1);
+
+      text-align: center;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .node span {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.15rem;
+    }
+
+    .node-1 { top: 8%; left: 9%; }
+    .node-2 { top: 13%; right: 7%; }
+    .node-3 { bottom: 10%; left: 7%; }
+    .node-4 { bottom: 8%; right: 6%; }
+
+    /* =========================
+       TRUST STRIP
+    ========================== */
+
+    .trust-strip {
+      padding: 18px 0;
+      background: rgba(255,255,255,.78);
+      border-top: 1px solid rgba(35,80,60,.08);
+      border-bottom: 1px solid rgba(35,80,60,.08);
+    }
+
+    .trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 18px 35px;
+      color: #68736e;
+      font-size: .76rem;
+      font-weight: 700;
+    }
+
+    .trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    /* =========================
+       SECTION COMMON
+    ========================== */
+
+    .section {
+      padding: 90px 0;
+    }
+
+    .section-red {
+      background:
+        linear-gradient(
+          135deg,
+          #fff2f3,
+          #ffe6e9
+        );
+    }
+
+    .section-heading {
+      max-width: 750px;
+      margin-bottom: 45px;
+    }
+
+    .section-kicker {
+      color: #a30d2b;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      margin: 10px 0 12px;
+
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2rem,4vw,3.4rem);
+      line-height: 1.08;
+      letter-spacing: -.05em;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: #68736e;
+      line-height: 1.7;
+    }
+
+    /* =========================
+       QUICK ACTIONS
+    ========================== */
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 16px;
+    }
+
+    .quick-card {
+      position: relative;
+      overflow: hidden;
+
+      min-height: 190px;
+      padding: 24px;
+
+      display: flex;
+      flex-direction: column;
+
+      border-radius: 22px;
+
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(35,80,60,.1);
+
+      box-shadow: 0 15px 35px rgba(30,55,43,.07);
+
+      transition: .3s ease;
+    }
+
+    .quick-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 24px 45px rgba(30,55,43,.12);
+    }
+
+    .quick-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 15px;
+      background: #edf8f1;
+
+      font-size: 1.3rem;
+    }
+
+    .quick-card h3 {
+      margin: 20px 0 8px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: 1.05rem;
+    }
+
+    .quick-card p {
+      margin: 0;
+      color: #6b7670;
+      font-size: .8rem;
+      line-height: 1.55;
+    }
+
+    .quick-link {
+      margin-top: auto;
+      padding-top: 18px;
+
+      color: #a30d2b;
+      font-size: .78rem;
+      font-weight: 800;
+    }
+
+    /* =========================
+       JOURNEY
+    ========================== */
+
+    .journey {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .journey-copy h2 {
+      margin: 10px 0 15px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2rem,4vw,3.2rem);
+      letter-spacing: -.05em;
+    }
+
+    .journey-copy p {
+      color: #68736e;
+      line-height: 1.7;
+    }
+
+    .journey-steps {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 13px;
+    }
+
+    .journey-step {
+      padding: 22px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid rgba(35,80,60,.1);
+      box-shadow: 0 12px 28px rgba(30,55,43,.06);
+    }
+
+    .journey-number {
+      color: #b3122f;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: .1em;
+    }
+
+    .journey-step h3 {
+      margin: 9px 0 6px;
+      font-size: .95rem;
+    }
+
+    .journey-step p {
+      margin: 0;
+      color: #77817c;
+      font-size: .75rem;
+      line-height: 1.5;
+    }
+
+    /* =========================
+       AI FEATURE
+    ========================== */
+
+    .ai-section {
+      background:
+        radial-gradient(
+          circle at 85% 30%,
+          rgba(199,233,215,.65),
+          transparent 30%
+        ),
+        #f0faf5;
+    }
+
+    .ai-panel {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+
+      padding: 30px;
+
+      border-radius: 30px;
+
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(35,80,60,.1);
+
+      box-shadow: 0 25px 65px rgba(30,55,43,.08);
+    }
+
+    .ai-intro {
+      padding: 18px;
+    }
+
+    .ai-avatar {
+      width: 68px;
+      height: 68px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 22px;
+      background: linear-gradient(145deg,#b3122f,#d72d4b);
+      color: white;
+      font-size: 1.7rem;
+
+      box-shadow: 0 15px 30px rgba(179,18,47,.2);
+    }
+
+    .ai-intro h3 {
+      margin: 20px 0 10px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: 1.7rem;
+    }
+
+    .ai-intro p {
+      color: #68736e;
+      line-height: 1.65;
+    }
+
+    .ai-demo {
+      padding: 22px;
+      border-radius: 23px;
+      background: #15231d;
+      color: white;
+    }
+
+    .ai-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .ai-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #b9e5ca;
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .ai-status i {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #62d78c;
+    }
+
+    .chat-message {
+      max-width: 82%;
+      padding: 13px 15px;
+      border-radius: 15px;
+      margin-bottom: 11px;
+      font-size: .78rem;
+      line-height: 1.5;
+    }
+
+    .chat-user {
+      margin-left: auto;
+      background: #b3122f;
+    }
+
+    .chat-ai {
+      background: #24352d;
+      color: #e6f3eb;
+    }
+
+    .chat-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .chat-actions a {
+      padding: 9px 11px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.08);
+      color: #d9ebe1;
+      font-size: .68rem;
+      font-weight: 700;
+    }
+
+    /* =========================
+       PRESCRIPTION INTELLIGENCE
+    ========================== */
+
+    .medicine-section {
+      background: #fff;
+    }
+
+    .medicine-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .medicine-card {
+      padding: 28px;
+      border-radius: 24px;
+      background: #f8fcfa;
+      border: 1px solid rgba(35,80,60,.1);
+    }
+
+    .medicine-card.accent {
+      background: linear-gradient(145deg,#fff1f3,#ffe8eb);
+      border-color: rgba(179,18,47,.1);
+    }
+
+    .medicine-icon {
+      font-size: 1.6rem;
+    }
+
+    .medicine-card h3 {
+      margin: 17px 0 9px;
+      font-family: Manrope, Inter, sans-serif;
+    }
+
+    .medicine-card p {
+      margin: 0;
+      color: #69746e;
+      font-size: .82rem;
+      line-height: 1.65;
+    }
+
+    .medicine-points {
+      display: grid;
+      gap: 9px;
+      margin-top: 18px;
+    }
+
+    .medicine-point {
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+      font-size: .76rem;
+      color: #4e5b55;
+    }
+
+    /* =========================
+       RESPONSIBLE TECH
+    ========================== */
+
+    .responsible {
+      padding: 24px;
+      border-radius: 22px;
+      background: #fff7f8;
+      border: 1px solid rgba(179,18,47,.1);
+    }
+
+    .responsible strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #8f0923;
+    }
+
+    .responsible p {
+      margin: 0;
+      color: #626d67;
+      font-size: .78rem;
+      line-height: 1.65;
+    }
+
+    /* =========================
+       FINAL CTA
+    ========================== */
+
+    .final-cta {
+      padding: 90px 0;
+      background:
+        linear-gradient(
+          135deg,
+          #a90e2b,
+          #76071d
+        );
+      color: white;
+    }
+
+    .final-cta-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .final-cta h2 {
+      margin: 0 0 12px;
+      font-family: Manrope, Inter, sans-serif;
+      font-size: clamp(2rem,4vw,3.3rem);
+      letter-spacing: -.05em;
+    }
+
+    .final-cta p {
+      max-width: 680px;
+      margin: 0;
+      color: rgba(255,255,255,.8);
+      line-height: 1.65;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 0 22px;
+      border-radius: 15px;
+      background: white;
+      color: #8f0923;
+      font-weight: 900;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    .site-footer {
+      padding: 38px 0 28px;
+      background: #eef8f2;
+      border-top: 1px solid rgba(35,80,60,.1);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-brand p {
+      max-width: 360px;
+      color: #69746e;
+      font-size: .78rem;
+      line-height: 1.65;
+    }
+
+    .footer-column h3 {
+      margin: 0 0 14px;
+      font-size: .8rem;
+    }
+
+    .footer-column a {
+      display: block;
+      margin: 9px 0;
+      color: #69746e;
+      font-size: .74rem;
+    }
+
+    .footer-bottom {
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(35,80,60,.1);
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      color: #7b8580;
+      font-size: .68rem;
+    }
+
+    /* =========================
+       MOBILE BOTTOM NAV
+    ========================== */
+
+    .mobile-bottom-nav {
+      display: none;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+
+    @media (max-width: 1000px) {
+
+      .main-nav {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .hero-grid,
+      .journey,
+      .ai-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .network-visual {
+        min-height: 390px;
+      }
+
+      .quick-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .container {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .header-inner {
+        min-height: 65px;
+      }
+
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .brand-name {
+        font-size: 1.08rem;
+      }
+
+      .brand-subtitle {
+        display: none;
+      }
+
+      .header-actions {
+        display: none;
+      }
+
+      .hero {
+        padding: 45px 0 40px;
+      }
+
+      .hero h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero-lead {
+        font-size: .92rem;
+      }
+
+      .hero-actions {
+        display: grid;
+      }
+
+      .primary-action,
+      .secondary-action,
+      .assistant-action {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .network-visual {
+        min-height: 330px;
+        transform: scale(.88);
+      }
+
+      .quick-grid,
+      .medicine-grid,
+      .journey-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .ai-panel {
+        padding: 15px;
+      }
+
+      .ai-intro {
+        padding: 12px;
+      }
+
+      .final-cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+
+      /*
+        Extra bottom space for the mobile navigation.
+      */
+      .page-shell {
+        padding-bottom: 72px;
+      }
+
+      .mobile-bottom-nav {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 1500;
+
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+
+        padding: 8px;
+
+        border-radius: 20px;
+
+        background: rgba(20,31,26,.95);
+        border: 1px solid rgba(255,255,255,.1);
+
+        box-shadow: 0 15px 40px rgba(0,0,0,.2);
+
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+      }
+
+      .mobile-bottom-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        min-height: 48px;
+
+        border-radius: 13px;
+
+        color: #c8d5cf;
+        font-size: .57rem;
+        font-weight: 700;
+        gap: 3px;
+      }
+
+      .mobile-bottom-nav a span {
+        font-size: 1rem;
+      }
+
+      .mobile-bottom-nav a.active {
+        background: #b3122f;
+        color: white;
+      }
+
+      .mobile-bottom-nav a.emergency {
+        color: #ffb6c3;
+      }
+
+      .mobile-bottom-nav a.emergency.active {
+        color: white;
+      }
+    }
+
+    /*
+      Accessibility:
+      Reduce animation when the user requests reduced motion.
+    */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-shell">
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+      <div class="container header-inner">
+
+        <a href="index.html" class="brand" aria-label="PRANAV Home">
+
+          <img
+            src="pranav-logo.png"
+            alt="PRANAV logo"
+            width="48"
+            height="48"
+          >
+
+          <span class="brand-copy">
+            <span class="brand-name">PRANAV</span>
+            <span class="brand-subtitle">
+              Intelligent Healthcare Network
+            </span>
+          </span>
+
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+
+          <a href="index.html" class="active">Home</a>
+
+          <a href="find-blood.html">🩸 Find</a>
+
+          <a href="emergency.html">🚨 Emergency</a>
+
+          <a href="donor.html">❤️ Donor Network</a>
+
+          <a href="camps.html">🩸 Camps</a>
+
+          <a href="assistant.html">🤖 AI Assistant</a>
+
+          <a href="about.html">ℹ️ About</a>
+
+        </nav>
+
+        <div class="header-actions">
+
+          <a
+            href="assistant.html"
+            class="header-btn ai-btn"
+          >
+            🤖 Ask PRANAV
+          </a>
+
+          <a
+            href="emergency.html"
+            class="header-btn emergency-btn"
+          >
+            🚨 Emergency
+          </a>
+
+        </div>
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          id="mobileMenuButton"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+      <section class="hero">
+
+        <div class="container hero-grid">
+
+          <div>
+
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              Emergency healthcare coordination
+            </div>
+
+            <h1>
+              Healthcare coordination,
+              <span>reimagined.</span>
+            </h1>
+
+            <p class="hero-lead">
+              PRANAV connects emergency requirements with potential
+              healthcare resources, donor networks and authorised
+              healthcare facilities through one structured coordination
+              journey.
+            </p>
+
+            <div class="hero-actions">
+
+              <a
+                href="emergency.html"
+                class="primary-action"
+              >
+                🚨 Emergency Blood Request
+              </a>
+
+              <a
+                href="find-blood.html"
+                class="secondary-action"
+              >
+                🔎 Find Blood Resources
+              </a>
+
+              <a
+                href="assistant.html"
+                class="assistant-action"
+              >
+                🤖 Ask PRANAV
+              </a>
+
+            </div>
+
+            <div class="hero-note">
+              <span>🛡️</span>
+              <span>
+                PRANAV is a coordination and discovery platform.
+                Availability, donor eligibility, compatibility and
+                clinical decisions must be confirmed through authorised
+                healthcare processes.
+              </span>
+            </div>
+
+          </div>
+
+
+          <!-- HERO NETWORK VISUAL -->
+
+          <div
+            class="network-visual"
+            aria-label="PRANAV healthcare coordination network"
+          >
+
+            <div class="visual-orbit"></div>
+
+            <div class="core-card">
+
+              <div class="core-icon">
+                🩸
+              </div>
+
+              <strong>
+                PRANAV Network
+              </strong>
+
+              <small>
+                Connect • Verify • Coordinate
+              </small>
+
+            </div>
+
+            <div class="node node-1">
+              <span>🚨</span>
+              Emergency
+            </div>
+
+            <div class="node node-2">
+              <span>🏥</span>
+              Healthcare
+            </div>
+
+            <div class="node node-3">
+              <span>❤️</span>
+              Donor Network
+            </div>
+
+            <div class="node node-4">
+              <span>🤖</span>
+              AI Assistant
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           TRUST STRIP
+      ========================== -->
+
+      <section class="trust-strip">
+
+        <div class="container trust-inner">
+
+          <div class="trust-item">
+            <span>🔎</span>
+            Potential Resource Discovery
+          </div>
+
+          <div class="trust-item">
+            <span>✓</span>
+            Verification-first
+          </div>
+
+          <div class="trust-item">
+            <span>🔐</span>
+            Privacy-aware
+          </div>
+
+          <div class="trust-item">
+            <span>♿</span>
+            Accessibility-focused
+          </div>
+
+          <div class="trust-item">
+            <span>🤖</span>
+            AI-assisted navigation
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           QUICK ACTIONS
+      ========================== -->
+
+      <section class="section">
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <span class="section-kicker">
+              One platform
+            </span>
+
+            <h2>
+              Everything starts with
+              the next right action.
+            </h2>
+
+            <p>
+              Whether someone needs emergency blood coordination,
+              healthcare navigation, assistance in simple language
+              or information about medicines, PRANAV provides a
+              structured starting point.
+            </p>
+
+          </div>
+
+
+          <div class="quick-grid">
+
+            <a href="emergency.html" class="quick-card">
+
+              <div class="quick-icon">
+                🚨
+              </div>
+
+              <h3>
+                Emergency Request
+              </h3>
+
+              <p>
+                Create a structured emergency requirement and receive
+                a unique PRANAV request ID.
+              </p>
+
+              <span class="quick-link">
+                Start request →
+              </span>
+
+            </a>
+
+
+            <a href="find-blood.html" class="quick-card">
+
+              <div class="quick-icon">
+                🩸
+              </div>
+
+              <h3>
+                Find Blood Resources
+              </h3>
+
+              <p>
+                Discover potential blood resources and nearby
+                authorised facilities.
+              </p>
+
+              <span class="quick-link">
+                Explore resources →
+              </span>
+
+            </a>
+
+
+            <a href="assistant.html" class="quick-card">
+
+              <div class="quick-icon">
+                🤖
+              </div>
+
+              <h3>
+                PRANAV AI Assistant
+              </h3>
+
+              <p>
+                Ask questions in Hindi, English or Hinglish using
+                simple guided interactions.
+              </p>
+
+              <span class="quick-link">
+                Talk to PRANAV →
+              </span>
+
+            </a>
+
+
+            <a href="easy-mode.html" class="quick-card">
+
+              <div class="quick-icon">
+                🫶
+              </div>
+
+              <h3>
+                Easy Mode
+              </h3>
+
+              <p>
+                A simplified experience with larger controls,
+                guided steps and accessibility-first navigation.
+              </p>
+
+              <span class="quick-link">
+                Open Easy Mode →
+              </span>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           COORDINATION JOURNEY
+      ========================== -->
+
+      <section class="section section-red">
+
+        <div class="container journey">
+
+          <div class="journey-copy">
+
+            <span class="section-kicker">
+              Intelligent coordination
+            </span>
+
+            <h2>
+              From requirement
+              to resolution.
+            </h2>
+
+            <p>
+              PRANAV turns a stressful emergency journey into a
+              structured sequence of discoverable actions.
+            </p>
+
+            <p>
+              Potential information is never presented as guaranteed
+              availability. Verification remains an essential part
+              of the journey.
+            </p>
+
+            <a
+              href="tracking.html"
+              class="secondary-action"
+              style="display:inline-flex;margin-top:15px;"
+            >
+              📋 Track a Request
+            </a>
+
+          </div>
+
+
+          <div class="journey-steps">
+
+            <div class="journey-step">
+              <div class="journey-number">01</div>
+              <h3>Emergency Request</h3>
+              <p>
+                Capture the requirement, urgency and healthcare
+                facility context.
+              </p>
+            </div>
+
+            <div class="journey-step">
+              <div class="journey-number">02</div>
+              <h3>Requirement Analysis</h3>
+              <p>
+                Structure the request into relevant matching signals.
+              </p>
+            </div>
+
+            <div class="journey-step">
+              <div class="journey-number">03</div>
+              <h3>Smart Matching</h3>
+              <p>
+                Discover potential resources based on available
+                information.
+              </p>
+            </div>
+
+            <div class="journey-step">
+              <div class="journey-number">04</div>
+              <h3>Verification</h3>
+              <p>
+                Potential information is confirmed with authorised
+                healthcare facilities.
+              </p>
+            </div>
+
+            <div class="journey-step">
+              <div class="journey-number">05</div>
+              <h3>Coordination</h3>
+              <p>
+                Connect the relevant people and facilities through
+                a structured workflow.
+              </p>
+            </div>
+
+            <div class="journey-step">
+              <div class="journey-number">06</div>
+              <h3>Resolution / Closure</h3>
+              <p>
+                Track the request until it is resolved or formally
+                closed.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           AI ASSISTANT
+      ========================== -->
+
+      <section class="section ai-section">
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <span class="section-kicker">
+              Accessible intelligence
+            </span>
+
+            <h2>
+              When technology feels difficult,
+              just talk to PRANAV.
+            </h2>
+
+            <p>
+              The PRANAV AI Assistant is designed around simple
+              language, large actions and voice-friendly interaction
+              so users can navigate healthcare resources without
+              needing to understand complicated interfaces.
+            </p>
+
+          </div>
+
+
+          <div class="ai-panel">
+
+            <div class="ai-intro">
+
+              <div class="ai-avatar">
+                🤖
+              </div>
+
+              <h3>
+                Meet PRANAV AI
+              </h3>
+
+              <p>
+                Ask about blood resources, emergency requests,
+                request tracking, camps, blood education or how to
+                navigate the platform.
+              </p>
+
+              <a
+                href="assistant.html"
+                class="primary-action"
+                style="display:inline-flex;margin-top:12px;"
+              >
+                Talk to PRANAV
+              </a>
+
+            </div>
+
+
+            <div class="ai-demo">
+
+              <div class="ai-top">
+
+                <strong>
+                  PRANAV AI Assistant
+                </strong>
+
+                <span class="ai-status">
+                  <i></i>
+                  Ready
+                </span>
+
+              </div>
+
+              <div class="chat-message chat-user">
+                Mujhe O positive blood chahiye.
+              </div>
+
+              <div class="chat-message chat-ai">
+                Samajh gaya. Aapko O Positive blood ki requirement hai.
+                Main aapko request create karne aur potential resources
+                check karne mein guide kar sakta hoon.
+              </div>
+
+              <div class="chat-actions">
+
+                <a href="emergency.html">
+                  🚨 Create Request
+                </a>
+
+                <a href="find-blood.html">
+                  🔎 Find Resource
+                </a>
+
+                <a href="assistant.html">
+                  🎙️ Speak
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           PRESCRIPTION INTELLIGENCE
+      ========================== -->
+
+      <section class="section medicine-section">
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <span class="section-kicker">
+              Healthcare intelligence
+            </span>
+
+            <h2>
+              Understand a prescription
+              before acting on it.
+            </h2>
+
+            <p>
+              PRANAV can provide a structured prescription-analysis
+              workflow for medicine names and visible information,
+              while keeping clinical decisions with qualified
+              healthcare professionals.
+            </p>
+
+          </div>
+
+
+          <div class="medicine-grid">
+
+            <article class="medicine-card">
+
+              <div class="medicine-icon">
+                📄
+              </div>
+
+              <h3>
+                Prescription Analysis
+              </h3>
+
+              <p>
+                Upload or capture a prescription and extract
+                readable medicine information for review.
+              </p>
+
+              <div class="medicine-points">
+
+                <div class="medicine-point">
+                  <span>✓</span>
+                  Medicine name identification
+                </div>
+
+                <div class="medicine-point">
+                  <span>✓</span>
+                  Strength and formulation information
+                </div>
+
+                <div class="medicine-point">
+                  <span>✓</span>
+                  Prescription instruction extraction
+                </div>
+
+              </div>
+
+            </article>
+
+
+            <article class="medicine-card accent">
+
+              <div class="medicine-icon">
+                💊
+              </div>
+
+              <h3>
+                Medicine Safety Information
+              </h3>
+
+              <p>
+                Help users check visible manufacturing and expiry
+                information and understand that dosage decisions
+                require professional guidance.
+              </p>
+
+              <div class="medicine-points">
+
+                <div class="medicine-point">
+                  <span>🔎</span>
+                  Manufacturing date
+                </div>
+
+                <div class="medicine-point">
+                  <span>📅</span>
+                  Expiry date
+                </div>
+
+                <div class="medicine-point">
+                  <span>🛡️</span>
+                  Safety warning when information is unclear
+                </div>
+
+              </div>
+
+            </article>
+
+          </div>
+
+          <div class="responsible" style="margin-top:20px;">
+
+            <strong>
+              Important healthcare safeguard
+            </strong>
+
+            <p>
+              PRANAV must not independently prescribe medicines or
+              determine an age-based dose in place of a doctor.
+              Any dosage information shown by the system should be
+              treated as educational guidance only and verified with
+              the prescribing clinician or a qualified pharmacist,
+              especially for children, older adults and patients with
+              other medical conditions.
+            </p>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           ECOSYSTEM
+      ========================== -->
+
+      <section class="section section-red">
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <span class="section-kicker">
+              PRANAV ecosystem
+            </span>
+
+            <h2>
+              One healthcare journey.
+              Multiple intelligent layers.
+            </h2>
+
+          </div>
+
+
+          <div class="quick-grid">
+
+            <a href="donor.html" class="quick-card">
+              <div class="quick-icon">❤️</div>
+              <h3>Donor Network</h3>
+              <p>
+                Privacy-first donor coordination without publicly
+                exposing personal donor information.
+              </p>
+              <span class="quick-link">Explore →</span>
+            </a>
+
+            <a href="camps.html" class="quick-card">
+              <div class="quick-icon">📍</div>
+              <h3>Camp Discovery</h3>
+              <p>
+                Discover blood donation camps with verification
+                status and facility information.
+              </p>
+              <span class="quick-link">Discover →</span>
+            </a>
+
+            <a href="dashboard.html" class="quick-card">
+              <div class="quick-icon">📊</div>
+              <h3>Demand Intelligence</h3>
+              <p>
+                Explore decision-support analytics, trends and
+                prototype demand visualisations.
+              </p>
+              <span class="quick-link">View dashboard →</span>
+            </a>
+
+            <a href="blood-education.html" class="quick-card">
+              <div class="quick-icon">🧬</div>
+              <h3>Blood Education</h3>
+              <p>
+                Learn about blood groups, components, emergency
+                awareness and responsible coordination.
+              </p>
+              <span class="quick-link">Learn →</span>
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           RESPONSIBLE TECHNOLOGY
+      ========================== -->
+
+      <section class="section">
+
+        <div class="container">
+
+          <div class="section-heading">
+
+            <span class="section-kicker">
+              Responsible technology
+            </span>
+
+            <h2>
+              Built to assist people,
+              not replace healthcare professionals.
+            </h2>
+
+          </div>
+
+
+          <div class="medicine-grid">
+
+            <div class="medicine-card">
+
+              <h3>🔐 Privacy-aware</h3>
+
+              <p>
+                Personal information should be collected only when
+                necessary and handled responsibly.
+              </p>
+
+            </div>
+
+            <div class="medicine-card">
+
+              <h3>✓ Verification-first</h3>
+
+              <p>
+                Potential resource information is clearly separated
+                from verified availability.
+              </p>
+
+            </div>
+
+            <div class="medicine-card">
+
+              <h3>🏥 Human oversight</h3>
+
+              <p>
+                Blood collection, testing, storage, compatibility,
+                release and transfusion remain under authorised
+                healthcare processes.
+              </p>
+
+            </div>
+
+            <div class="medicine-card accent">
+
+              <h3>⚠️ No false guarantees</h3>
+
+              <p>
+                PRANAV never promises that a blood resource or donor
+                will definitely be available.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           FINAL CTA
+      ========================== -->
+
+      <section class="final-cta">
+
+        <div class="container final-cta-inner">
+
+          <div>
+
+            <h2>
+              Someone needs help.
+              Show them what to do next.
+            </h2>
+
+            <p>
+              PRANAV brings emergency requests, potential resource
+              discovery, accessibility, AI assistance and healthcare
+              coordination into one connected experience.
+            </p>
+
+          </div>
+
+          <a
+            href="emergency.html"
+            class="cta-button"
+          >
+            🚨 Start Emergency Request
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+      <div class="container footer-inner">
+
+        <div class="footer-brand">
+
+          <a href="index.html" class="brand">
+
+            <img
+              src="pranav-logo.png"
+              alt="PRANAV logo"
+              width="48"
+              height="48"
+            >
+
+            <span class="brand-copy">
+
+              <span class="brand-name">
+                PRANAV
+              </span>
+
+              <span class="brand-subtitle">
+                Intelligent Healthcare Network
+              </span>
+
+            </span>
+
+          </a>
+
+          <p>
+            Connecting people, healthcare resources and responsible
+            technology through a patient-centric coordination journey.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Explore
+          </h3>
+
+          <a href="find-blood.html">
+            Find Blood
+          </a>
+
+          <a href="emergency.html">
+            Emergency
+          </a>
+
+          <a href="donor.html">
+            Donor Network
+          </a>
+
+          <a href="camps.html">
+            Camps
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Intelligence
+          </h3>
+
+          <a href="assistant.html">
+            AI Assistant
+          </a>
+
+          <a href="easy-mode.html">
+            Easy Mode
+          </a>
+
+          <a href="dashboard.html">
+            Dashboard
+          </a>
+
+          <a href="blood-education.html">
+            Blood Education
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="container footer-bottom">
+
+        <span>
+          © 2026 PRANAV. All Rights Reserved.
+        </span>
+
+        <span>
+          Healthcare coordination • Privacy-aware • Verification-first
+        </span>
+
+      </div>
+
+    </footer>
+
+
+    <!-- =========================
+         MOBILE BOTTOM NAV
+    ========================== -->
+
+    <nav
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="index.html" class="active">
+        <span>⌂</span>
+        Home
+      </a>
+
+      <a href="find-blood.html">
+        <span>🔎</span>
+        Find
+      </a>
+
+      <a href="emergency.html" class="emergency">
+        <span>🚨</span>
+        Emergency
+      </a>
+
+      <a href="assistant.html">
+        <span>🤖</span>
+        Assistant
+      </a>
+
+      <a href="about.html">
+        <span>ℹ️</span>
+        About
+      </a>
+
+    </nav>
+
+  </div>
+
+
+  <!-- =========================
+       SAFE MOBILE MENU SCRIPT
+  ========================== -->
+
+  <script>
+    (function () {
+
+      "use strict";
+
+      const menuButton =
+        document.getElementById("mobileMenuButton");
+
+      const navigation =
+        document.querySelector(".main-nav");
+
+      if (!menuButton || !navigation) {
+        return;
+      }
+
+      menuButton.addEventListener("click", function () {
+
+        const isOpen =
+          navigation.classList.toggle("mobile-open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+      });
+
+    })();
+  </script>
+
+
+  <!-- =========================
+       OPTIONAL APPLICATION FILES
+       These are loaded safely.
+  ========================== -->
+
+  <script src="js/app.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/accessibility.js" defer></script>
+
+  <!--
+    Loader is intentionally loaded last.
+
+    The loader itself must never control whether the main website
+    is visible. The actual loader implementation will be supplied
+    separately.
+  -->
+
+  <script src="js/loader.js" defer></script>
+
+
+  <!-- =========================
+       SERVICE WORKER
+  ========================== -->
+
+  <script>
+    if ("serviceWorker" in navigator) {
+
+      window.addEventListener("load", function () {
+
+        navigator.serviceWorker
+          .register("./sw.js")
+          .catch(function () {
+            /*
+              Website continues normally even if
+              the service worker cannot register.
+            */
+          });
+
+      });
+
+    }
+  </script>
+
+</body>
+</html>
